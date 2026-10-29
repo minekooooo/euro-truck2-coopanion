@@ -2,15 +2,13 @@
 
 《欧洲卡车模拟 2》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，把车况和游戏事件交给桌宠 **Coo**，并提供车况查询、最近事件和电子狗点位工具。
 
-这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
-
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
 - 市场收录：https://github.com/Pal-AI-Lab/cortico-extensions/blob/main/packages/cortico-world-ets2-dafeiyu.json
-
+- 游戏数据来源为欧卡的遥测数据，链接：https://github.com/RenCloud/scs-sdk-plugin/releases
 ## 功能
 
-- **车况**：速度、限速、档位、转速、油量、AdBlue、车损、总里程、定速巡航。
+- **车况**：速度、限速、档位、转速、油量、车损、总里程、定速巡航。
 - **任务**：货物、起点/终点城市与公司、剩余距离、运费、货损。
 - **推送给 Coo 的事件**：
   - 接单 / 送达 / 任务取消
