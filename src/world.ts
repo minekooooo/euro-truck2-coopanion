@@ -31,7 +31,7 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
   {
     name: 'ets2_recent_events',
     description:
-      'Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, connection).',
+      'Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, city, connection).',
     tags: ['read'],
     parameters: {
       type: 'object',

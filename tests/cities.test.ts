@@ -40,6 +40,18 @@ describe('city geofences', () => {
     expect(entered?.name).toBe('柏林');
   });
 
+  it('emits the first entry after starting outside', () => {
+    const b = book();
+    b.record('测试城', 500000, 500000, 1000, 'manual');
+    const t = makeTelemetry();
+    t.truck.world.x = 0;
+    t.truck.world.z = 0;
+    expect(b.detect(t)).toBeNull(); // first tick outside only initializes
+    t.truck.world.x = 500000;
+    t.truck.world.z = 500000;
+    expect(b.detect(t)?.name).toBe('测试城');
+  });
+
   it('does not overwrite a manual city with auto-learning', () => {
     const b = book();
     b.record('柏林', 100, 100, 1200, 'manual');

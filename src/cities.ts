@@ -259,6 +259,12 @@ export class CityBook {
     const z = telemetry.truck.world.z;
     if (!Number.isFinite(x) || !Number.isFinite(z)) return null;
 
+    // The first connected tick initializes the baseline even when the truck
+    // starts outside every city. Only a first tick *inside* a city is silent;
+    // otherwise the first entry after starting outside would be swallowed too.
+    const firstTick = !this.initialized;
+    this.initialized = true;
+
     let candidate: CityPoint | null = null;
     let candidateDistance = Infinity;
     for (const point of this.points) {
@@ -279,10 +285,7 @@ export class CityBook {
     }
     if (this.currentId === candidate.id) return null;
     this.currentId = candidate.id;
-    if (!this.initialized) {
-      this.initialized = true;
-      return null;
-    }
+    if (firstTick) return null;
     return candidate;
   }
 

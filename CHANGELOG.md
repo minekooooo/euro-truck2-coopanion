@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2
+
+- Fixed city detection swallowing the first entry after starting outside a city. The baseline is now
+  initialized on the first connected tick even when no city is nearby; only starting inside a city
+  is silent.
+- Added city-entry instructions to the environment prompt and listed `city` in the
+  `ets2_recent_events` description.
+
 ## 0.4.1
 
 - The **城市记录** panel now returns the full city list (up to 1000 entries) instead of only the

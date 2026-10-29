@@ -19,7 +19,7 @@
     },
     {
       "name": "ets2_recent_events",
-      "description": "Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, connection).",
+      "description": "Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, city, connection).",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
