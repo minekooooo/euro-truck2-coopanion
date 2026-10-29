@@ -12,6 +12,8 @@ export interface Ets2ConfigSection {
   cityLearnEnabled: boolean;
   /** Default city geofence radius in metres. */
   cityRadiusM: number;
+  /** Introduce a city again when it is entered more than once. */
+  cityRepeatIntro: boolean;
   pollMs: number;
   eventsEnabled: boolean;
   radarEnabled: boolean;
@@ -33,6 +35,7 @@ export const ETS2_DEFAULTS: Ets2ConfigSection = {
   cityAnnounceEnabled: true,
   cityLearnEnabled: true,
   cityRadiusM: 1500,
+  cityRepeatIntro: false,
   pollMs: 200,
   eventsEnabled: true,
   radarEnabled: true,
@@ -76,6 +79,11 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
         description: '默认 1500 米；越小越不容易误报，但郊区可能进不了范围。',
         minimum: 200,
         maximum: 5000,
+      },
+      'worlds.ets2-dafeiyu.cityRepeatIntro': {
+        type: 'boolean',
+        title: '重复进入城市时再次介绍',
+        description: '关闭时每个城市本次运行只介绍一次，之后只简短报到；打开后每次进城都可再介绍。',
       },
       'worlds.ets2-dafeiyu.radarEnabled': {
         type: 'boolean',

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.3
+
+- City entry now asks Coo for a short city introduction on first arrival, without reading out
+  population or other data.
+- Added `cityRepeatIntro` (default false): when off, re-entering the same city only reports the
+  arrival; when on, Coo may introduce it again. “First” is per Coopanion run.
+
 ## 0.4.2
 
 - Fixed city detection swallowing the first entry after starting outside a city. The baseline is now

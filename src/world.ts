@@ -174,6 +174,8 @@ export class Ets2World implements World {
   private events: LoggedEvent[] = [];
   private started = false;
   private lastInstall: (TelemetryInstallResult & { at: string }) | null = null;
+  /** Cities already introduced during this Coopanion run. */
+  private readonly introducedCities = new Set<string>();
 
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
@@ -369,17 +371,20 @@ export class Ets2World implements World {
             }
             const enteredCity = this.cities.detect(telemetry);
             if (enteredCity && this.opts.cfg.cityAnnounceEnabled) {
-              const distance = Math.round(
-                Math.hypot(
-                  telemetry.truck.world.x - enteredCity.x,
-                  telemetry.truck.world.z - enteredCity.z,
-                ),
-              );
+              const key = enteredCity.name.toLowerCase();
+              const firstVisit = !this.introducedCities.has(key);
+              if (firstVisit) this.introducedCities.add(key);
+              const repeatIntro = !firstVisit && this.opts.cfg.cityRepeatIntro;
+              const suffix = firstVisit
+                ? '（首次到达，可简短介绍）'
+                : repeatIntro
+                  ? '（再次到达，可再简短介绍）'
+                  : '（已介绍过，简短报到即可）';
               this.pushEvent(
                 'ets2.city-entered',
-                `ETS2 进入城市：${enteredCity.name}（距中心约 ${distance} 米）。`,
+                `ETS2 进入城市：${enteredCity.name}${suffix}`,
                 'debounce',
-                { kind: 'city', city: enteredCity.name, distanceM: distance },
+                { kind: 'city', city: enteredCity.name, firstVisit, repeatIntro },
               );
             }
             if (this.opts.cfg.radarEnabled) {
