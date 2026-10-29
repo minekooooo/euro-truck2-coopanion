@@ -1,0 +1,74 @@
+{
+  "name": "cortico-world-ets2-dafeiyu",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Cortico/Coopanion World for Euro Truck Simulator 2: reads SCS telemetry, reports accidents, speeding, fines, tolls, jobs and a learned radar detector to Coo.",
+  "license": "MIT",
+  "author": "mIneko__",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minekooooo/euro-truck2-coopanion.git"
+  },
+  "homepage": "https://github.com/minekooooo/euro-truck2-coopanion#readme",
+  "bugs": {
+    "url": "https://github.com/minekooooo/euro-truck2-coopanion/issues"
+  },
+  "keywords": [
+    "cortico-world",
+    "cortico",
+    "coopanion",
+    "ets2",
+    "euro-truck-simulator-2",
+    "telemetry",
+    "radar",
+    "scs"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "os": [
+    "win32"
+  ],
+  "packageManager": "pnpm@11.28.6",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "ETS2 大肥鱼副驾",
+    "tags": [
+      "game",
+      "apps"
+    ],
+    "describe": "describe.json",
+    "icon": "assets/icon.png",
+    "screenshots": [
+      "assets/screenshot.png"
+    ]
+  },
+  "files": [
+    "src",
+    "assets",
+    "describe.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "describe:extension": "tsx scripts/describe.ts"
+  },
+  "dependencies": {
+    "koffi": "^3.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "cortico": "^0.2.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "tools": [
+    {
+      "name": "ets2_status",
+      "description": "Read the current ETS2 telemetry snapshot: connection, speed, speed limit, gear, fuel, AdBlue, damage, odometer, job and navigation.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "tags": [
+        "read",
+        "snapshot"
+      ],
+      "summary": {
+        "zh": "读取当前欧卡2车况、任务和电子狗状态。",
+        "en": "Reads the current ETS2 truck, job and radar status."
+      }
+    },
+    {
+      "name": "ets2_recent_events",
+      "description": "Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, connection).",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "How many events; default 8."
+          }
+        }
+      },
+      "tags": [
+        "read"
+      ],
+      "summary": {
+        "zh": "返回最近的欧卡2事件。",
+        "en": "Returns recent ETS2 events."
+      }
+    },
+    {
+      "name": "ets2_radar_points",
+      "description": "List the nearest stored ETS2 radar/POI points (speed cameras, tolls, weigh stations, rail crossings, police, accident, fine) with distance from the truck.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "How many points; default 10."
+          }
+        }
+      },
+      "tags": [
+        "read",
+        "snapshot"
+      ],
+      "summary": {
+        "zh": "列出最近的测速/收费站/称重点。",
+        "en": "Lists the nearest radar/POI points."
+      }
+    },
+    {
+      "name": "ets2_record_radar",
+      "description": "Record the truck’s current world position as a radar/POI point. Use when the driver passes a speed camera, toll, weigh station or similar place so it can warn next time.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "speed_camera",
+              "toll",
+              "weigh",
+              "rail",
+              "police",
+              "accident",
+              "fine"
+            ],
+            "description": "Kind of point to record."
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional display name."
+          },
+          "radius_m": {
+            "type": "integer",
+            "minimum": 50,
+            "maximum": 5000,
+            "description": "Warning radius in metres."
+          }
+        }
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "把卡车当前位置记成电子狗点位。",
+        "en": "Records the truck’s current position as a radar point."
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "ets2.connection",
+      "description": {
+        "zh": "ETS2 遥测连接或断开。",
+        "en": "ETS2 telemetry connected or disconnected."
+      }
+    },
+    {
+      "type": "ets2.job-started",
+      "description": {
+        "zh": "接到新任务。",
+        "en": "A new ETS2 job was started."
+      }
+    },
+    {
+      "type": "ets2.job-delivered",
+      "description": {
+        "zh": "任务送达。",
+        "en": "An ETS2 job was delivered."
+      }
+    },
+    {
+      "type": "ets2.job-cancelled",
+      "description": {
+        "zh": "任务取消。",
+        "en": "An ETS2 job was cancelled."
+      }
+    },
+    {
+      "type": "ets2.speeding",
+      "description": {
+        "zh": "超过当前限速。",
+        "en": "The truck is above the current speed limit."
+      }
+    },
+    {
+      "type": "ets2.low-fuel",
+      "description": {
+        "zh": "油量低于阈值。",
+        "en": "Fuel is below the configured threshold."
+      }
+    },
+    {
+      "type": "ets2.accident",
+      "description": {
+        "zh": "检测到车损跳变/撞击。",
+        "en": "A damage jump/accident was detected."
+      }
+    },
+    {
+      "type": "ets2.fine",
+      "description": {
+        "zh": "收到罚款。",
+        "en": "An ETS2 fine was reported."
+      }
+    },
+    {
+      "type": "ets2.tollgate",
+      "description": {
+        "zh": "经过收费站。",
+        "en": "The truck passed a tollgate."
+      }
+    },
+    {
+      "type": "ets2.ferry",
+      "description": {
+        "zh": "上/下渡轮。",
+        "en": "The job uses a ferry."
+      }
+    },
+    {
+      "type": "ets2.train",
+      "description": {
+        "zh": "上/下火车。",
+        "en": "The job uses a train."
+      }
+    },
+    {
+      "type": "ets2.refuel",
+      "description": {
+        "zh": "加油。",
+        "en": "The truck was refuelled."
+      }
+    },
+    {
+      "type": "ets2.city-arrival",
+      "description": {
+        "zh": "接近任务目的地。",
+        "en": "The truck is approaching the destination city."
+      }
+    },
+    {
+      "type": "ets2.radar",
+      "description": {
+        "zh": "电子狗提醒。",
+        "en": "A stored radar/POI point is ahead."
+      }
+    }
+  ]
+}
