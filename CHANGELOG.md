@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+- Installer status is now scoped to the selected game folder, so switching folders does not show an
+  old install result from another path.
+- Documentation updated for the installer panel and local `npm install` requirement.
+
 ## 0.2.0
 
 - Added the **遥测安装 / Telemetry installer** panel: pick the ETS2 game folder, download the latest
