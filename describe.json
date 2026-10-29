@@ -288,6 +288,13 @@
         "zh": "进入本地城市范围。",
         "en": "The truck entered a recorded city geofence."
       }
+    },
+    {
+      "type": "ets2.country-entered",
+      "description": {
+        "zh": "越过国家边境。",
+        "en": "The truck crossed a country border."
+      }
     }
   ]
 }

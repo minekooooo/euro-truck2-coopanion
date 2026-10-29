@@ -22,6 +22,7 @@ const EVENT_DESCRIPTIONS = [
   ['ets2.city-arrival', '接近任务目的地。', 'The truck is approaching the destination city.'],
   ['ets2.radar', '电子狗提醒。', 'A stored radar/POI point is ahead.'],
   ['ets2.city-entered', '进入本地城市范围。', 'The truck entered a recorded city geofence.'],
+  ['ets2.country-entered', '越过国家边境。', 'The truck crossed a country border.'],
 ] as const;
 
 export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {

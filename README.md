@@ -104,6 +104,33 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 内置城市不会被用户文件覆盖，只有你手动记录同名城市时才覆盖。城市半径来自地图 `CityArea`
 的实际宽高，约 500–4000 米；遇到奇怪的范围可以在面板里手动重记。
 
+## 国家边境
+
+`assets/borders.json` 从地图节点的 `Node.IsCountryBorder` 生成，目前有 **184 个道路边境点**，
+覆盖 48 个国家记录。每个点包含：
+
+- 世界坐标 `x/z`
+- 道路前进方向的法线 `nx/nz`
+- `forwardCountry` / `backwardCountry`
+- 两侧国家名
+
+检测方式：
+
+- 用上一帧和当前帧位置算道路两侧的 signed distance
+- 符号翻转且交点落在边境点附近 80 米道路走廊内，才算一次过境
+- 按运动方向判断进入的是 `forwardCountry` 还是 `backwardCountry`
+- 超过 500 米的位置跳变（读档、渡轮等）直接忽略
+- 同一个边境点 30 秒冷却
+
+进入国家时推送 `ets2.country-entered`，首次到达会让 Coo 简短介绍；重复进入按
+`countryRepeatIntro` 决定是否再介绍。
+
+限制：
+
+- 边境点是**道路上的过境点**，不是完整国家边界多边形
+- 渡轮、海上、地图边缘没有道路节点的边境不会覆盖
+- 地图 mod 的边境点需要单独解析
+
 ## 配置
 
 配置段：`worlds.ets2-dafeiyu`
@@ -115,6 +142,8 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 | `cityLearnEnabled` | true | 接单/送达时自动学习城市坐标 |
 | `cityRadiusM` | 1500 | 城市默认半径（米） |
 | `cityRepeatIntro` | false | 重复进入同一城市时是否再次介绍 |
+| `countryAnnounceEnabled` | true | 是否播报国家边境 |
+| `countryRepeatIntro` | false | 重复进入同一国家时是否再次介绍 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
 | `speedingToleranceKmh` | 5 | 超速容差 |

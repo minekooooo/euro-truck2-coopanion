@@ -11,6 +11,7 @@ import type {
 } from 'cortico/core/types.ts';
 import { CityBook } from './cities.ts';
 import { ETS2_CONFIG_GROUP, type Ets2ConfigSection } from './config.ts';
+import { CountryBook } from './countries.ts';
 import { EventEngine, type GameEvent, type GameEventKind } from './events.ts';
 import { inspectGameRoot, installScsTelemetry, type TelemetryInstallResult } from './installer.ts';
 import { RadarBook } from './radar.ts';
@@ -167,6 +168,7 @@ export class Ets2World implements World {
   private readonly engine: EventEngine;
   private readonly radar: RadarBook;
   private readonly cities: CityBook;
+  private readonly countries: CountryBook;
   private host: WorldHost | null = null;
   private timer: NodeJS.Timeout | null = null;
   private latest: Ets2Telemetry | null = null;
@@ -176,11 +178,14 @@ export class Ets2World implements World {
   private lastInstall: (TelemetryInstallResult & { at: string }) | null = null;
   /** Cities already introduced during this Coopanion run. */
   private readonly introducedCities = new Set<string>();
+  /** Countries already introduced during this Coopanion run. */
+  private readonly introducedCountries = new Set<string>();
 
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
     this.radar = new RadarBook(join(opts.dataDir, 'ets2-radar-points.json'), opts.cfg);
     this.cities = new CityBook(join(opts.dataDir, 'ets2-cities.json'), opts.cfg);
+    this.countries = new CountryBook();
   }
 
   envPromptVars(): Record<string, string> | null {
@@ -385,6 +390,30 @@ export class Ets2World implements World {
                 `ETS2 进入城市：${enteredCity.name}${suffix}`,
                 'debounce',
                 { kind: 'city', city: enteredCity.name, firstVisit, repeatIntro },
+              );
+            }
+            const crossing = this.countries.detect(telemetry);
+            if (crossing && this.opts.cfg.countryAnnounceEnabled) {
+              const key = crossing.country.toLowerCase();
+              const firstVisit = !this.introducedCountries.has(key);
+              if (firstVisit) this.introducedCountries.add(key);
+              const repeatIntro = !firstVisit && this.opts.cfg.countryRepeatIntro;
+              const suffix = firstVisit
+                ? '首次到达，可简短介绍'
+                : repeatIntro
+                  ? '再次到达，可再简短介绍'
+                  : '已介绍过，简短报到即可';
+              this.pushEvent(
+                'ets2.country-entered',
+                `ETS2 进入国家：${crossing.country}（从${crossing.fromCountry}方向，${suffix}）`,
+                'debounce',
+                {
+                  kind: 'country',
+                  country: crossing.country,
+                  fromCountry: crossing.fromCountry,
+                  firstVisit,
+                  repeatIntro,
+                },
               );
             }
             if (this.opts.cfg.radarEnabled) {

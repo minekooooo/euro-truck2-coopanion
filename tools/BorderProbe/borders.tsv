@@ -1,0 +1,185 @@
+id	x	z	nx	nz	forward_id	backward_id	forward_name	backward_name	source
+border_1	1217.824	17350.242	0.56064	-0.82806	1	5	Österreich	Deutschland	base_map.scs
+border_2	3214.27	22692.871	0.26337	0.9647	1	6	Österreich	Italia	base_map.scs
+border_3	3096.934	22654.566	-0.67497	-0.73785	6	1	Italia	Österreich	base_map.scs
+border_4	6264.348	3086.727	1	0	5	3	Deutschland	Česká republika	base_map.scs
+border_5	7227.832	6015.715	-0.93969	0.34202	3	5	Česká republika	Deutschland	base_map.scs
+border_6	5596.137	16112.18	-0.62026	-0.78439	1	5	Österreich	Deutschland	base_map.scs
+border_7	7327.992	16062.145	0.98806	0.15404	5	1	Deutschland	Österreich	base_map.scs
+border_8	7201	16032.23	-0.82377	-0.56692	1	5	Österreich	Deutschland	base_map.scs
+border_9	5653.934	16232.242	-0.07329	0.99731	5	1	Deutschland	Österreich	base_map.scs
+border_10	9863.625	9170.648	0.12981	-0.99154	5	3	Deutschland	Česká republika	base_map.scs
+border_11	10539.172	12969.094	0.02307	-0.99973	1	5	Österreich	Deutschland	base_map.scs
+border_12	10067.297	23813.477	-0.98979	0.14256	1	6	Österreich	Italia	base_map.scs
+border_13	11613.148	23711.879	0.13692	-0.99058	41	1	Slovenija	Österreich	base_map.scs
+border_14	11750.5	28654.68	-0.18149	-0.98339	41	6	Slovenija	Italia	base_map.scs
+border_15	14635.047	12419.527	0.38713	0.92202	3	1	Česká republika	Österreich	base_map.scs
+border_16	13906.352	28525.973	0.98048	-0.19662	41	19	Slovenija	Hrvatska	base_map.scs
+border_17	12537.918	-85.422	-0.64279	-0.76604	3	5	Česká republika	Deutschland	base_map.scs
+border_18	14828.238	-8839.969	-1	0	8	5	Polska	Deutschland	base_map.scs
+border_19	13846.754	-14311.535	-1	0	8	5	Polska	Deutschland	base_map.scs
+border_20	19696.66	371.117	-0.34202	0.93969	8	3	Polska	Česká republika	base_map.scs
+border_21	18698.832	22129.625	-0.97662	-0.21497	41	1	Slovenija	Österreich	base_map.scs
+border_22	16674.344	-2507.898	-1	0	8	5	Polska	Deutschland	base_map.scs
+border_23	18058.73	-376.574	-0.34202	0.93969	8	3	Polska	Česká republika	base_map.scs
+border_24	20715.094	1928.219	0.99038	-0.13841	3	8	Česká republika	Polska	base_map.scs
+border_25	22234.641	11394.797	-0	-1	1	3	Österreich	Česká republika	base_map.scs
+border_26	23747.68	11605.145	-0	-1	11	3	Slovensko	Česká republika	base_map.scs
+border_27	23489.016	14567.625	-0.99983	-0.01842	11	1	Slovensko	Österreich	base_map.scs
+border_28	23429.836	17525.543	0.5	0.86603	1	13	Österreich	Magyarország	base_map.scs
+border_29	23267.328	20803.512	-0.98478	-0.17381	13	1	Magyarország	Österreich	base_map.scs
+border_30	23408.961	23643.332	-0.92605	0.37739	13	19	Magyarország	Hrvatska	base_map.scs
+border_31	23410.918	23023.234	-0.8852	0.46521	13	41	Magyarország	Slovenija	base_map.scs
+border_32	25351.172	17382.918	-0.86603	-0.5	13	11	Magyarország	Slovensko	base_map.scs
+border_33	24339.609	16332.52	-1	0	11	1	Slovensko	Österreich	base_map.scs
+border_34	30202.355	31473.719	-0.95952	0.28165	19	17	Hrvatska	Bosna i Hercegovina	base_map.scs
+border_35	30527.504	28410.406	0.03633	0.99934	13	19	Magyarország	Hrvatska	base_map.scs
+border_36	36012.301	25962.652	0.28298	0.95913	13	40	Magyarország	Србија	base_map.scs
+border_37	40040.434	23822.555	-0.98042	0.19694	37	13	România	Magyarország	base_map.scs
+border_38	40013.328	23670.066	0.9758	-0.21864	13	37	Magyarország	România	base_map.scs
+border_39	41877.547	29240.273	0.0011	1	37	40	România	Србија	base_map.scs
+border_40	41586.352	-23400.312	-0.82708	-0.56208	30	38	Lietuva	Россия	base_map.scs
+border_41	41593.793	-23248.672	0.97645	0.21575	38	30	Россия	Lietuva	base_map.scs
+border_42	43008.461	-21533.273	0	1	30	8	Lietuva	Polska	base_map.scs
+border_43	47083.398	36420.105	-0.68358	0.72988	18	40	България	Србија	base_map.scs
+border_44	45327.98	44790.969	-0.18347	0.98303	40	203	Србија	Северна Македонија	base_map.scs
+border_45	46661.723	45470.344	0.99783	-0.06579	203	18	Северна Македонија	България	base_map.scs
+border_46	45894.52	54797.469	-0.41526	-0.9097	25	203	Ελληνική Δημοκρατία	Северна Македонија	base_map.scs
+border_47	49780.633	51546.617	-0.39839	-0.91721	25	203	Ελληνική Δημοκρατία	Северна Македонија	base_map.scs
+border_48	52918.582	51029.281	-0.60432	-0.79674	25	18	Ελληνική Δημοκρατία	България	base_map.scs
+border_49	55998	-37913.566	-0.28354	0.95896	38	28	Россия	Latvija	base_map.scs
+border_50	57059.051	-36530.719	1	0	28	38	Latvija	Россия	base_map.scs
+border_51	61985.223	50759.535	0.69609	0.71796	25	44	Ελληνική Δημοκρατία	Türkiye	base_map.scs
+border_52	60058.98	48698.316	0.72822	-0.68534	25	18	Ελληνική Δημοκρατία	България	base_map.scs
+border_53	-3564.262	17228.098	-0	1	5	1	Deutschland	Österreich	base_map.scs
+border_54	-2268.102	-23936.84	-0.63917	0.76907	21	5	Danmark	Deutschland	base_map.scs
+border_55	-7312.199	16052.488	-0.01341	0.99991	5	9	Deutschland	Schweiz	base_map.scs
+border_56	-4627.652	18517.641	-0.86026	0.50986	1	9	Österreich	Schweiz	base_map.scs
+border_57	-7424.805	16122.125	0.07018	-0.99753	9	5	Schweiz	Deutschland	base_map.scs
+border_58	-7506.84	26670.418	-0.76084	0.64894	9	6	Schweiz	Italia	base_map.scs
+border_59	-7482.363	26532.148	0.76085	-0.64893	6	9	Italia	Schweiz	base_map.scs
+border_60	-9539.031	11844.691	0.99966	0.02599	4	5	France	Deutschland	base_map.scs
+border_61	-9387.77	8576.578	0.92293	-0.38496	4	5	France	Deutschland	base_map.scs
+border_62	-11511.98	14404.852	0.94915	-0.31482	4	5	France	Deutschland	base_map.scs
+border_63	-11995.047	16636.871	-0.77065	-0.63725	9	4	Schweiz	France	base_map.scs
+border_64	-11781.281	16503.629	0.99944	-0.03346	4	9	France	Schweiz	base_map.scs
+border_65	-11219.484	-10397.047	-0.86982	-0.49336	5	7	Deutschland	Nederland	base_map.scs
+border_66	-11206.961	-10595.598	0.98168	0.19052	7	5	Nederland	Deutschland	base_map.scs
+border_67	-10072.578	-15191.883	0.90713	0.42086	7	5	Nederland	Deutschland	base_map.scs
+border_68	-13033.543	7046.277	0.98481	-0.17365	4	5	France	Deutschland	base_map.scs
+border_69	-14863.68	25816.414	-0.49109	0.87111	9	6	Schweiz	Italia	base_map.scs
+border_70	-15453.984	-1731.555	0.91991	-0.39213	2	5	België	Deutschland	base_map.scs
+border_71	-15280.465	-1779.395	-0.91991	0.39213	5	2	Deutschland	België	base_map.scs
+border_72	-15051.863	-6393.746	0.85506	0.51852	7	5	Nederland	Deutschland	base_map.scs
+border_73	-15138.219	-5244.535	0.65068	0.75935	7	5	Nederland	Deutschland	base_map.scs
+border_74	-12954.566	-8226.012	-0.38256	-0.92393	5	7	Deutschland	Nederland	base_map.scs
+border_75	-13607.109	-15786.473	-0.68188	0.73146	7	5	Nederland	Deutschland	base_map.scs
+border_76	-16418.062	966.383	0.46151	0.88713	2	12	België	Lëtzebuerg	base_map.scs
+border_77	-17681.184	2686.559	0.99994	-0.01083	2	12	België	Lëtzebuerg	base_map.scs
+border_78	-16317.387	5308.84	-0.41819	-0.90836	4	12	France	Lëtzebuerg	base_map.scs
+border_79	-17155.434	19751.504	-0.99069	0.13615	9	4	Schweiz	France	base_map.scs
+border_80	-17034.367	19723.047	0.99905	0.04348	4	9	France	Schweiz	base_map.scs
+border_81	-19211.742	23016.293	0.99126	0.13189	4	9	France	Schweiz	base_map.scs
+border_82	-18089.582	22530.352	0.43194	0.9019	4	9	France	Schweiz	base_map.scs
+border_83	-16165.664	24353.137	0.74555	0.66645	9	4	Schweiz	France	base_map.scs
+border_84	-19077.152	24856.906	-0.15243	-0.98831	4	9	France	Schweiz	base_map.scs
+border_85	-16305.969	24347.516	-0.74555	-0.66645	4	9	France	Schweiz	base_map.scs
+border_86	-16663.004	26273.051	-0.82459	-0.56573	6	4	Italia	France	base_map.scs
+border_87	-16930.59	30026.738	0.05042	-0.99873	6	4	Italia	France	base_map.scs
+border_88	-16673.391	-2894.273	-0.45145	0.8923	7	2	Nederland	België	base_map.scs
+border_89	-18728.32	-5864.039	0.66691	-0.74513	2	7	België	Nederland	base_map.scs
+border_90	-20550.383	3212.715	0.94885	-0.31571	4	2	France	België	base_map.scs
+border_91	-20513.656	-6376.098	0.99972	-0.02369	2	7	België	Nederland	base_map.scs
+border_92	-23744.949	-6169.496	0.10097	0.99489	7	2	Nederland	België	base_map.scs
+border_93	-24522.84	-671.848	-0.96924	0.24613	2	4	België	France	base_map.scs
+border_94	-24369.277	-740.633	0.95909	-0.2831	4	2	France	België	base_map.scs
+border_95	-24220.078	-457.82	-0.93065	0.36591	2	4	België	France	base_map.scs
+border_96	-24397.73	-617.438	-0.97894	0.20416	2	4	België	France	base_map.scs
+border_97	-25715.59	-3091.066	0.64479	-0.76436	4	2	France	België	base_map.scs
+border_98	-28416.359	-4780.508	0.6556	-0.75511	4	2	France	België	base_map.scs
+border_99	-53094.867	34483.535	-0.9869	0.16136	4	42	France	Spain	base_map.scs
+border_100	5676.707	-48515.289	0.61561	0.78805	35	43	Norge	Sverige	dlc_north.scs
+border_101	6881.035	-50091.898	-0.85717	0.51504	43	35	Sverige	Norge	dlc_north.scs
+border_102	9083.84	-26900.652	-0.84269	-0.5384	43	21	Sverige	Danmark	dlc_north.scs
+border_103	-2258.551	-24164.039	0.80721	-0.59026	5	21	Deutschland	Danmark	dlc_north.scs
+border_104	-12389.203	37156.059	-1	-0	6	4	Italia	France	dlc_fr.scs
+border_105	-12230.809	37132.906	1	0	4	6	France	Italia	dlc_fr.scs
+border_106	-16406.27	34025.219	0.61738	0.78666	4	6	France	Italia	dlc_fr.scs
+border_107	32351.246	-20843.07	0.48921	-0.87217	8	38	Polska	Россия	dlc_balt.scs
+border_108	35292.043	-20783.863	0.51504	0.85717	38	8	Россия	Polska	dlc_balt.scs
+border_109	39078.855	-25865.176	-0.40975	0.9122	30	38	Lietuva	Россия	dlc_balt.scs
+border_110	36282.664	-31497.324	0.3744	0.92727	28	30	Latvija	Lietuva	dlc_balt.scs
+border_111	43572.438	-33105.527	-0.18062	0.98355	28	30	Latvija	Lietuva	dlc_balt.scs
+border_112	44720.383	-20674.324	-0.76604	0.64279	30	8	Lietuva	Polska	dlc_balt.scs
+border_113	45855.535	-33335.043	0.65578	0.75495	28	30	Latvija	Lietuva	dlc_balt.scs
+border_114	44889.57	-42933.496	-0.0822	0.99662	22	28	Eesti	Latvija	dlc_balt.scs
+border_115	51851.316	-30918.047	-0.02741	0.99962	28	30	Latvija	Lietuva	dlc_balt.scs
+border_116	49865.324	-42742.848	0.50226	0.86471	22	28	Eesti	Latvija	dlc_balt.scs
+border_117	52938.16	-41837.426	-0.80256	0.59657	22	28	Eesti	Latvija	dlc_balt.scs
+border_118	54781.234	-42830.203	0.91354	-0.40674	22	38	Eesti	Россия	dlc_balt.scs
+border_119	54551.383	-52591.422	-0.99121	-0.13232	38	22	Россия	Eesti	dlc_balt.scs
+border_120	53081.246	-59413.508	0.83311	0.55311	23	38	Suomi	Россия	dlc_balt.scs
+border_121	24253.414	23897.445	0.90835	-0.41821	19	13	Hrvatska	Magyarország	dlc_east.scs
+border_122	28964.707	3984.582	-0.93969	0.34202	8	3	Polska	Česká republika	dlc_east.scs
+border_123	29091	7604.684	0.64279	0.76604	3	11	Česká republika	Slovensko	dlc_east.scs
+border_124	29871.793	5417.602	-0.76604	0.64279	8	3	Polska	Česká republika	dlc_east.scs
+border_125	31598	14873.578	0.76604	0.64279	11	13	Slovensko	Magyarország	dlc_east.scs
+border_126	33585.816	6915.82	-0.5	0.86603	8	11	Polska	Slovensko	dlc_east.scs
+border_127	39721.426	11826.32	-0.34202	0.93969	11	13	Slovensko	Magyarország	dlc_east.scs
+border_128	41121.969	6392.305	0	1	8	11	Polska	Slovensko	dlc_east.scs
+border_129	42749.086	19317.625	-0.99996	0.00917	37	13	România	Magyarország	dlc_east.scs
+border_130	42742.809	19189.875	0.99984	0.01763	13	37	Magyarország	România	dlc_east.scs
+border_131	40453.059	27084.168	-0.29721	0.95481	36	37	Portugal	România	dlc_balkan_e.scs
+border_132	49276.977	34969.504	-0.98767	-0.15654	37	18	România	България	dlc_balkan_e.scs
+border_133	48529.742	40800.102	-0.01671	-0.99986	18	40	България	Србија	dlc_balkan_e.scs
+border_134	48659.176	40803.043	0.34512	0.93856	40	18	Србија	България	dlc_balkan_e.scs
+border_135	61771.324	33812.453	-0.86307	-0.50508	18	37	България	România	dlc_balkan_e.scs
+border_136	62387.055	45909.449	-1	0.00262	44	18	Türkiye	България	dlc_balkan_e.scs
+border_137	62464.516	45566.879	-0.99281	0.11968	44	18	Türkiye	България	dlc_balkan_e.scs
+border_138	65214.703	44118.164	-0.87084	-0.49156	44	18	Türkiye	България	dlc_balkan_e.scs
+border_139	71248.445	34713.18	0.21074	-0.97754	18	37	България	România	dlc_balkan_e.scs
+border_140	18899.055	26793.301	0.85417	0.51999	41	19	Slovenija	Hrvatska	dlc_balkan_w.scs
+border_141	19848.238	32632.609	-0.54734	-0.83691	17	19	Bosna i Hercegovina	Hrvatska	dlc_balkan_w.scs
+border_142	19736.41	32430.938	0.52774	0.84941	19	17	Hrvatska	Bosna i Hercegovina	dlc_balkan_w.scs
+border_143	20724.047	25079.09	-0.1975	-0.9803	19	41	Hrvatska	Slovenija	dlc_balkan_w.scs
+border_144	25273.645	30838	-0.18173	-0.98335	17	19	Bosna i Hercegovina	Hrvatska	dlc_balkan_w.scs
+border_145	27136.945	41805	-0.9934	0.1147	17	19	Bosna i Hercegovina	Hrvatska	dlc_balkan_w.scs
+border_146	31685.297	43918.992	0.99976	-0.02198	17	34	Bosna i Hercegovina	Црна Гора	dlc_balkan_w.scs
+border_147	30312.156	44480.223	0.69893	-0.71519	19	17	Hrvatska	Bosna i Hercegovina	dlc_balkan_w.scs
+border_148	33530.523	30902.5	-0.99105	0.13347	40	19	Србија	Hrvatska	dlc_balkan_w.scs
+border_149	34183.383	33914.039	-0.62443	-0.78108	40	17	Србија	Bosna i Hercegovina	dlc_balkan_w.scs
+border_150	34557.312	32550.57	0.95133	0.30818	17	40	Bosna i Hercegovina	Србија	dlc_balkan_w.scs
+border_151	35331.781	37586.02	-0.86431	-0.50296	40	17	Србија	Bosna i Hercegovina	dlc_balkan_w.scs
+border_152	35882.031	45582.941	0.72271	-0.69115	34	14	Црна Гора	Shqipëria	dlc_balkan_w.scs
+border_153	36356.004	40454.895	-0.21155	-0.97737	34	40	Црна Гора	Србија	dlc_balkan_w.scs
+border_154	39124.367	43292.902	-0.91154	0.41121	204	34	Kosovo	Црна Гора	dlc_balkan_w.scs
+border_155	43029.543	41999.926	-0.63551	0.77209	40	204	Србија	Kosovo	dlc_balkan_w.scs
+border_156	40410.293	46512.086	0.79316	-0.60902	14	204	Shqipëria	Kosovo	dlc_balkan_w.scs
+border_157	42875.355	46181.715	0.93402	-0.35723	204	203	Kosovo	Северна Македонија	dlc_balkan_w.scs
+border_158	43025.668	45994.516	0.94938	-0.31412	204	203	Kosovo	Северна Македонија	dlc_balkan_w.scs
+border_159	40688.094	52292.18	0.6655	-0.7464	14	203	Shqipëria	Северна Македонија	dlc_balkan_w.scs
+border_160	-35199.859	41788.414	0.40324	-0.91509	42	4	Spain	France	dlc_iberia.scs
+border_161	-79505.516	36457	0.56639	-0.82413	36	42	Portugal	Spain	dlc_iberia.scs
+border_162	-78660.852	43867.961	-0.99117	-0.1326	42	36	Spain	Portugal	dlc_iberia.scs
+border_163	-78620.531	44528.137	0.99973	-0.02325	36	42	Portugal	Spain	dlc_iberia.scs
+border_164	-83440.516	34543.52	-0.06556	0.99785	42	36	Spain	Portugal	dlc_iberia.scs
+border_165	-83464.695	34713.148	0.06557	-0.99785	36	42	Portugal	Spain	dlc_iberia.scs
+border_166	-83594.031	53213.555	-0.99569	-0.09276	42	36	Spain	Portugal	dlc_iberia.scs
+border_167	-85110.18	58273.379	0.99405	-0.10894	36	42	Portugal	Spain	dlc_iberia.scs
+border_168	-86360.156	61950.176	-0.99528	-0.097	42	36	Spain	Portugal	dlc_iberia.scs
+border_169	-92451.625	50589.367	-0.98676	-0.16216	36	42	Portugal	Spain	dlc_iberia.scs
+border_170	40548.742	60384.648	0.99218	0.12484	14	25	Shqipëria	Ελληνική Δημοκρατία	dlc_greece.scs
+border_171	9413.457	-53851.969	-0.81991	-0.57249	43	35	Sverige	Norge	dlc_polar.scs
+border_172	10190.723	-57840.977	-0.247	-0.96901	43	35	Sverige	Norge	dlc_polar.scs
+border_173	8994.59	-71886.547	0.93043	0.36648	35	43	Norge	Sverige	dlc_polar.scs
+border_174	19816.719	-89848.828	0.86161	0.50756	35	43	Norge	Sverige	dlc_polar.scs
+border_175	25126.719	-101726.344	0.40841	0.9128	35	43	Norge	Sverige	dlc_polar.scs
+border_176	28306.348	-107200.625	0.06605	0.99782	35	23	Norge	Suomi	dlc_polar.scs
+border_177	32137.465	-102553.258	0.06537	0.99786	23	43	Suomi	Sverige	dlc_polar.scs
+border_178	32582.988	-102083.711	-0.65189	-0.75831	23	43	Suomi	Sverige	dlc_polar.scs
+border_179	33763.703	-104518.312	0.0675	-0.99772	23	35	Suomi	Norge	dlc_polar.scs
+border_180	37442.879	-86844.555	0.99318	-0.11662	43	23	Sverige	Suomi	dlc_polar.scs
+border_181	37305.922	-87092.312	0.19764	-0.98028	43	23	Sverige	Suomi	dlc_polar.scs
+border_182	36130.414	-92488.344	0.99991	0.0132	43	23	Sverige	Suomi	dlc_polar.scs
+border_183	38502.098	-110103.938	0.99774	-0.06723	35	23	Norge	Suomi	dlc_polar.scs
+border_184	57700.785	-68918.953	-0.95599	-0.29339	38	23	Россия	Suomi	dlc_polar.scs

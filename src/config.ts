@@ -14,6 +14,10 @@ export interface Ets2ConfigSection {
   cityRadiusM: number;
   /** Introduce a city again when it is entered more than once. */
   cityRepeatIntro: boolean;
+  /** Announce crossing a country border. */
+  countryAnnounceEnabled: boolean;
+  /** Introduce a country again when its border is crossed more than once. */
+  countryRepeatIntro: boolean;
   pollMs: number;
   eventsEnabled: boolean;
   radarEnabled: boolean;
@@ -36,6 +40,8 @@ export const ETS2_DEFAULTS: Ets2ConfigSection = {
   cityLearnEnabled: true,
   cityRadiusM: 1500,
   cityRepeatIntro: false,
+  countryAnnounceEnabled: true,
+  countryRepeatIntro: false,
   pollMs: 200,
   eventsEnabled: true,
   radarEnabled: true,
@@ -84,6 +90,16 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
         type: 'boolean',
         title: '重复进入城市时再次介绍',
         description: '关闭时每个城市本次运行只介绍一次，之后只简短报到；打开后每次进城都可再介绍。',
+      },
+      'worlds.ets2-dafeiyu.countryAnnounceEnabled': {
+        type: 'boolean',
+        title: '进出国家边境播报',
+        description: '经过地图上的国家边境节点时，按行驶方向判断进入的国家并播报。',
+      },
+      'worlds.ets2-dafeiyu.countryRepeatIntro': {
+        type: 'boolean',
+        title: '重复进入国家时再次介绍',
+        description: '关闭时每个国家本次运行只介绍一次，之后只简短报到；打开后每次过境都可再介绍。',
       },
       'worlds.ets2-dafeiyu.radarEnabled': {
         type: 'boolean',
