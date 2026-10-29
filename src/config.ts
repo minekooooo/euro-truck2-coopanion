@@ -46,18 +46,6 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
     title: 'ETS2 大肥鱼副驾',
     description: '读取 SCS 遥测，向 Coo 报告欧卡2的车况、事件和电子狗点位。',
     properties: {
-      'worlds.ets2-dafeiyu.gameRoot': {
-        type: 'string',
-        title: '游戏根目录',
-        description: '选择包含 bin\\win_x64\\eurotrucks2.exe 的 ETS2 根目录；安装遥测用。',
-        'x-path': { kind: 'directory' },
-        'x-hot': true,
-      },
-      'worlds.ets2-dafeiyu.autoInstallTelemetry': {
-        type: 'boolean',
-        title: '启动时自动安装遥测',
-        description: '已选择游戏根目录且缺少 scs-telemetry.dll 时，World 启动后自动下载安装。',
-      },
       'worlds.ets2-dafeiyu.eventsEnabled': {
         type: 'boolean',
         title: '事件播报',

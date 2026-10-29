@@ -3,10 +3,6 @@
  * The panel only talks to its own World methods; downloading and copying the
  * DLL happen on the World side.
  */
-const GROUP = 'world:ets2-dafeiyu';
-const ROOT_KEY = 'worlds.ets2-dafeiyu.gameRoot';
-const AUTO_KEY = 'worlds.ets2-dafeiyu.autoInstallTelemetry';
-
 const zh = (lang) => lang === 'zh' || lang === 'zh-Hant';
 
 const CSS = {
@@ -130,7 +126,7 @@ const installPanel = {
         });
         if (picked) {
           pathInput.value = picked;
-          try { await ctx.setConfig(GROUP, { [ROOT_KEY]: picked }); }
+          try { render(await ctx.invoke('setPath', [picked])); }
           catch (err) { say(err && err.message ? err.message : String(err), true); }
         }
       } catch (err) {
@@ -141,10 +137,7 @@ const installPanel = {
     auto.addEventListener('change', async () => {
       if (busy) return;
       try {
-        const values = { [AUTO_KEY]: auto.checked };
-        const path = pathInput.value.trim();
-        if (path) values[ROOT_KEY] = path;
-        await ctx.setConfig(GROUP, values);
+        render(await ctx.invoke('setAuto', [auto.checked]));
       } catch (err) {
         auto.checked = !auto.checked;
         say(err && err.message ? err.message : String(err), true);

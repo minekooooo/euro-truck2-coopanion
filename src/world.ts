@@ -397,11 +397,35 @@ export class Ets2World implements World {
     switch (method) {
       case 'state':
         return this.installState();
+      case 'setPath':
+        return this.setGameRoot(typeof args[0] === 'string' ? args[0] : '');
+      case 'setAuto':
+        return this.setAutoInstall(args[0] === true);
       case 'install':
         return this.installFromConfig(true, typeof args[0] === 'string' ? args[0] : undefined);
       default:
         throw new Error(`unknown method: ${method}`);
     }
+  }
+
+  private setGameRoot(raw: string): Record<string, unknown> {
+    const input = raw.trim();
+    if (!input) {
+      this.opts.cfg.gameRoot = '';
+      this.opts.persist?.({ gameRoot: '' });
+      return this.installState();
+    }
+    const info = inspectGameRoot(input);
+    if (!info.valid) throw new Error(info.error ?? '无效的游戏根目录');
+    this.opts.cfg.gameRoot = info.gameRoot;
+    this.opts.persist?.({ gameRoot: info.gameRoot });
+    return this.installState();
+  }
+
+  private setAutoInstall(enabled: boolean): Record<string, unknown> {
+    this.opts.cfg.autoInstallTelemetry = enabled;
+    this.opts.persist?.({ autoInstallTelemetry: enabled });
+    return this.installState();
   }
 
   private async installFromConfig(force: boolean, rawRoot?: string): Promise<Record<string, unknown>> {

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- Removed the duplicate `gameRoot` and `autoInstallTelemetry` fields from the World config page.
+  Both are now managed only by the **遥测安装** panel; the values still persist in
+  `worlds.ets2-dafeiyu` and are used by auto-install.
+
 ## 0.2.1
 
 - Installer status is now scoped to the selected game folder, so switching folders does not show an

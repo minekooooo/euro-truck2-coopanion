@@ -76,7 +76,7 @@ World 默认是关闭的，需要手动启用。
 - 写入 `<游戏根目录>\bin\win_x64\plugins\scs-telemetry.dll`
 - 如果已有旧 DLL，先备份成 `scs-telemetry.dll.bak-时间`
 
-也可以在 World 配置里选「游戏根目录」，打开「启动时自动安装遥测」，之后 World 启动时发现缺少 DLL 会自动安装。  
+游戏根目录和「启动时自动安装」都只放在这个「遥测安装」面板里，不会在配置页重复出现。  
 Coo 也可以调用工具 `ets2_install_telemetry` 完成同样的安装。
 
 ## 配置
@@ -85,8 +85,6 @@ Coo 也可以调用工具 `ets2_install_telemetry` 完成同样的安装。
 
 | 配置项 | 默认值 | 说明 |
 |---|---:|---|
-| `gameRoot` | 空 | ETS2 游戏根目录；遥测安装用 |
-| `autoInstallTelemetry` | false | World 启动时缺少 DLL 是否自动安装 |
 | `eventsEnabled` | true | 是否推送游戏事件 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
