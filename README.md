@@ -76,50 +76,7 @@ World 默认是关闭的，需要手动启用。
 | `radarMinSpeedKmh` | 10 | 低于该车速不提醒 |
 | `radarWarnIntervalS` | 5 | 两次电子狗提醒的最小间隔 |
 
-## 电子狗数据
 
-`assets/radar_points.json` 由官方 `base_map.scs` 与 DLC 地图的 `Trigger` 生成：
-
-- `offence` → 测速/违章摄像头（70）
-- `toll_start` / `toll_onetime` → 收费站（297）
-- `weigh` → 称重点（48）
-
-这些坐标**不是**从 `RADAR-DETECTOR` 声音 mod 里读的；那个 mod 只播放自己的音效，不暴露坐标。部分国家/DLC 没有 `offence` 触发器，所以摄像头覆盖不完整；可以用 `ets2_record_radar` 或罚款后的手动记录补充。
-
-用户点位保存在：
-
-```text
-<Coopanion 数据目录>/ets2-radar-points.json
-```
-
-不会写进 npm 包。
-
-## 开发
-
-```bash
-npm install
-npm run typecheck
-npm test
-npm run describe:extension
-npm pack --dry-run
-```
-
-这是一个标准的 `cortico-world` npm 包。`package.json` 里的 `cortico` 块：
-
-- `kind: "world"`
-- `api: 6`
-- 标签：`game` + `apps`
-- `os: ["win32"]`
-
-## 发布与市场
-
-```bash
-npm publish --access public
-```
-
-发布后如果市场还没显示，在 [Pal-AI-Lab/cortico-extensions](https://github.com/Pal-AI-Lab/cortico-extensions) 开一个 `[sync]` issue：
-
-```text
 [sync] cortico-world-ets2-dafeiyu
 ```
 
