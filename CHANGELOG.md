@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.5
+
+- Added Chinese package description and `cortico.locales` (zh/en), so Coopanion and the market show
+  Chinese text for the default Chinese interface.
+
 ## 0.2.4
 
 - Renamed the display name to **ETS2 欧卡桌宠副驾**. The npm package name and World id
