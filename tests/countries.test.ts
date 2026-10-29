@@ -26,7 +26,7 @@ function book(): CountryBook {
 }
 
 describe('country border crossings', () => {
-  it('detects a forward crossing after the previous position is established', () => {
+  it('maps a forward crossing to the country on the other side of the node normal', () => {
     const b = book();
     const t = makeTelemetry();
     t.truck.world.x = -100;
@@ -34,8 +34,8 @@ describe('country border crossings', () => {
     expect(b.detect(t)).toBeNull();
     t.truck.world.x = 100;
     const crossing = b.detect(t);
-    expect(crossing?.country).toBe('Deutschland');
-    expect(crossing?.fromCountry).toBe('France');
+    expect(crossing?.country).toBe('France');
+    expect(crossing?.fromCountry).toBe('Deutschland');
     expect(crossing?.direction).toBe('forward');
   });
 
@@ -46,7 +46,43 @@ describe('country border crossings', () => {
     t.truck.world.z = 0;
     expect(b.detect(t)).toBeNull();
     t.truck.world.x = -100;
-    expect(b.detect(t)?.country).toBe('France');
+    expect(b.detect(t)?.country).toBe('Deutschland');
+  });
+
+  it('gets the real Sweden→Denmark crossing right', () => {
+    const b = new CountryBook(); // packaged borders.json
+    const t = makeTelemetry();
+    // border_102; normal points toward Denmark.
+    const x = 9083.84;
+    const z = -26900.652;
+    const nx = -0.84269;
+    const nz = -0.5384;
+    t.truck.world.x = x - nx * 100;
+    t.truck.world.z = z - nz * 100;
+    expect(b.detect(t)).toBeNull();
+    t.truck.world.x = x + nx * 100;
+    t.truck.world.z = z + nz * 100;
+    const crossing = b.detect(t);
+    expect(crossing?.country).toBe('Danmark');
+    expect(crossing?.fromCountry).toBe('Sverige');
+  });
+
+  it('gets the real Luxembourg→France crossing right', () => {
+    const b = new CountryBook();
+    const t = makeTelemetry();
+    // border_78; normal points toward Luxembourg.
+    const x = -16317.387;
+    const z = 5308.84;
+    const nx = -0.41819;
+    const nz = -0.90836;
+    t.truck.world.x = x + nx * 100;
+    t.truck.world.z = z + nz * 100;
+    expect(b.detect(t)).toBeNull();
+    t.truck.world.x = x - nx * 100;
+    t.truck.world.z = z - nz * 100;
+    const crossing = b.detect(t);
+    expect(crossing?.country).toBe('France');
+    expect(crossing?.fromCountry).toBe('Lëtzebuerg');
   });
 
   it('ignores teleport-sized jumps', () => {

@@ -138,12 +138,15 @@ export class CountryBook {
     this.previous = { x, z };
     if (!best) return null;
     this.lastCross.set(best.border.id, now);
+    // The map node's rotation points opposite to the direction that enters
+    // ForwardCountry (confirmed at the Sweden→Denmark and Luxembourg→France
+    // crossings), so the country on the *other* side is the entered one.
     const entering = best.direction === 'forward'
-      ? best.border.forwardName
-      : best.border.backwardName;
-    const from = best.direction === 'forward'
       ? best.border.backwardName
       : best.border.forwardName;
+    const from = best.direction === 'forward'
+      ? best.border.forwardName
+      : best.border.backwardName;
     if (!entering || !from || entering === from) return null;
     return {
       border: best.border,

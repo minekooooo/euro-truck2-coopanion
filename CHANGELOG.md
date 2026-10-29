@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.1
+
+- Fixed reversed country direction. Map node rotation points opposite to the side that
+  `ForwardCountry` represents at the tested crossings; the entered country is now the country on the
+  other side of the normal. Added regression tests using the real Sweden→Denmark and
+  Luxembourg→France border points.
+
 ## 0.5.0
 
 - Added **country border crossings** extracted from map `Node.IsCountryBorder` nodes. The truck's
