@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4
+
+- Adjusted the city-introduction prompt: a short intro may mention country or population when Coo is
+  confident, but should stay to one or two sentences and must not invent landmarks or history.
+
 ## 0.4.3
 
 - City entry now asks Coo for a short city introduction on first arrival, without reading out
