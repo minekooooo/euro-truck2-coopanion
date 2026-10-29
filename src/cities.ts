@@ -5,16 +5,21 @@
  * one.
  */
 import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import type { Ets2Telemetry } from './telemetry.ts';
 
-export type CitySource = 'auto' | 'manual';
+export type CitySource = 'auto' | 'manual' | 'map';
 
 export interface CityPoint {
   id: string;
   name: string;
+  token?: string;
+  country?: string;
   x: number;
   z: number;
   radiusM: number;
+  widthM?: number;
+  heightM?: number;
   source: CitySource;
   createdAt: number;
 }
@@ -26,9 +31,13 @@ export interface CityConfig {
 interface CityFilePoint {
   id?: string;
   name?: string;
+  token?: string;
+  country?: string;
   x?: number;
   z?: number;
   radius_m?: number;
+  width_m?: number;
+  height_m?: number;
   source?: string;
   created_at?: number;
 }
@@ -55,7 +64,8 @@ export class CityBook {
     private readonly userPath: string,
     private readonly config: CityConfig,
   ) {
-    this.load();
+    this.loadBuiltin();
+    this.loadUser();
   }
 
   get count(): number {
@@ -70,28 +80,55 @@ export class CityBook {
     return this.points;
   }
 
-  private load(): void {
+  private loadBuiltin(): void {
+    try {
+      const path = fileURLToPath(new URL('../assets/cities.json', import.meta.url));
+      if (!existsSync(path)) return;
+      const raw = JSON.parse(readFileSync(path, 'utf8')) as { cities?: CityFilePoint[] };
+      for (const item of raw.cities ?? []) this.add(item, 'map');
+    } catch {
+      // A missing packaged city DB just leaves the user/manual book.
+    }
+  }
+
+  private loadUser(): void {
     if (!existsSync(this.userPath)) return;
     try {
       const raw = JSON.parse(readFileSync(this.userPath, 'utf8')) as { points?: CityFilePoint[] };
-      for (const item of raw.points ?? []) {
-        const name = cleanName(item.name);
-        const x = Number(item.x);
-        const z = Number(item.z);
-        if (!name || !Number.isFinite(x) || !Number.isFinite(z)) continue;
-        this.points.push({
-          id: String(item.id || `city_${this.points.length + 1}`),
-          name,
-          x,
-          z,
-          radiusM: clampRadius(item.radius_m, this.config.cityRadiusM),
-          source: item.source === 'manual' ? 'manual' : 'auto',
-          createdAt: Number(item.created_at) || Date.now(),
-        });
-      }
+      for (const item of raw.points ?? []) this.add(item, item.source === 'manual' ? 'manual' : 'auto');
     } catch {
       // A corrupt optional file must not stop the World.
     }
+  }
+
+  private add(item: CityFilePoint, source: CitySource): void {
+    const name = cleanName(item.name);
+    const x = Number(item.x);
+    const z = Number(item.z);
+    if (!name || !Number.isFinite(x) || !Number.isFinite(z)) return;
+    const point: CityPoint = {
+      id: String(item.id || `city_${this.points.length + 1}`),
+      name,
+      token: item.token ? String(item.token) : undefined,
+      country: item.country ? String(item.country) : undefined,
+      x,
+      z,
+      radiusM: clampRadius(item.radius_m, this.config.cityRadiusM),
+      widthM: Number.isFinite(Number(item.width_m)) ? Number(item.width_m) : undefined,
+      heightM: Number.isFinite(Number(item.height_m)) ? Number(item.height_m) : undefined,
+      source,
+      createdAt: Number(item.created_at) || Date.now(),
+    };
+    const existing = this.points.findIndex((p) => p.name.toLowerCase() === name.toLowerCase());
+    if (existing >= 0) {
+      // User entries override packaged map entries; built-in entries never
+      // overwrite an earlier user record.
+      if (source !== 'map' || this.points[existing]!.source === 'map') {
+        this.points[existing] = point;
+      }
+      return;
+    }
+    this.points.push(point);
   }
 
   private save(): void {
@@ -102,15 +139,21 @@ export class CityBook {
         JSON.stringify(
           {
             version: 1,
-            points: this.points.map((p) => ({
-              id: p.id,
-              name: p.name,
-              x: p.x,
-              z: p.z,
-              radius_m: p.radiusM,
-              source: p.source,
-              created_at: p.createdAt,
-            })),
+            points: this.points
+              .filter((p) => p.source !== 'map')
+              .map((p) => ({
+                id: p.id,
+                name: p.name,
+                token: p.token,
+                country: p.country,
+                x: p.x,
+                z: p.z,
+                radius_m: p.radiusM,
+                width_m: p.widthM,
+                height_m: p.heightM,
+                source: p.source,
+                created_at: p.createdAt,
+              })),
           },
           null,
           2,
@@ -156,7 +199,7 @@ export class CityBook {
       createdAt: Date.now(),
     };
     this.points.push(point);
-    this.points = this.points.slice(-500);
+    this.points = this.points.slice(-2000);
     this.save();
     return point;
   }
@@ -170,16 +213,17 @@ export class CityBook {
   }
 
   remove(id: string): boolean {
-    const before = this.points.length;
+    const target = this.points.find((p) => p.id === id);
+    if (!target || target.source === 'map') return false;
     this.points = this.points.filter((p) => p.id !== id);
-    if (this.points.length === before) return false;
     if (this.currentId === id) this.currentId = null;
     this.save();
     return true;
   }
 
   clear(): void {
-    this.points = [];
+    // Packaged map cities stay; only the learned/manual overlay is cleared.
+    this.points = this.points.filter((p) => p.source === 'map');
     this.currentId = null;
     this.save();
   }

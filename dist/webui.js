@@ -238,18 +238,21 @@ const citiesPanel = {
         item.style.cssText += ';padding:8px 10px;gap:4px';
         const top = el('div', CSS.row);
         top.append(el('strong', 'font-size:13px', c.name));
-        top.append(el('span', CSS.hint, `${c.source === 'manual' ? (t ? '手动' : 'manual') : (t ? '自动' : 'auto')} · ${c.radiusM} m${c.distanceM == null ? '' : ' · ' + c.distanceM + ' m'}`));
-        const del = el('button', CSS.btn, t ? '删除' : 'Delete');
-        del.type = 'button';
-        del.style.marginLeft = 'auto';
-        del.addEventListener('click', async () => {
-          if (busy) return;
-          busy = true;
-          try { render(await ctx.invoke('delete', [c.id])); }
-          catch (err) { say(err && err.message ? err.message : String(err), true); }
-          finally { busy = false; }
-        });
-        top.append(del);
+        const sourceLabel = c.source === 'manual' ? (t ? '手动' : 'manual') : c.source === 'map' ? (t ? '地图' : 'map') : (t ? '自动' : 'auto');
+        top.append(el('span', CSS.hint, `${sourceLabel} · ${c.radiusM} m${c.distanceM == null ? '' : ' · ' + c.distanceM + ' m'}`));
+        if (c.source !== 'map') {
+          const del = el('button', CSS.btn, t ? '删除' : 'Delete');
+          del.type = 'button';
+          del.style.marginLeft = 'auto';
+          del.addEventListener('click', async () => {
+            if (busy) return;
+            busy = true;
+            try { render(await ctx.invoke('delete', [c.id])); }
+            catch (err) { say(err && err.message ? err.message : String(err), true); }
+            finally { busy = false; }
+          });
+          top.append(del);
+        }
         item.append(top);
         list.append(item);
       }

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+- Preloaded **380 official ETS2 cities** extracted from the map `CityArea` items in
+  `base_map.scs` and the official map DLCs.
+- City geofences now work out of the box; `assets/cities.json` is shipped with the package.
+- User records in `ets2-cities.json` override the packaged map city of the same name; map cities
+  cannot be deleted from the panel.
+- Added `tools/CityProbe` to regenerate the city database.
+
 ## 0.3.0
 
 - Added local **city geofences**: record a city at the truck's current position, or learn it from job
