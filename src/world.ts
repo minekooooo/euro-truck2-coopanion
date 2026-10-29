@@ -1,6 +1,7 @@
 /** The native Node World: SCS telemetry, events and radar, exposed to Coo. */
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import type { Language } from 'cortico/core/language.ts';
 import type {
   ConfigGroup,
   ToolDef,
@@ -10,6 +11,7 @@ import type {
 } from 'cortico/core/types.ts';
 import { ETS2_CONFIG_GROUP, type Ets2ConfigSection } from './config.ts';
 import { EventEngine, type GameEvent, type GameEventKind } from './events.ts';
+import { inspectGameRoot, installScsTelemetry, type TelemetryInstallResult } from './installer.ts';
 import { RadarBook } from './radar.ts';
 import { parseTelemetry, ScsSharedMemory, type Ets2Telemetry } from './telemetry.ts';
 
@@ -71,6 +73,23 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
       },
     },
   },
+  {
+    name: 'ets2_install_telemetry',
+    description:
+      'Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 game folder. Use only after the driver chooses the game root.',
+    tags: ['act'],
+    barrierAfter: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        game_root: {
+          type: 'string',
+          description: 'ETS2 root folder containing bin\\win_x64\\eurotrucks2.exe. Omit to use the configured gameRoot.',
+        },
+      },
+    },
+  },
 ];
 
 export const ETS2_EVENT_TYPES: Record<GameEventKind, string> = {
@@ -98,6 +117,8 @@ export interface Ets2WorldOptions {
   cfg: Ets2ConfigSection;
   dataDir: string;
   timezone: string;
+  /** Live config writer supplied by Coopanion, used by the installer panel. */
+  persist?: (patch: Partial<Ets2ConfigSection>) => void;
 }
 
 function clampPoll(value: number): number {
@@ -122,6 +143,7 @@ export class Ets2World implements World {
   private lastConnected: boolean | null = null;
   private events: LoggedEvent[] = [];
   private started = false;
+  private lastInstall: (TelemetryInstallResult & { at: string }) | null = null;
 
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
@@ -184,12 +206,28 @@ export class Ets2World implements World {
         ...TOOL_DECLS[3]!,
         handler: async (args) => this.recordRadar(args),
       },
+      {
+        ...TOOL_DECLS[4]!,
+        handler: async (args) => this.installTelemetryTool(args),
+      },
     ];
   }
 
-  webUi(): WorldWebUiDecl {
+  webUi(language: Language = 'zh'): WorldWebUiDecl {
+    const zh = language === 'zh' || language === 'zh-Hant';
     return {
-      label: 'ETS2 大肥鱼副驾',
+      label: zh ? 'ETS2 大肥鱼副驾' : 'ETS2 Dafeiyu Copilot',
+      panels: [
+        {
+          id: 'install',
+          title: zh ? '遥测安装' : 'Telemetry installer',
+          description: zh
+            ? '选择游戏根目录，一键下载并安装 scs-telemetry.dll。安装后重启游戏生效。'
+            : 'Pick the ETS2 game folder to download and install scs-telemetry.dll. Restart the game afterwards.',
+          getMethods: ['state'],
+        },
+      ],
+      invoke: (panel: string, method: string, args: unknown[]) => this.invokePanel(panel, method, args),
       config: [ETS2_CONFIG_GROUP as ConfigGroup],
       promptDocs: [
         {
@@ -214,6 +252,16 @@ export class Ets2World implements World {
     this.started = true;
     this.host = host;
     host.log.info('ETS2 World starting; watching Local\\SCSTelemetry');
+    if (this.opts.cfg.autoInstallTelemetry && this.opts.cfg.gameRoot) {
+      const info = inspectGameRoot(this.opts.cfg.gameRoot);
+      if (info.valid && !info.dllInstalled) {
+        void this.installFromConfig(false)
+          .then((state) => host.log.info(`ETS2 telemetry auto-install: ${JSON.stringify(state.lastInstall ?? {})}`))
+          .catch((error) => host.log.warn(`ETS2 telemetry auto-install failed: ${error instanceof Error ? error.message : String(error)}`));
+      } else if (!info.valid) {
+        host.log.warn(`ETS2 telemetry auto-install skipped: ${info.error}`);
+      }
+    }
     this.tick();
   }
 
@@ -321,9 +369,67 @@ export class Ets2World implements World {
     ).catch(() => undefined);
   }
 
+  private installState(): Record<string, unknown> {
+    const info = inspectGameRoot(this.opts.cfg.gameRoot);
+    return {
+      gameRoot: info.gameRoot,
+      valid: info.valid,
+      error: info.error,
+      dllInstalled: info.dllInstalled,
+      dllBytes: info.dllBytes,
+      dllPath: info.dllPath,
+      autoInstallTelemetry: this.opts.cfg.autoInstallTelemetry,
+      lastInstall: this.lastInstall,
+    };
+  }
+
+  private async invokePanel(
+    panel: string,
+    method: string,
+    args: unknown[],
+  ): Promise<unknown> {
+    if (panel !== 'install') throw new Error(`unknown panel: ${panel}`);
+    switch (method) {
+      case 'state':
+        return this.installState();
+      case 'install':
+        return this.installFromConfig(true, typeof args[0] === 'string' ? args[0] : undefined);
+      default:
+        throw new Error(`unknown method: ${method}`);
+    }
+  }
+
+  private async installFromConfig(force: boolean, rawRoot?: string): Promise<Record<string, unknown>> {
+    const input = (rawRoot ?? this.opts.cfg.gameRoot).trim();
+    if (!input) throw new Error('请先选择 ETS2 游戏根目录');
+    const info = inspectGameRoot(input);
+    if (!info.valid) throw new Error(info.error ?? '无效的游戏根目录');
+    if (this.opts.cfg.gameRoot !== info.gameRoot) {
+      this.opts.cfg.gameRoot = info.gameRoot;
+      this.opts.persist?.({ gameRoot: info.gameRoot });
+    }
+    if (!force && info.dllInstalled) return this.installState();
+    const result = await installScsTelemetry(info.gameRoot);
+    this.lastInstall = { ...result, at: new Date().toISOString() };
+    this.host?.log.info(`ETS2 telemetry installed: ${result.dllPath}`);
+    return this.installState();
+  }
+
+  private async installTelemetryTool(args: Record<string, unknown>): Promise<string> {
+    const root = typeof args.game_root === 'string' ? args.game_root : undefined;
+    await this.installFromConfig(true, root);
+    return this.lastInstall?.message ?? '遥测已安装。重启游戏后生效。';
+  }
+
   private statusText(): string {
     const t = this.latest;
-    if (!t) return 'ETS2 遥测未连接：请启动游戏并进入驾驶界面。';
+    if (!t) {
+      const info = inspectGameRoot(this.opts.cfg.gameRoot);
+      const hint = info.dllInstalled
+        ? '请启动游戏并进入驾驶界面。'
+        : '可先在 World 的「遥测安装」面板选择游戏根目录并安装 scs-telemetry.dll。';
+      return `ETS2 遥测未连接：${hint}`;
+    }
     if (!t.connected) return 'ETS2 共享内存没连上：确认 scs-telemetry.dll 在 bin\\win_x64\\plugins。';
     const tr = t.truck;
     const job = t.job;

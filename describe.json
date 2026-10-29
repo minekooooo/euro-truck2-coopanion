@@ -106,6 +106,27 @@
         "zh": "把卡车当前位置记成电子狗点位。",
         "en": "Records the truck’s current position as a radar point."
       }
+    },
+    {
+      "name": "ets2_install_telemetry",
+      "description": "Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 game folder. Use only after the driver chooses the game root.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "game_root": {
+            "type": "string",
+            "description": "ETS2 root folder containing bin\\win_x64\\eurotrucks2.exe. Omit to use the configured gameRoot."
+          }
+        }
+      },
+      "tags": [
+        "act"
+      ],
+      "summary": {
+        "zh": "下载并安装/修复欧卡2的 scs-telemetry.dll。",
+        "en": "Downloads and installs/repairs the ETS2 scs-telemetry.dll."
+      }
     }
   ],
   "events": [

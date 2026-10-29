@@ -32,6 +32,7 @@ export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
       cfg: ctx.cfg,
       dataDir: ctx.dataDir,
       timezone: ctx.timezone,
+      persist: (patch) => ctx.persist(patch),
     }),
   describe: {
     tools: describeTools(TOOL_DECLS, {
@@ -50,6 +51,10 @@ export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
       ets2_record_radar: {
         zh: '把卡车当前位置记成电子狗点位。',
         en: 'Records the truck’s current position as a radar point.',
+      },
+      ets2_install_telemetry: {
+        zh: '下载并安装/修复欧卡2的 scs-telemetry.dll。',
+        en: 'Downloads and installs/repairs the ETS2 scs-telemetry.dll.',
       },
     }),
     events: EVENT_DESCRIPTIONS.map(([type, zh, en]) => ({

@@ -1,14 +1,16 @@
-# ETS2 欧卡2鲸鱼娘副驾
+# cortico-world-ets2-dafeiyu
 
 《欧洲卡车模拟 2》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，把车况和游戏事件交给桌宠 **Coo**，并提供车况查询、最近事件和电子狗点位工具。
+
+这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
 - 市场收录：https://github.com/Pal-AI-Lab/cortico-extensions/blob/main/packages/cortico-world-ets2-dafeiyu.json
-- 游戏数据来源为欧卡的遥测数据，链接：https://github.com/RenCloud/scs-sdk-plugin/releases
+
 ## 功能
 
-- **车况**：速度、限速、档位、转速、油量、车损、总里程、定速巡航。
+- **车况**：速度、限速、档位、转速、油量、AdBlue、车损、总里程、定速巡航。
 - **任务**：货物、起点/终点城市与公司、剩余距离、运费、货损。
 - **推送给 Coo 的事件**：
   - 接单 / 送达 / 任务取消
@@ -57,12 +59,34 @@ World 默认是关闭的，需要手动启用。
 
 注意：Coopanion 的「本机目录」只做 link，不会自动安装依赖，所以必须先有 `node_modules/koffi`。
 
+## 遥测安装
+
+如果游戏目录里还没有 `scs-telemetry.dll`，不用手动去 GitHub 下载：
+
+1. 打开 Coopanion 的 World 页 →「ETS2 大肥鱼副驾」→「遥测安装」面板
+2. 点「浏览…」，选择游戏根目录（包含 `bin\win_x64\eurotrucks2.exe` 的目录，通常是
+   `...\steamapps\common\Euro Truck Simulator 2`）
+3. 点「一键安装 / 修复」
+4. 安装完成后**重启游戏**
+
+安装器会：
+
+- 从 [RenCloud/scs-sdk-plugin releases](https://github.com/RenCloud/scs-sdk-plugin/releases) 取最新 release
+- 解压出 `Win64/scs-telemetry.dll`
+- 写入 `<游戏根目录>\bin\win_x64\plugins\scs-telemetry.dll`
+- 如果已有旧 DLL，先备份成 `scs-telemetry.dll.bak-时间`
+
+也可以在 World 配置里选「游戏根目录」，打开「启动时自动安装遥测」，之后 World 启动时发现缺少 DLL 会自动安装。  
+Coo 也可以调用工具 `ets2_install_telemetry` 完成同样的安装。
+
 ## 配置
 
 配置段：`worlds.ets2-dafeiyu`
 
 | 配置项 | 默认值 | 说明 |
 |---|---:|---|
+| `gameRoot` | 空 | ETS2 游戏根目录；遥测安装用 |
+| `autoInstallTelemetry` | false | World 启动时缺少 DLL 是否自动安装 |
 | `eventsEnabled` | true | 是否推送游戏事件 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
@@ -76,7 +100,50 @@ World 默认是关闭的，需要手动启用。
 | `radarMinSpeedKmh` | 10 | 低于该车速不提醒 |
 | `radarWarnIntervalS` | 5 | 两次电子狗提醒的最小间隔 |
 
+## 电子狗数据
 
+`assets/radar_points.json` 由官方 `base_map.scs` 与 DLC 地图的 `Trigger` 生成：
+
+- `offence` → 测速/违章摄像头（70）
+- `toll_start` / `toll_onetime` → 收费站（297）
+- `weigh` → 称重点（48）
+
+这些坐标**不是**从 `RADAR-DETECTOR` 声音 mod 里读的；那个 mod 只播放自己的音效，不暴露坐标。部分国家/DLC 没有 `offence` 触发器，所以摄像头覆盖不完整；可以用 `ets2_record_radar` 或罚款后的手动记录补充。
+
+用户点位保存在：
+
+```text
+<Coopanion 数据目录>/ets2-radar-points.json
+```
+
+不会写进 npm 包。
+
+## 开发
+
+```bash
+npm install
+npm run typecheck
+npm test
+npm run describe:extension
+npm pack --dry-run
+```
+
+这是一个标准的 `cortico-world` npm 包。`package.json` 里的 `cortico` 块：
+
+- `kind: "world"`
+- `api: 6`
+- 标签：`game` + `apps`
+- `os: ["win32"]`
+
+## 发布与市场
+
+```bash
+npm publish --access public
+```
+
+发布后如果市场还没显示，在 [Pal-AI-Lab/cortico-extensions](https://github.com/Pal-AI-Lab/cortico-extensions) 开一个 `[sync]` issue：
+
+```text
 [sync] cortico-world-ets2-dafeiyu
 ```
 
