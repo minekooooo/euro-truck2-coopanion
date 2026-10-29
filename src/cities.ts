@@ -241,7 +241,7 @@ export class CityBook {
             : null,
       }))
       .sort((a, b) => (a.distanceM ?? Number.MAX_SAFE_INTEGER) - (b.distanceM ?? Number.MAX_SAFE_INTEGER))
-      .slice(0, Math.max(1, Math.min(100, limit)));
+      .slice(0, Math.max(1, Math.min(1000, limit)));
   }
 
   /** Last telemetry passed to detect(), used for the panel's distance labels. */

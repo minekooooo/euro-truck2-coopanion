@@ -561,7 +561,7 @@ export class Ets2World implements World {
     return {
       count: this.cities.count,
       current: this.cities.current,
-      cities: this.cities.nearest(50),
+      cities: this.cities.nearest(500),
       hasTelemetry: Boolean(this.latest?.connected),
     };
   }

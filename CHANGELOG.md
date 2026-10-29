@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1
+
+- The **城市记录** panel now returns the full city list (up to 1000 entries) instead of only the
+  nearest 50, so all 380 packaged cities are visible in the UI.
+
 ## 0.4.0
 
 - Preloaded **380 official ETS2 cities** extracted from the map `CityArea` items in
