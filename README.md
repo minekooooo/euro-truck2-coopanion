@@ -1,4 +1,4 @@
-# cortico-world-ets2-dafeiyu
+# ETS2 欧卡2鲸鱼娘副驾
 
 《欧洲卡车模拟 2》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，把车况和游戏事件交给桌宠 **Coo**，并提供车况查询、最近事件和电子狗点位工具。
 
