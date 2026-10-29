@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- Replaced the plugin icon with the new blue-haired Coo illustration.
+
 ## 0.2.2
 
 - Removed the duplicate `gameRoot` and `autoInstallTelemetry` fields from the World config page.
