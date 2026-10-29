@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+- Added local **city geofences**: record a city at the truck's current position, or learn it from job
+  source/destination endpoints.
+- Added `ets2.city-entered` events with a configurable city radius (default 1500 m).
+- Added the **城市记录 / City records** panel and `ets2_cities` / `ets2_record_city` tools.
+- City data is stored in `<Coopanion data dir>/ets2-cities.json`; the first tick inside a city is
+  silent so loading a save does not spam the pet.
+
 ## 0.2.5
 
 - Added Chinese package description and `cortico.locales` (zh/en), so Coopanion and the market show

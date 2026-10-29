@@ -21,6 +21,7 @@ const EVENT_DESCRIPTIONS = [
   ['ets2.refuel', '加油。', 'The truck was refuelled.'],
   ['ets2.city-arrival', '接近任务目的地。', 'The truck is approaching the destination city.'],
   ['ets2.radar', '电子狗提醒。', 'A stored radar/POI point is ahead.'],
+  ['ets2.city-entered', '进入本地城市范围。', 'The truck entered a recorded city geofence.'],
 ] as const;
 
 export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
@@ -55,6 +56,14 @@ export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
       ets2_install_telemetry: {
         zh: '下载并安装/修复欧卡2的 scs-telemetry.dll。',
         en: 'Downloads and installs/repairs the ETS2 scs-telemetry.dll.',
+      },
+      ets2_cities: {
+        zh: '列出本地城市记录和当前所在城市。',
+        en: 'Lists local city records and the current city.',
+      },
+      ets2_record_city: {
+        zh: '把卡车当前位置记录成城市范围。',
+        en: 'Records the truck’s current position as a city geofence.',
       },
     }),
     events: EVENT_DESCRIPTIONS.map(([type, zh, en]) => ({

@@ -2,6 +2,7 @@
 
 {{ets2.status}}
 {{ets2.job}}
+{{ets2.city}}
 {{ets2.radar}}
 
 最近事件：

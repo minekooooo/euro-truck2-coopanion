@@ -9,6 +9,7 @@ import type {
   WorldHost,
   WorldWebUiDecl,
 } from 'cortico/core/types.ts';
+import { CityBook } from './cities.ts';
 import { ETS2_CONFIG_GROUP, type Ets2ConfigSection } from './config.ts';
 import { EventEngine, type GameEvent, type GameEventKind } from './events.ts';
 import { inspectGameRoot, installScsTelemetry, type TelemetryInstallResult } from './installer.ts';
@@ -90,6 +91,34 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
       },
     },
   },
+  {
+    name: 'ets2_cities',
+    description:
+      'List locally recorded ETS2 cities with their distance from the truck, and show which city the truck is currently inside.',
+    tags: ['read', 'snapshot'],
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        limit: { type: 'integer', minimum: 1, maximum: 50, description: 'How many cities; default 15.' },
+      },
+    },
+  },
+  {
+    name: 'ets2_record_city',
+    description:
+      'Record the truck’s current position as a city geofence. Use when the driver is in a city that is not learned automatically from a job.',
+    tags: ['write'],
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['name'],
+      properties: {
+        name: { type: 'string', description: 'City name, e.g. Berlin or 柏林.' },
+        radius_m: { type: 'integer', minimum: 200, maximum: 5000, description: 'City radius in metres; default 1500.' },
+      },
+    },
+  },
 ];
 
 export const ETS2_EVENT_TYPES: Record<GameEventKind, string> = {
@@ -137,6 +166,7 @@ export class Ets2World implements World {
   private readonly shm = new ScsSharedMemory();
   private readonly engine: EventEngine;
   private readonly radar: RadarBook;
+  private readonly cities: CityBook;
   private host: WorldHost | null = null;
   private timer: NodeJS.Timeout | null = null;
   private latest: Ets2Telemetry | null = null;
@@ -148,6 +178,7 @@ export class Ets2World implements World {
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
     this.radar = new RadarBook(join(opts.dataDir, 'ets2-radar-points.json'), opts.cfg);
+    this.cities = new CityBook(join(opts.dataDir, 'ets2-cities.json'), opts.cfg);
   }
 
   envPromptVars(): Record<string, string> | null {
@@ -156,6 +187,7 @@ export class Ets2World implements World {
       return {
         'ets2.status': 'ETS2 遥测：未连接（请启动游戏并进入驾驶界面）。',
         'ets2.job': '当前任务：未知。',
+        'ets2.city': '当前城市：未知（遥测未连接）。',
         'ets2.radar': `电子狗：${this.radar.count} 个点位。`,
         'ets2.recent': '最近事件：无。',
       };
@@ -164,6 +196,7 @@ export class Ets2World implements World {
       return {
         'ets2.status': 'ETS2 遥测：共享内存未连接（游戏可能没开，或没进驾驶界面）。',
         'ets2.job': '当前任务：未知。',
+        'ets2.city': '当前城市：未知（遥测未连接）。',
         'ets2.radar': `电子狗：${this.radar.count} 个点位。`,
         'ets2.recent': this.recentText(3),
       };
@@ -180,9 +213,13 @@ export class Ets2World implements World {
         `剩余约 ${fmt(t.truck.navDistanceM / 1000, 1)} 公里，运费 €${fmt(t.job.income)}。`
       : '当前任务：没有接单。';
     const radar = `电子狗：${this.radar.count} 个点位；${this.radar.lastHit ? `上次提醒：${this.radar.lastHit.text}` : '最近没有提醒。'}`;
+    const currentCity = this.cities.current;
     return {
       'ets2.status': status,
       'ets2.job': job,
+      'ets2.city': currentCity
+        ? `当前城市：${currentCity.name}（距中心约 ${Math.round(Math.hypot(tr.world.x - currentCity.x, tr.world.z - currentCity.z))} 米）。`
+        : `当前城市：不在已记录的城市范围内（本地共 ${this.cities.count} 个城市）。`,
       'ets2.radar': radar,
       'ets2.recent': this.recentText(4),
     };
@@ -210,6 +247,14 @@ export class Ets2World implements World {
         ...TOOL_DECLS[4]!,
         handler: async (args) => this.installTelemetryTool(args),
       },
+      {
+        ...TOOL_DECLS[5]!,
+        handler: async (args) => this.cityText(Number(args.limit) || 15),
+      },
+      {
+        ...TOOL_DECLS[6]!,
+        handler: async (args) => this.recordCityTool(args),
+      },
     ];
   }
 
@@ -226,6 +271,14 @@ export class Ets2World implements World {
             : 'Pick the ETS2 game folder to download and install scs-telemetry.dll. Restart the game afterwards.',
           getMethods: ['state'],
         },
+        {
+          id: 'cities',
+          title: zh ? '城市记录' : 'City records',
+          description: zh
+            ? '记录城市坐标、查看当前所在城市；接单/送达时也会自动学习。'
+            : 'Record city centres, see the current city, and learn endpoints from jobs.',
+          getMethods: ['state'],
+        },
       ],
       invoke: (panel: string, method: string, args: unknown[]) => this.invokePanel(panel, method, args),
       config: [ETS2_CONFIG_GROUP as ConfigGroup],
@@ -239,6 +292,7 @@ export class Ets2World implements World {
           vars: [
             { name: 'ets2.status', description: '连接、速度、限速、油量、车损。' },
             { name: 'ets2.job', description: '当前任务和剩余距离。' },
+            { name: 'ets2.city', description: '当前城市与本地城市记录数。' },
             { name: 'ets2.radar', description: '电子狗点位数和上次提醒。' },
             { name: 'ets2.recent', description: '最近几条 ETS2 事件。' },
           ],
@@ -295,7 +349,39 @@ export class Ets2World implements World {
           this.setConnected(telemetry.connected);
           if (telemetry.connected && !telemetry.paused) {
             const gameEvents = this.engine.update(telemetry);
-            for (const event of gameEvents) this.pushGameEvent(event);
+            for (const event of gameEvents) {
+              if (this.opts.cfg.cityLearnEnabled) {
+                if (event.kind === 'job_started' && telemetry.job.sourceCity) {
+                  this.cities.recordAuto(
+                    telemetry.job.sourceCity,
+                    telemetry.truck.world.x,
+                    telemetry.truck.world.z,
+                  );
+                } else if (event.kind === 'job_delivered' && telemetry.job.destinationCity) {
+                  this.cities.recordAuto(
+                    telemetry.job.destinationCity,
+                    telemetry.truck.world.x,
+                    telemetry.truck.world.z,
+                  );
+                }
+              }
+              this.pushGameEvent(event);
+            }
+            const enteredCity = this.cities.detect(telemetry);
+            if (enteredCity && this.opts.cfg.cityAnnounceEnabled) {
+              const distance = Math.round(
+                Math.hypot(
+                  telemetry.truck.world.x - enteredCity.x,
+                  telemetry.truck.world.z - enteredCity.z,
+                ),
+              );
+              this.pushEvent(
+                'ets2.city-entered',
+                `ETS2 进入城市：${enteredCity.name}（距中心约 ${distance} 米）。`,
+                'debounce',
+                { kind: 'city', city: enteredCity.name, distanceM: distance },
+              );
+            }
             if (this.opts.cfg.radarEnabled) {
               const hit = this.radar.detect(telemetry);
               if (hit) {
@@ -393,19 +479,39 @@ export class Ets2World implements World {
     method: string,
     args: unknown[],
   ): Promise<unknown> {
-    if (panel !== 'install') throw new Error(`unknown panel: ${panel}`);
-    switch (method) {
-      case 'state':
-        return this.installState();
-      case 'setPath':
-        return this.setGameRoot(typeof args[0] === 'string' ? args[0] : '');
-      case 'setAuto':
-        return this.setAutoInstall(args[0] === true);
-      case 'install':
-        return this.installFromConfig(true, typeof args[0] === 'string' ? args[0] : undefined);
-      default:
-        throw new Error(`unknown method: ${method}`);
+    if (panel === 'install') {
+      switch (method) {
+        case 'state':
+          return this.installState();
+        case 'setPath':
+          return this.setGameRoot(typeof args[0] === 'string' ? args[0] : '');
+        case 'setAuto':
+          return this.setAutoInstall(args[0] === true);
+        case 'install':
+          return this.installFromConfig(true, typeof args[0] === 'string' ? args[0] : undefined);
+        default:
+          throw new Error(`unknown method: ${method}`);
+      }
     }
+    if (panel === 'cities') {
+      switch (method) {
+        case 'state':
+          return this.cityState();
+        case 'record': {
+          const payload = args[0] && typeof args[0] === 'object'
+            ? (args[0] as Record<string, unknown>)
+            : {};
+          return this.recordCity(payload);
+        }
+        case 'delete':
+          return this.deleteCity(typeof args[0] === 'string' ? args[0] : '');
+        case 'clear':
+          return this.clearCities();
+        default:
+          throw new Error(`unknown method: ${method}`);
+      }
+    }
+    throw new Error(`unknown panel: ${panel}`);
   }
 
   private setGameRoot(raw: string): Record<string, unknown> {
@@ -448,6 +554,65 @@ export class Ets2World implements World {
     const root = typeof args.game_root === 'string' ? args.game_root : undefined;
     await this.installFromConfig(true, root);
     return this.lastInstall?.message ?? '遥测已安装。重启游戏后生效。';
+  }
+
+  private cityState(): Record<string, unknown> {
+    if (this.latest) this.cities.remember(this.latest);
+    return {
+      count: this.cities.count,
+      current: this.cities.current,
+      cities: this.cities.nearest(50),
+      hasTelemetry: Boolean(this.latest?.connected),
+    };
+  }
+
+  private recordCity(args: Record<string, unknown>): Record<string, unknown> {
+    const t = this.latest;
+    if (!t?.connected) throw new Error('ETS2 还没连接，先进入驾驶界面');
+    const name = typeof args.name === 'string' ? args.name.trim() : '';
+    if (!name) throw new Error('请填写城市名');
+    this.cities.record(
+      name,
+      t.truck.world.x,
+      t.truck.world.z,
+      args.radius_m == null ? this.opts.cfg.cityRadiusM : Number(args.radius_m),
+      'manual',
+    );
+    return this.cityState();
+  }
+
+  private deleteCity(id: string): Record<string, unknown> {
+    if (!id) throw new Error('缺少城市 id');
+    this.cities.remove(id);
+    return this.cityState();
+  }
+
+  private clearCities(): Record<string, unknown> {
+    this.cities.clear();
+    return this.cityState();
+  }
+
+  private cityText(limit: number): string {
+    if (this.latest) this.cities.remember(this.latest);
+    const current = this.cities.current;
+    const rows = this.cities.nearest(limit);
+    const head = current
+      ? `当前在 ${current.name}（半径 ${current.radiusM} 米）`
+      : `当前不在已记录的城市范围内（本地共 ${this.cities.count} 个）`;
+    if (!rows.length) return `${head}。还没有城市记录：接单/送达会自动学习，或在「城市记录」面板手动记录。`;
+    return [
+      head,
+      ...rows.map((p) => {
+        const distance = p.distanceM == null ? '--' : `${fmt(p.distanceM)} m`;
+        return `${p.name}（${p.source === 'manual' ? '手动' : '自动'}，${distance}，半径 ${p.radiusM} m）`;
+      }),
+    ].join('\n');
+  }
+
+  private recordCityTool(args: Record<string, unknown>): string {
+    this.recordCity(args);
+    const name = String(args.name ?? '').trim();
+    return `已记录城市：${name}。以后进入它 ${args.radius_m ?? this.opts.cfg.cityRadiusM} 米范围时会播报。`;
   }
 
   private statusText(): string {

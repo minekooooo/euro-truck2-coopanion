@@ -6,6 +6,12 @@ export interface Ets2ConfigSection {
   gameRoot: string;
   /** Install scs-telemetry.dll automatically on World start when it is missing. */
   autoInstallTelemetry: boolean;
+  /** Announce entering a city geofence. */
+  cityAnnounceEnabled: boolean;
+  /** Learn city centres from job source/destination endpoints. */
+  cityLearnEnabled: boolean;
+  /** Default city geofence radius in metres. */
+  cityRadiusM: number;
   pollMs: number;
   eventsEnabled: boolean;
   radarEnabled: boolean;
@@ -24,6 +30,9 @@ export const ETS2_DEFAULTS: Ets2ConfigSection = {
   enabled: false,
   gameRoot: '',
   autoInstallTelemetry: false,
+  cityAnnounceEnabled: true,
+  cityLearnEnabled: true,
+  cityRadiusM: 1500,
   pollMs: 200,
   eventsEnabled: true,
   radarEnabled: true,
@@ -50,6 +59,23 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
         type: 'boolean',
         title: '事件播报',
         description: '事故、超速、低油、罚款、收费站、任务、到城。',
+      },
+      'worlds.ets2-dafeiyu.cityAnnounceEnabled': {
+        type: 'boolean',
+        title: '进入城市播报',
+        description: '根据本地城市坐标，进入城市范围时交给桌宠播报。',
+      },
+      'worlds.ets2-dafeiyu.cityLearnEnabled': {
+        type: 'boolean',
+        title: '自动学习城市坐标',
+        description: '接单时记录起点城市、送达时记录终点城市；只补空缺，不改手动记录。',
+      },
+      'worlds.ets2-dafeiyu.cityRadiusM': {
+        type: 'integer',
+        title: '城市范围半径（米）',
+        description: '默认 1500 米；越小越不容易误报，但郊区可能进不了范围。',
+        minimum: 200,
+        maximum: 5000,
       },
       'worlds.ets2-dafeiyu.radarEnabled': {
         type: 'boolean',

@@ -176,4 +176,114 @@ const installPanel = {
   },
 };
 
-export default { panels: { install: installPanel } };
+const citiesPanel = {
+  mount(ctx) {
+    const t = zh(ctx.language);
+    const root = ctx.root;
+    const wrap = el('div', CSS.wrap);
+    root.append(wrap);
+
+    const head = el('div');
+    head.append(el('div', 'font-size:15px;font-weight:600;margin-bottom:4px', t ? '城市记录' : 'City records'));
+    head.append(el('div', CSS.hint, t
+      ? '接单时自动记录起点城市、送达时记录终点城市；也可以站在城里手动记录。进入已记录城市范围时，Coo 会播报。'
+      : 'Learns the source city on job start and the destination on delivery. You can also record the current city manually. Coo announces when entering a recorded city.'));
+    wrap.append(head);
+
+    const status = el('div', CSS.status);
+    wrap.append(status);
+
+    const form = el('div', CSS.group);
+    const row = el('div', CSS.row);
+    row.append(el('span', CSS.label, t ? '城市名' : 'City name'));
+    const nameInput = el('input', CSS.input);
+    nameInput.type = 'text';
+    nameInput.placeholder = t ? '例如 柏林 / Berlin' : 'e.g. Berlin';
+    row.append(nameInput);
+    const radius = el('input', CSS.num);
+    radius.type = 'number';
+    radius.min = '200';
+    radius.max = '5000';
+    radius.step = '100';
+    radius.value = '1500';
+    radius.title = t ? '城市范围半径（米）' : 'City radius (m)';
+    row.append(radius);
+    const record = el('button', CSS.primary, t ? '记录当前位置' : 'Record here');
+    record.type = 'button';
+    row.append(record);
+    form.append(row);
+    wrap.append(form);
+
+    const msg = el('div', CSS.msg);
+    wrap.append(msg);
+    const list = el('div', 'display:flex;flex-direction:column;gap:6px;max-height:360px;overflow:auto');
+    wrap.append(list);
+
+    let busy = false;
+    const say = (text, bad) => {
+      msg.textContent = text || '';
+      msg.style.color = bad ? '#d9534f' : '#37b24d';
+    };
+
+    const render = (s) => {
+      if (!s) return;
+      const current = s.current;
+      status.textContent = current
+        ? (t ? '当前：' : 'Current: ') + current.name + `（${current.radiusM} m）`
+        : (t ? `当前不在已记录的城市范围内，共 ${s.count} 个城市。` : `Not inside a recorded city; ${s.count} cities.`);
+      status.style.color = current ? '#37b24d' : '';
+      list.replaceChildren();
+      for (const c of s.cities || []) {
+        const item = el('div', CSS.group);
+        item.style.cssText += ';padding:8px 10px;gap:4px';
+        const top = el('div', CSS.row);
+        top.append(el('strong', 'font-size:13px', c.name));
+        top.append(el('span', CSS.hint, `${c.source === 'manual' ? (t ? '手动' : 'manual') : (t ? '自动' : 'auto')} · ${c.radiusM} m${c.distanceM == null ? '' : ' · ' + c.distanceM + ' m'}`));
+        const del = el('button', CSS.btn, t ? '删除' : 'Delete');
+        del.type = 'button';
+        del.style.marginLeft = 'auto';
+        del.addEventListener('click', async () => {
+          if (busy) return;
+          busy = true;
+          try { render(await ctx.invoke('delete', [c.id])); }
+          catch (err) { say(err && err.message ? err.message : String(err), true); }
+          finally { busy = false; }
+        });
+        top.append(del);
+        item.append(top);
+        list.append(item);
+      }
+      if (!(s.cities || []).length) {
+        list.append(el('div', CSS.hint, t ? '还没有城市记录。接单或送达后会自动出现。' : 'No cities yet. Start or finish a job to learn one.'));
+      }
+    };
+
+    const load = async () => {
+      try { render(await ctx.invoke('state')); }
+      catch (err) { say(err && err.message ? err.message : String(err), true); }
+    };
+
+    record.addEventListener('click', async () => {
+      if (busy) return;
+      const name = nameInput.value.trim();
+      if (!name) { say(t ? '先填城市名。' : 'Enter a city name first.', true); return; }
+      busy = true;
+      record.disabled = true;
+      try {
+        render(await ctx.invoke('record', [{ name, radius_m: Number(radius.value) || 1500 }]));
+        nameInput.value = '';
+        say(t ? `已记录：${name}` : `Recorded: ${name}`, false);
+      } catch (err) {
+        say(err && err.message ? err.message : String(err), true);
+      } finally {
+        busy = false;
+        record.disabled = false;
+      }
+    });
+
+    void load();
+    ctx.interval(() => { if (!busy) void load(); }, 8000);
+  },
+};
+
+export default { panels: { install: installPanel, cities: citiesPanel } };
