@@ -379,7 +379,12 @@ export class Ets2World implements World {
       dllBytes: info.dllBytes,
       dllPath: info.dllPath,
       autoInstallTelemetry: this.opts.cfg.autoInstallTelemetry,
-      lastInstall: this.lastInstall,
+      lastInstall:
+        this.lastInstall &&
+        info.gameRoot &&
+        this.lastInstall.dllPath.toLowerCase().startsWith(info.gameRoot.toLowerCase())
+          ? this.lastInstall
+          : null,
     };
   }
 
