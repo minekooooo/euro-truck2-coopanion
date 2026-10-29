@@ -1,6 +1,6 @@
 {
   "name": "cortico-world-ets2-dafeiyu",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
   "description": "Cortico/Coopanion World for Euro Truck Simulator 2: reads SCS telemetry, reports accidents, speeding, fines, tolls, jobs and a learned radar detector to Coo, with a one-click telemetry installer.",
   "license": "MIT",
@@ -37,7 +37,7 @@
   "cortico": {
     "kind": "world",
     "api": 6,
-    "displayName": "ETS2 大肥鱼副驾",
+    "displayName": "ETS2 欧卡桌宠副驾",
     "tags": [
       "game",
       "apps"

@@ -46,7 +46,7 @@
 Coopanion → 设置 → 高级模式 → 扩展
 → 搜索 cortico-world-ets2-dafeiyu
 → 安装 → 重启 Coopanion
-→ 在 World 页启用「ETS2 大肥鱼副驾」
+→ 在 World 页启用「ETS2 欧卡桌宠副驾」
 ```
 
 World 默认是关闭的，需要手动启用。
@@ -63,7 +63,7 @@ World 默认是关闭的，需要手动启用。
 
 如果游戏目录里还没有 `scs-telemetry.dll`，不用手动去 GitHub 下载：
 
-1. 打开 Coopanion 的 World 页 →「ETS2 大肥鱼副驾」→「遥测安装」面板
+1. 打开 Coopanion 的 World 页 →「ETS2 欧卡桌宠副驾」→「遥测安装」面板
 2. 点「浏览…」，选择游戏根目录（包含 `bin\win_x64\eurotrucks2.exe` 的目录，通常是
    `...\steamapps\common\Euro Truck Simulator 2`）
 3. 点「一键安装 / 修复」

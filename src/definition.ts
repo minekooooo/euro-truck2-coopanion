@@ -25,7 +25,7 @@ const EVENT_DESCRIPTIONS = [
 
 export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
   id: ETS2_WORLD_ID,
-  label: 'ETS2 大肥鱼副驾',
+  label: 'ETS2 欧卡桌宠副驾',
   defaults: () => ({ ...ETS2_DEFAULTS }),
   create: (ctx) =>
     new Ets2World({

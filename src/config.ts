@@ -43,7 +43,7 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
   owner: 'world:ets2-dafeiyu',
   schema: {
     type: 'object',
-    title: 'ETS2 大肥鱼副驾',
+    title: 'ETS2 欧卡桌宠副驾',
     description: '读取 SCS 遥测，向 Coo 报告欧卡2的车况、事件和电子狗点位。',
     properties: {
       'worlds.ets2-dafeiyu.eventsEnabled': {

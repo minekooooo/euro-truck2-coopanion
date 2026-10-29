@@ -216,7 +216,7 @@ export class Ets2World implements World {
   webUi(language: Language = 'zh'): WorldWebUiDecl {
     const zh = language === 'zh' || language === 'zh-Hant';
     return {
-      label: zh ? 'ETS2 大肥鱼副驾' : 'ETS2 Dafeiyu Copilot',
+      label: zh ? 'ETS2 欧卡桌宠副驾' : 'ETS2 Euro Truck Copilot',
       panels: [
         {
           id: 'install',

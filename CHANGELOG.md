@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4
+
+- Renamed the display name to **ETS2 欧卡桌宠副驾**. The npm package name and World id
+  (`ets2-dafeiyu`) stay unchanged so existing installs and settings keep working.
+
 ## 0.2.3
 
 - Replaced the plugin icon with the new blue-haired Coo illustration.
