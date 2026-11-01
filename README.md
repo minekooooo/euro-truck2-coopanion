@@ -1,6 +1,6 @@
-# cortico-world-ets2-dafeiyu
+# 欧卡/美卡桌宠副驾（cortico-world-ets2-dafeiyu）
 
-《欧洲卡车模拟 2》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，把车况和游戏事件交给桌宠 **Coo**，并提供车况查询、最近事件和电子狗点位工具。
+《欧洲卡车模拟 2》和《美国卡车模拟》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，按遥测里的 `game` 字段自动切换 ETS2 / ATS 数据，把车况和游戏事件交给桌宠 **Coo**。
 
 这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
 
@@ -26,12 +26,27 @@
   - `ets2_recent_events`
   - `ets2_radar_points`
   - `ets2_record_radar`
-- **电子狗**：内置 415 个官方地图点位（70 个测速/违章摄像头、297 个收费站、48 个称重点），并支持把当前位置记成用户点位，保存在 Coopanion 数据目录。
+- **电子狗**：ETS2 内置 415 个官方地图点位（70 个测速/违章摄像头、297 个收费站、48 个称重点）；ATS 内置 541 个（15 个测速/违章、41 个收费站、485 个称重点）。支持把当前位置记成用户点位。
+
+## 双游戏数据
+
+插件按遥测 `game` 自动切换，坐标库不会混用：
+
+| 数据 | ETS2 | ATS |
+|---|---:|---:|
+| 城市 | 380 | 270 |
+| 边境/州界 | 184 个国家边境点 | 229 个州界点 |
+| 电子狗 POI | 415 | 541 |
+
+- ETS2 数据：`assets/cities.json`、`assets/borders.json`、`assets/radar_points.json`
+- ATS 数据：`assets/cities_ats.json`、`assets/borders_ats.json`、`assets/radar_points_ats.json`
+- 用户数据也按游戏分开：`ets2-cities.json` / `ats-cities.json`、`ets2-radar-points.json` / `ats-radar-points.json`
+- ATS 过境事件是 `ets2.state-entered`（州界），ETS2 是 `ets2.country-entered`（国界）
 
 ## 运行要求
 
 - Windows 10/11 x64（SCS 遥测 DLL + 共享内存）
-- 《欧洲卡车模拟 2》，且 `scs-telemetry.dll` 位于：
+- 《欧洲卡车模拟 2》或《美国卡车模拟》，且 `scs-telemetry.dll` 位于：
   `...\bin\win_x64\plugins\`
 - Coopanion / Cortico，World API 6（当前 0.2.x）
 - Node 22+（Cortico 安装扩展时使用自带运行时）
@@ -46,7 +61,7 @@
 Coopanion → 设置 → 高级模式 → 扩展
 → 搜索 cortico-world-ets2-dafeiyu
 → 安装 → 重启 Coopanion
-→ 在 World 页启用「ETS2 欧卡桌宠副驾」
+→ 在 World 页启用「欧卡/美卡桌宠副驾」
 ```
 
 World 默认是关闭的，需要手动启用。
@@ -63,9 +78,10 @@ World 默认是关闭的，需要手动启用。
 
 如果游戏目录里还没有 `scs-telemetry.dll`，不用手动去 GitHub 下载：
 
-1. 打开 Coopanion 的 World 页 →「ETS2 欧卡桌宠副驾」→「遥测安装」面板
-2. 点「浏览…」，选择游戏根目录（包含 `bin\win_x64\eurotrucks2.exe` 的目录，通常是
-   `...\steamapps\common\Euro Truck Simulator 2`）
+1. 打开 Coopanion 的 World 页 →「欧卡/美卡桌宠副驾」→「遥测安装」面板
+2. 点「浏览…」，选择游戏根目录（包含 `bin\win_x64\eurotrucks2.exe` 或 `amtrucks.exe` 的目录，
+   通常是 `...\steamapps\common\Euro Truck Simulator 2` 或
+   `...\steamapps\common\American Truck Simulator`）
 3. 点「一键安装 / 修复」
 4. 安装完成后**重启游戏**
 
@@ -104,9 +120,9 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 内置城市不会被用户文件覆盖，只有你手动记录同名城市时才覆盖。城市半径来自地图 `CityArea`
 的实际宽高，约 500–4000 米；遇到奇怪的范围可以在面板里手动重记。
 
-## 国家边境
+## 国家边境 / 州界
 
-`assets/borders.json` 从地图节点的 `Node.IsCountryBorder` 生成，目前有 **184 个道路边境点**，
+`assets/borders.json` 从地图节点的 `Node.IsCountryBorder` 生成，ETS2 目前有 **184 个道路边境点**，
 覆盖 48 个国家记录。每个点包含：
 
 - 世界坐标 `x/z`
@@ -142,8 +158,8 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 | `cityLearnEnabled` | true | 接单/送达时自动学习城市坐标 |
 | `cityRadiusM` | 1500 | 城市默认半径（米） |
 | `cityRepeatIntro` | false | 重复进入同一城市时是否再次介绍 |
-| `countryAnnounceEnabled` | true | 是否播报国家边境 |
-| `countryRepeatIntro` | false | 重复进入同一国家时是否再次介绍 |
+| `countryAnnounceEnabled` | true | 是否播报国家/州边境 |
+| `countryRepeatIntro` | false | 重复进入同一国家/州时是否再次介绍 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
 | `speedingToleranceKmh` | 5 | 超速容差 |

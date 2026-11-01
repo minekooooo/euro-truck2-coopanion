@@ -23,11 +23,12 @@ const EVENT_DESCRIPTIONS = [
   ['ets2.radar', '电子狗提醒。', 'A stored radar/POI point is ahead.'],
   ['ets2.city-entered', '进入本地城市范围。', 'The truck entered a recorded city geofence.'],
   ['ets2.country-entered', '越过国家边境。', 'The truck crossed a country border.'],
+  ['ets2.state-entered', '越过美国州界。', 'The truck crossed a US state border.'],
 ] as const;
 
 export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
   id: ETS2_WORLD_ID,
-  label: 'ETS2 欧卡桌宠副驾',
+  label: '欧卡/美卡桌宠副驾',
   defaults: () => ({ ...ETS2_DEFAULTS }),
   create: (ctx) =>
     new Ets2World({
@@ -39,12 +40,12 @@ export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
   describe: {
     tools: describeTools(TOOL_DECLS, {
       ets2_status: {
-        zh: '读取当前欧卡2车况、任务和电子狗状态。',
-        en: 'Reads the current ETS2 truck, job and radar status.',
+        zh: '读取当前 ETS2 / ATS 车况、任务和电子狗状态。',
+        en: 'Reads the current ETS2 / ATS truck, job and radar status.',
       },
       ets2_recent_events: {
-        zh: '返回最近的欧卡2事件。',
-        en: 'Returns recent ETS2 events.',
+        zh: '返回最近的 ETS2 / ATS 事件。',
+        en: 'Returns recent ETS2 / ATS events.',
       },
       ets2_radar_points: {
         zh: '列出最近的测速/收费站/称重点。',
@@ -55,8 +56,8 @@ export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {
         en: 'Records the truck’s current position as a radar point.',
       },
       ets2_install_telemetry: {
-        zh: '下载并安装/修复欧卡2的 scs-telemetry.dll。',
-        en: 'Downloads and installs/repairs the ETS2 scs-telemetry.dll.',
+        zh: '下载并安装/修复 ETS2 / ATS 的 scs-telemetry.dll。',
+        en: 'Downloads and installs/repairs the ETS2 / ATS scs-telemetry.dll.',
       },
       ets2_cities: {
         zh: '列出本地城市记录和当前所在城市。',

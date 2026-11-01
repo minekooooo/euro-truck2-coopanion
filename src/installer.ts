@@ -1,8 +1,8 @@
 /**
- * ETS2 telemetry dependency installer.
+ * ETS2 / ATS telemetry dependency installer.
  *
- * The game only has a 64-bit build; the official RenCloud scs-sdk-plugin release
- * contains Win32/ and Win64/ DLLs, and we install the Win64 one into:
+ * Both games only have a 64-bit build; the official RenCloud scs-sdk-plugin
+ * release contains Win32/ and Win64/ DLLs, and we install the Win64 one into:
  *
  *   <game root>\bin\win_x64\plugins\scs-telemetry.dll
  *
@@ -65,17 +65,26 @@ export function inspectGameRoot(raw: string): GameRootInfo {
     };
   }
   let root = resolve(input);
+  const exeNames = ['eurotrucks2.exe', 'amtrucks.exe'];
+  const findExe = (base: string): string | null => {
+    for (const name of exeNames) {
+      const path = join(base, 'bin', 'win_x64', name);
+      if (existsSync(path) && statSync(path).isFile()) return path;
+    }
+    return null;
+  };
   // Allow selecting bin\win_x64 or its parent by mistake; normalize upward.
-  const win64 = join(root, 'bin', 'win_x64', 'eurotrucks2.exe');
-  if (!existsSync(win64) && basename(root).toLowerCase() === 'win_x64') {
+  let exePath = findExe(root);
+  if (!exePath && basename(root).toLowerCase() === 'win_x64') {
     const parent = dirname(dirname(root));
-    const parentExe = join(parent, 'bin', 'win_x64', 'eurotrucks2.exe');
-    if (existsSync(parentExe)) root = parent;
+    if (findExe(parent)) {
+      root = parent;
+      exePath = findExe(root);
+    }
   }
-  const exePath = join(root, 'bin', 'win_x64', 'eurotrucks2.exe');
   const pluginsDir = join(root, 'bin', 'win_x64', 'plugins');
   const dllPath = join(pluginsDir, 'scs-telemetry.dll');
-  const valid = existsSync(exePath) && statSync(exePath).isFile();
+  const valid = exePath !== null;
   let dllBytes = 0;
   if (existsSync(dllPath)) {
     try {
@@ -89,8 +98,8 @@ export function inspectGameRoot(raw: string): GameRootInfo {
     valid,
     error: valid
       ? null
-      : '这个目录不是 ETS2 游戏根目录：找不到 bin\\win_x64\\eurotrucks2.exe',
-    exePath,
+      : '这个目录不是 ETS2 / ATS 游戏根目录：找不到 bin\\win_x64\\eurotrucks2.exe 或 amtrucks.exe',
+    exePath: exePath ?? '',
     pluginsDir,
     dllPath,
     dllInstalled: dllBytes > 0,
@@ -110,7 +119,7 @@ $ProgressPreference = 'SilentlyContinue'
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 $target = ${target}
 $targetDir = Split-Path -Parent $target
-if (Get-Process -Name 'eurotrucks2' -ErrorAction SilentlyContinue) {
+if (Get-Process -Name 'eurotrucks2','amtrucks' -ErrorAction SilentlyContinue) {
   throw '请先退出游戏再安装/更新遥测 DLL（游戏正在占用文件）。'
 }
 New-Item -ItemType Directory -Force -Path $targetDir | Out-Null

@@ -92,6 +92,7 @@ export class RadarBook {
       radarMinSpeedKmh: number;
       radarWarnIntervalS: number;
     },
+    private readonly packagedPath = fileURLToPath(new URL('../assets/radar_points.json', import.meta.url)),
   ) {
     this.load();
   }
@@ -105,9 +106,8 @@ export class RadarBook {
   }
 
   private load(): void {
-    const packaged = fileURLToPath(new URL('../assets/radar_points.json', import.meta.url));
     this.points = [];
-    this.readFile(packaged, true);
+    this.readFile(this.packagedPath, true);
     if (existsSync(this.userPath)) this.readFile(this.userPath, false);
   }
 

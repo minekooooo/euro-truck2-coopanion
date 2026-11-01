@@ -1,0 +1,5417 @@
+{
+  "version": 1,
+  "source": "ATS map triggers (offence/weigh/toll)",
+  "generated_at": "2026-11-01T01:26:09.7281085+00:00",
+  "points": [
+    {
+      "id": "ats_speed_camera_138",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 138",
+      "x": -85511.375,
+      "z": 14748.901,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_142",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 142",
+      "x": -86817.109,
+      "z": 21073.004,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_147",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 147",
+      "x": -88180.773,
+      "z": 10740.869,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_151",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 151",
+      "x": -90142.625,
+      "z": 25792.521,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_158",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 158",
+      "x": -98855.719,
+      "z": -5556.081,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_165",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 165",
+      "x": -105074.617,
+      "z": -9362.546,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_166",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 166",
+      "x": -105108.555,
+      "z": -16579.441,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_174",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 174",
+      "x": -110157.125,
+      "z": -30949.396,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_175",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 175",
+      "x": -108331.594,
+      "z": -30753.057,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_352",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 352",
+      "x": -100692.633,
+      "z": -9092.948,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_353",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 353",
+      "x": -102155.641,
+      "z": -18863.139,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_395",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 395",
+      "x": -101320.219,
+      "z": -28937.617,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_396",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 396",
+      "x": -105552.594,
+      "z": -30279.658,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_406",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 406",
+      "x": -113391.172,
+      "z": -34955.641,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / offence"
+    },
+    {
+      "id": "ats_speed_camera_407",
+      "type": "speed_camera",
+      "name": "地图测速/违章摄像头 407",
+      "x": -114930.82,
+      "z": -36220.609,
+      "radius_m": 600,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / offence"
+    },
+    {
+      "id": "ats_toll_105",
+      "type": "toll",
+      "name": "地图收费站 105",
+      "x": -58444.621,
+      "z": -36724.609,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_106",
+      "type": "toll",
+      "name": "地图收费站 106",
+      "x": -59991.719,
+      "z": -38605.617,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_162",
+      "type": "toll",
+      "name": "地图收费站 162",
+      "x": -103218.422,
+      "z": -6603.808,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_164",
+      "type": "toll",
+      "name": "地图收费站 164",
+      "x": -105751.172,
+      "z": -6841.049,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_18",
+      "type": "toll",
+      "name": "地图收费站 18",
+      "x": 4871.135,
+      "z": 12702.594,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / pay_toll4"
+    },
+    {
+      "id": "ats_toll_180",
+      "type": "toll",
+      "name": "地图收费站 180",
+      "x": -113119.344,
+      "z": -9466.597,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_181",
+      "type": "toll",
+      "name": "地图收费站 181",
+      "x": -114255.008,
+      "z": -11875.487,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_182",
+      "type": "toll",
+      "name": "地图收费站 182",
+      "x": -112342.5,
+      "z": -12894.271,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_183",
+      "type": "toll",
+      "name": "地图收费站 183",
+      "x": -116671.891,
+      "z": -10718.395,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_21",
+      "type": "toll",
+      "name": "地图收费站 21",
+      "x": 4472.652,
+      "z": -442.975,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_237",
+      "type": "toll",
+      "name": "地图收费站 237",
+      "x": -40989.762,
+      "z": -9993.699,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_238",
+      "type": "toll",
+      "name": "地图收费站 238",
+      "x": -42458.605,
+      "z": -9208.621,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_256",
+      "type": "toll",
+      "name": "地图收费站 256",
+      "x": 31961.07,
+      "z": -19226.162,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_257",
+      "type": "toll",
+      "name": "地图收费站 257",
+      "x": 29637.182,
+      "z": -19428.324,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_263",
+      "type": "toll",
+      "name": "地图收费站 263",
+      "x": 1424.928,
+      "z": 641.4,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_264",
+      "type": "toll",
+      "name": "地图收费站 264",
+      "x": 1969.553,
+      "z": 336.471,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_265",
+      "type": "toll",
+      "name": "地图收费站 265",
+      "x": 1910.045,
+      "z": 270.305,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_266",
+      "type": "toll",
+      "name": "地图收费站 266",
+      "x": -1454.119,
+      "z": 3288.559,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_267",
+      "type": "toll",
+      "name": "地图收费站 267",
+      "x": -3692.594,
+      "z": 6052.867,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_272",
+      "type": "toll",
+      "name": "地图收费站 272",
+      "x": -4806.667,
+      "z": 6721.176,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_276",
+      "type": "toll",
+      "name": "地图收费站 276",
+      "x": -6051.025,
+      "z": 10095.227,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_277",
+      "type": "toll",
+      "name": "地图收费站 277",
+      "x": -5412.939,
+      "z": 8661.518,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_278",
+      "type": "toll",
+      "name": "地图收费站 278",
+      "x": -6034.901,
+      "z": 8481.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_279",
+      "type": "toll",
+      "name": "地图收费站 279",
+      "x": -6146.9,
+      "z": 10085.809,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_285",
+      "type": "toll",
+      "name": "地图收费站 285",
+      "x": 27693.25,
+      "z": 51803.543,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_286",
+      "type": "toll",
+      "name": "地图收费站 286",
+      "x": 28806.543,
+      "z": 46516.523,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_316",
+      "type": "toll",
+      "name": "地图收费站 316",
+      "x": -66816.422,
+      "z": -61104.383,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_317",
+      "type": "toll",
+      "name": "地图收费站 317",
+      "x": -64181.844,
+      "z": -62397.785,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_363",
+      "type": "toll",
+      "name": "地图收费站 363",
+      "x": 2885.852,
+      "z": 14054.296,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_365",
+      "type": "toll",
+      "name": "地图收费站 365",
+      "x": 221.49,
+      "z": 24661.938,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_366",
+      "type": "toll",
+      "name": "地图收费站 366",
+      "x": -2961.62,
+      "z": 14583.433,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_367",
+      "type": "toll",
+      "name": "地图收费站 367",
+      "x": -2715.006,
+      "z": 16950.871,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_368",
+      "type": "toll",
+      "name": "地图收费站 368",
+      "x": -645.726,
+      "z": 22895.426,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / pay_toll2"
+    },
+    {
+      "id": "ats_toll_370",
+      "type": "toll",
+      "name": "地图收费站 370",
+      "x": -5023.119,
+      "z": 18050.463,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / pay_toll4"
+    },
+    {
+      "id": "ats_toll_371",
+      "type": "toll",
+      "name": "地图收费站 371",
+      "x": -5069.66,
+      "z": 18136.986,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / pay_toll6"
+    },
+    {
+      "id": "ats_toll_374",
+      "type": "toll",
+      "name": "地图收费站 374",
+      "x": -9571.949,
+      "z": 21456.166,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / toll_onetime"
+    },
+    {
+      "id": "ats_toll_4",
+      "type": "toll",
+      "name": "地图收费站 4",
+      "x": 2136.952,
+      "z": -267.706,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_end"
+    },
+    {
+      "id": "ats_toll_5",
+      "type": "toll",
+      "name": "地图收费站 5",
+      "x": 2086.011,
+      "z": -197.647,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_start"
+    },
+    {
+      "id": "ats_toll_535",
+      "type": "toll",
+      "name": "地图收费站 535",
+      "x": -55415.32,
+      "z": -37437.168,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_536",
+      "type": "toll",
+      "name": "地图收费站 536",
+      "x": -57909.312,
+      "z": -34511.344,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / park_toll"
+    },
+    {
+      "id": "ats_toll_58",
+      "type": "toll",
+      "name": "地图收费站 58",
+      "x": -11436.109,
+      "z": 25779.506,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / toll_onetime"
+    },
+    {
+      "id": "ats_weigh_1",
+      "type": "weigh",
+      "name": "地图称重点 1",
+      "x": 2353.224,
+      "z": 28497.682,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_10",
+      "type": "weigh",
+      "name": "地图称重点 10",
+      "x": 5586.241,
+      "z": 1299.483,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_100",
+      "type": "weigh",
+      "name": "地图称重点 100",
+      "x": -56802.145,
+      "z": -5148.225,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_101",
+      "type": "weigh",
+      "name": "地图称重点 101",
+      "x": -56423.488,
+      "z": -5195.252,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_102",
+      "type": "weigh",
+      "name": "地图称重点 102",
+      "x": -56210.195,
+      "z": -5146.782,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_103",
+      "type": "weigh",
+      "name": "地图称重点 103",
+      "x": -56178.387,
+      "z": -5237.341,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_104",
+      "type": "weigh",
+      "name": "地图称重点 104",
+      "x": -56558.855,
+      "z": -5224.501,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_107",
+      "type": "weigh",
+      "name": "地图称重点 107",
+      "x": -63369.133,
+      "z": -18418.777,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_108",
+      "type": "weigh",
+      "name": "地图称重点 108",
+      "x": -63756.723,
+      "z": -18270.096,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_109",
+      "type": "weigh",
+      "name": "地图称重点 109",
+      "x": -62776.945,
+      "z": -18461.805,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_11",
+      "type": "weigh",
+      "name": "地图称重点 11",
+      "x": 4906.193,
+      "z": 1481.644,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_110",
+      "type": "weigh",
+      "name": "地图称重点 110",
+      "x": -63963.094,
+      "z": -17829.633,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_111",
+      "type": "weigh",
+      "name": "地图称重点 111",
+      "x": -63629.848,
+      "z": -18223.387,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_112",
+      "type": "weigh",
+      "name": "地图称重点 112",
+      "x": -61769.156,
+      "z": -29467.674,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_113",
+      "type": "weigh",
+      "name": "地图称重点 113",
+      "x": -61543.703,
+      "z": -28809.787,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_114",
+      "type": "weigh",
+      "name": "地图称重点 114",
+      "x": -61958.953,
+      "z": -28542.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_115",
+      "type": "weigh",
+      "name": "地图称重点 115",
+      "x": -62353.125,
+      "z": -34330.082,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_116",
+      "type": "weigh",
+      "name": "地图称重点 116",
+      "x": -62737.094,
+      "z": -34182.859,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_117",
+      "type": "weigh",
+      "name": "地图称重点 117",
+      "x": -67062.227,
+      "z": -19491.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_118",
+      "type": "weigh",
+      "name": "地图称重点 118",
+      "x": -67118.164,
+      "z": -19796.695,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_119",
+      "type": "weigh",
+      "name": "地图称重点 119",
+      "x": -67044.641,
+      "z": -20100.051,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_12",
+      "type": "weigh",
+      "name": "地图称重点 12",
+      "x": 5294.495,
+      "z": 1431.019,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_120",
+      "type": "weigh",
+      "name": "地图称重点 120",
+      "x": -67020.039,
+      "z": -20534.443,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_121",
+      "type": "weigh",
+      "name": "地图称重点 121",
+      "x": -67065.672,
+      "z": -20396.637,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_122",
+      "type": "weigh",
+      "name": "地图称重点 122",
+      "x": -66863.094,
+      "z": -27003.121,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_123",
+      "type": "weigh",
+      "name": "地图称重点 123",
+      "x": -66159.047,
+      "z": -26907.445,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_124",
+      "type": "weigh",
+      "name": "地图称重点 124",
+      "x": -66028.773,
+      "z": -26875.242,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_125",
+      "type": "weigh",
+      "name": "地图称重点 125",
+      "x": -68669.25,
+      "z": -45933.602,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_126",
+      "type": "weigh",
+      "name": "地图称重点 126",
+      "x": -68651.688,
+      "z": -46107.715,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_127",
+      "type": "weigh",
+      "name": "地图称重点 127",
+      "x": -75812.234,
+      "z": -49415.949,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_128",
+      "type": "weigh",
+      "name": "地图称重点 128",
+      "x": -73124.391,
+      "z": -61131.914,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_129",
+      "type": "weigh",
+      "name": "地图称重点 129",
+      "x": -73770.188,
+      "z": -61341.887,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_13",
+      "type": "weigh",
+      "name": "地图称重点 13",
+      "x": 4345.993,
+      "z": 1717.275,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_130",
+      "type": "weigh",
+      "name": "地图称重点 130",
+      "x": -72811.438,
+      "z": -60938.117,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_131",
+      "type": "weigh",
+      "name": "地图称重点 131",
+      "x": -73550.734,
+      "z": -61183.434,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_132",
+      "type": "weigh",
+      "name": "地图称重点 132",
+      "x": -79651.141,
+      "z": -58971.09,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_133",
+      "type": "weigh",
+      "name": "地图称重点 133",
+      "x": -78952.625,
+      "z": -58969.938,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_134",
+      "type": "weigh",
+      "name": "地图称重点 134",
+      "x": -80622.609,
+      "z": -37922.801,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_135",
+      "type": "weigh",
+      "name": "地图称重点 135",
+      "x": -80652.062,
+      "z": -37778.543,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_136",
+      "type": "weigh",
+      "name": "地图称重点 136",
+      "x": -80879.766,
+      "z": -37527.105,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_137",
+      "type": "weigh",
+      "name": "地图称重点 137",
+      "x": -80805.047,
+      "z": -37607.066,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_139",
+      "type": "weigh",
+      "name": "地图称重点 139",
+      "x": -85019.656,
+      "z": 21819.777,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_14",
+      "type": "weigh",
+      "name": "地图称重点 14",
+      "x": 4512.075,
+      "z": 1666.343,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_140",
+      "type": "weigh",
+      "name": "地图称重点 140",
+      "x": -85134.961,
+      "z": 21607.508,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_141",
+      "type": "weigh",
+      "name": "地图称重点 141",
+      "x": -85410.555,
+      "z": 21254.252,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_143",
+      "type": "weigh",
+      "name": "地图称重点 143",
+      "x": -87566.203,
+      "z": -50816.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_144",
+      "type": "weigh",
+      "name": "地图称重点 144",
+      "x": -87788.828,
+      "z": -51241.203,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_145",
+      "type": "weigh",
+      "name": "地图称重点 145",
+      "x": -87650.047,
+      "z": -50818.004,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_146",
+      "type": "weigh",
+      "name": "地图称重点 146",
+      "x": -87786.328,
+      "z": -51078.039,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_148",
+      "type": "weigh",
+      "name": "地图称重点 148",
+      "x": -89106.672,
+      "z": 20418.078,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_149",
+      "type": "weigh",
+      "name": "地图称重点 149",
+      "x": -88919.422,
+      "z": 20465.582,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_15",
+      "type": "weigh",
+      "name": "地图称重点 15",
+      "x": 5130.339,
+      "z": 12483.591,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_150",
+      "type": "weigh",
+      "name": "地图称重点 150",
+      "x": -88091.359,
+      "z": 20810.043,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_152",
+      "type": "weigh",
+      "name": "地图称重点 152",
+      "x": -90352.586,
+      "z": 25627.262,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_153",
+      "type": "weigh",
+      "name": "地图称重点 153",
+      "x": -89950.172,
+      "z": 25866.227,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_154",
+      "type": "weigh",
+      "name": "地图称重点 154",
+      "x": -90929.688,
+      "z": -51422.129,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_155",
+      "type": "weigh",
+      "name": "地图称重点 155",
+      "x": -90796.664,
+      "z": -51985.867,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_156",
+      "type": "weigh",
+      "name": "地图称重点 156",
+      "x": -88017.391,
+      "z": -50818.148,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_157",
+      "type": "weigh",
+      "name": "地图称重点 157",
+      "x": -90862.516,
+      "z": -51779.559,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_159",
+      "type": "weigh",
+      "name": "地图称重点 159",
+      "x": -99465.664,
+      "z": -52022.18,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_16",
+      "type": "weigh",
+      "name": "地图称重点 16",
+      "x": 5677.676,
+      "z": 12326.938,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_160",
+      "type": "weigh",
+      "name": "地图称重点 160",
+      "x": -99349.703,
+      "z": -52007.719,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_161",
+      "type": "weigh",
+      "name": "地图称重点 161",
+      "x": -99733.312,
+      "z": -52021.309,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_163",
+      "type": "weigh",
+      "name": "地图称重点 163",
+      "x": -100238.523,
+      "z": -52138.102,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_167",
+      "type": "weigh",
+      "name": "地图称重点 167",
+      "x": -104851.414,
+      "z": -17618.973,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_168",
+      "type": "weigh",
+      "name": "地图称重点 168",
+      "x": -105010.656,
+      "z": -17067.996,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_169",
+      "type": "weigh",
+      "name": "地图称重点 169",
+      "x": -111470.312,
+      "z": -22635.59,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_17",
+      "type": "weigh",
+      "name": "地图称重点 17",
+      "x": 5870.812,
+      "z": 12347.013,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_170",
+      "type": "weigh",
+      "name": "地图称重点 170",
+      "x": -111885.695,
+      "z": -21840.738,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_171",
+      "type": "weigh",
+      "name": "地图称重点 171",
+      "x": -111357.523,
+      "z": -22880.502,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_172",
+      "type": "weigh",
+      "name": "地图称重点 172",
+      "x": -111405.281,
+      "z": -22972.199,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_173",
+      "type": "weigh",
+      "name": "地图称重点 173",
+      "x": -111186.242,
+      "z": -23494.986,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_176",
+      "type": "weigh",
+      "name": "地图称重点 176",
+      "x": -109959.484,
+      "z": -32731.961,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_177",
+      "type": "weigh",
+      "name": "地图称重点 177",
+      "x": -109835.5,
+      "z": -33827.059,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_178",
+      "type": "weigh",
+      "name": "地图称重点 178",
+      "x": -109931.891,
+      "z": -33077.164,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_179",
+      "type": "weigh",
+      "name": "地图称重点 179",
+      "x": -109896.25,
+      "z": -33654.762,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_184",
+      "type": "weigh",
+      "name": "地图称重点 184",
+      "x": -117619.734,
+      "z": -29396.859,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_185",
+      "type": "weigh",
+      "name": "地图称重点 185",
+      "x": -117211.227,
+      "z": -29915.914,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_186",
+      "type": "weigh",
+      "name": "地图称重点 186",
+      "x": -117604.922,
+      "z": -29507.656,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_187",
+      "type": "weigh",
+      "name": "地图称重点 187",
+      "x": 8295.449,
+      "z": 18487.879,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_188",
+      "type": "weigh",
+      "name": "地图称重点 188",
+      "x": 9374.662,
+      "z": 18645.707,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_189",
+      "type": "weigh",
+      "name": "地图称重点 189",
+      "x": 9917.89,
+      "z": 18566.812,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_19",
+      "type": "weigh",
+      "name": "地图称重点 19",
+      "x": 7595.098,
+      "z": 18482.613,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_190",
+      "type": "weigh",
+      "name": "地图称重点 190",
+      "x": 9476.111,
+      "z": 18676.703,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_191",
+      "type": "weigh",
+      "name": "地图称重点 191",
+      "x": 10873.424,
+      "z": 18233.689,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_192",
+      "type": "weigh",
+      "name": "地图称重点 192",
+      "x": 10748.909,
+      "z": 18187.125,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_193",
+      "type": "weigh",
+      "name": "地图称重点 193",
+      "x": 10117.378,
+      "z": 18562.008,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_194",
+      "type": "weigh",
+      "name": "地图称重点 194",
+      "x": 10296.886,
+      "z": 18493.215,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_195",
+      "type": "weigh",
+      "name": "地图称重点 195",
+      "x": 12361.395,
+      "z": 28628.645,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_196",
+      "type": "weigh",
+      "name": "地图称重点 196",
+      "x": 12019.381,
+      "z": 29080.014,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ar.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_197",
+      "type": "weigh",
+      "name": "地图称重点 197",
+      "x": -60389.859,
+      "z": 6661.591,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_198",
+      "type": "weigh",
+      "name": "地图称重点 198",
+      "x": -60307.543,
+      "z": 6680.248,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_199",
+      "type": "weigh",
+      "name": "地图称重点 199",
+      "x": -60323.387,
+      "z": 16429.092,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_2",
+      "type": "weigh",
+      "name": "地图称重点 2",
+      "x": 2387.54,
+      "z": 28006.406,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_20",
+      "type": "weigh",
+      "name": "地图称重点 20",
+      "x": 7174.479,
+      "z": 18618.125,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_200",
+      "type": "weigh",
+      "name": "地图称重点 200",
+      "x": -61076.305,
+      "z": 16553.055,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_201",
+      "type": "weigh",
+      "name": "地图称重点 201",
+      "x": -60731.945,
+      "z": 16515.27,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_202",
+      "type": "weigh",
+      "name": "地图称重点 202",
+      "x": -62427.48,
+      "z": 33491.766,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_203",
+      "type": "weigh",
+      "name": "地图称重点 203",
+      "x": -61747.859,
+      "z": 33509.449,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_204",
+      "type": "weigh",
+      "name": "地图称重点 204",
+      "x": -60904,
+      "z": 32544.342,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_205",
+      "type": "weigh",
+      "name": "地图称重点 205",
+      "x": -61262.086,
+      "z": 32016.816,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_206",
+      "type": "weigh",
+      "name": "地图称重点 206",
+      "x": -60654.078,
+      "z": 33293.016,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_207",
+      "type": "weigh",
+      "name": "地图称重点 207",
+      "x": -62245.527,
+      "z": 33540.812,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_208",
+      "type": "weigh",
+      "name": "地图称重点 208",
+      "x": -60087.672,
+      "z": 33497.039,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_209",
+      "type": "weigh",
+      "name": "地图称重点 209",
+      "x": -70069.094,
+      "z": 4234.338,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_210",
+      "type": "weigh",
+      "name": "地图称重点 210",
+      "x": -69812.133,
+      "z": 4455.691,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_211",
+      "type": "weigh",
+      "name": "地图称重点 211",
+      "x": -83371.836,
+      "z": 15024.829,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_212",
+      "type": "weigh",
+      "name": "地图称重点 212",
+      "x": -83130.922,
+      "z": 14538.382,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_213",
+      "type": "weigh",
+      "name": "地图称重点 213",
+      "x": -83047.227,
+      "z": 14287.33,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_arizona.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_214",
+      "type": "weigh",
+      "name": "地图称重点 214",
+      "x": -30001.707,
+      "z": 3492.309,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_215",
+      "type": "weigh",
+      "name": "地图称重点 215",
+      "x": -29449.898,
+      "z": 3431.485,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_216",
+      "type": "weigh",
+      "name": "地图称重点 216",
+      "x": -29661.895,
+      "z": 3456.03,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_217",
+      "type": "weigh",
+      "name": "地图称重点 217",
+      "x": -29340.807,
+      "z": 3407.476,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_218",
+      "type": "weigh",
+      "name": "地图称重点 218",
+      "x": -33051.914,
+      "z": -2849.922,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_219",
+      "type": "weigh",
+      "name": "地图称重点 219",
+      "x": -33787.34,
+      "z": -2840.617,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_22",
+      "type": "weigh",
+      "name": "地图称重点 22",
+      "x": 11548.717,
+      "z": 29343.387,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_220",
+      "type": "weigh",
+      "name": "地图称重点 220",
+      "x": -32792.93,
+      "z": -2803.083,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_221",
+      "type": "weigh",
+      "name": "地图称重点 221",
+      "x": -33471.473,
+      "z": -2879.566,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_222",
+      "type": "weigh",
+      "name": "地图称重点 222",
+      "x": -33291.688,
+      "z": -2471.492,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_223",
+      "type": "weigh",
+      "name": "地图称重点 223",
+      "x": -32827.773,
+      "z": -2516.602,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_224",
+      "type": "weigh",
+      "name": "地图称重点 224",
+      "x": -33057.422,
+      "z": -3225.786,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_225",
+      "type": "weigh",
+      "name": "地图称重点 225",
+      "x": -33223.648,
+      "z": -2921.748,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_226",
+      "type": "weigh",
+      "name": "地图称重点 226",
+      "x": -32684.883,
+      "z": -8615.519,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_227",
+      "type": "weigh",
+      "name": "地图称重点 227",
+      "x": -32374.805,
+      "z": -8670.613,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_228",
+      "type": "weigh",
+      "name": "地图称重点 228",
+      "x": -33103.988,
+      "z": -8579.984,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_229",
+      "type": "weigh",
+      "name": "地图称重点 229",
+      "x": -33397.598,
+      "z": -8549.679,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_23",
+      "type": "weigh",
+      "name": "地图称重点 23",
+      "x": 11131.251,
+      "z": 29743.336,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_230",
+      "type": "weigh",
+      "name": "地图称重点 230",
+      "x": -38055.918,
+      "z": 7855.93,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_231",
+      "type": "weigh",
+      "name": "地图称重点 231",
+      "x": -38299.711,
+      "z": -10025.015,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_232",
+      "type": "weigh",
+      "name": "地图称重点 232",
+      "x": -38189.172,
+      "z": -10973.495,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_233",
+      "type": "weigh",
+      "name": "地图称重点 233",
+      "x": -38272.281,
+      "z": -10331.544,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_234",
+      "type": "weigh",
+      "name": "地图称重点 234",
+      "x": -38228.902,
+      "z": -10420.783,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_235",
+      "type": "weigh",
+      "name": "地图称重点 235",
+      "x": -38178.859,
+      "z": -10670.125,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_236",
+      "type": "weigh",
+      "name": "地图称重点 236",
+      "x": -38222.238,
+      "z": -10580.887,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_co.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_239",
+      "type": "weigh",
+      "name": "地图称重点 239",
+      "x": -64584.195,
+      "z": -35034.93,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_24",
+      "type": "weigh",
+      "name": "地图称重点 24",
+      "x": 11888.361,
+      "z": 29113.711,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_240",
+      "type": "weigh",
+      "name": "地图称重点 240",
+      "x": -64655.602,
+      "z": -35249.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_241",
+      "type": "weigh",
+      "name": "地图称重点 241",
+      "x": -64784.234,
+      "z": -35944.531,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_242",
+      "type": "weigh",
+      "name": "地图称重点 242",
+      "x": -71807.828,
+      "z": -26958.426,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_243",
+      "type": "weigh",
+      "name": "地图称重点 243",
+      "x": -71883.25,
+      "z": -27181.865,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_244",
+      "type": "weigh",
+      "name": "地图称重点 244",
+      "x": -72013.922,
+      "z": -28102.566,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_245",
+      "type": "weigh",
+      "name": "地图称重点 245",
+      "x": -72084.688,
+      "z": -28298.312,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_246",
+      "type": "weigh",
+      "name": "地图称重点 246",
+      "x": -76001.711,
+      "z": -49164.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_247",
+      "type": "weigh",
+      "name": "地图称重点 247",
+      "x": -76462.312,
+      "z": -49497.562,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_248",
+      "type": "weigh",
+      "name": "地图称重点 248",
+      "x": -79280.242,
+      "z": -52127.535,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_249",
+      "type": "weigh",
+      "name": "地图称重点 249",
+      "x": -78838.219,
+      "z": -52081.438,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_25",
+      "type": "weigh",
+      "name": "地图称重点 25",
+      "x": 11679.455,
+      "z": 29308.705,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_250",
+      "type": "weigh",
+      "name": "地图称重点 250",
+      "x": -79109.844,
+      "z": -52143.75,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_251",
+      "type": "weigh",
+      "name": "地图称重点 251",
+      "x": -78636.203,
+      "z": -52107.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_252",
+      "type": "weigh",
+      "name": "地图称重点 252",
+      "x": -80336.266,
+      "z": -52653.34,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_253",
+      "type": "weigh",
+      "name": "地图称重点 253",
+      "x": -80983.297,
+      "z": -52996,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_254",
+      "type": "weigh",
+      "name": "地图称重点 254",
+      "x": -80760.156,
+      "z": -52583.68,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_255",
+      "type": "weigh",
+      "name": "地图称重点 255",
+      "x": -80934.156,
+      "z": -52817.953,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_id.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_258",
+      "type": "weigh",
+      "name": "地图称重点 258",
+      "x": 33931.949,
+      "z": -14199.506,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_259",
+      "type": "weigh",
+      "name": "地图称重点 259",
+      "x": 34332.07,
+      "z": -13684.049,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_26",
+      "type": "weigh",
+      "name": "地图称重点 26",
+      "x": 11686.001,
+      "z": 29211.645,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_260",
+      "type": "weigh",
+      "name": "地图称重点 260",
+      "x": 34479.875,
+      "z": -13446.85,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_261",
+      "type": "weigh",
+      "name": "地图称重点 261",
+      "x": 34807.242,
+      "z": -12929.643,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_262",
+      "type": "weigh",
+      "name": "地图称重点 262",
+      "x": 36372.699,
+      "z": -3595.189,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_il.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_268",
+      "type": "weigh",
+      "name": "地图称重点 268",
+      "x": -2291.854,
+      "z": -723.989,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_269",
+      "type": "weigh",
+      "name": "地图称重点 269",
+      "x": -1439.842,
+      "z": -995.583,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_27",
+      "type": "weigh",
+      "name": "地图称重点 27",
+      "x": 11885.724,
+      "z": 29205.969,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_270",
+      "type": "weigh",
+      "name": "地图称重点 270",
+      "x": -1770.085,
+      "z": -987.819,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_271",
+      "type": "weigh",
+      "name": "地图称重点 271",
+      "x": -850.244,
+      "z": -1073.2,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_273",
+      "type": "weigh",
+      "name": "地图称重点 273",
+      "x": -6057.074,
+      "z": 10570.707,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_274",
+      "type": "weigh",
+      "name": "地图称重点 274",
+      "x": -6171.138,
+      "z": 11718.737,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_275",
+      "type": "weigh",
+      "name": "地图称重点 275",
+      "x": -6095.621,
+      "z": 11011.936,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_28",
+      "type": "weigh",
+      "name": "地图称重点 28",
+      "x": 9237.217,
+      "z": -9247.666,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_280",
+      "type": "weigh",
+      "name": "地图称重点 280",
+      "x": -7407.564,
+      "z": -3874.238,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ks.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_281",
+      "type": "weigh",
+      "name": "地图称重点 281",
+      "x": 26855.547,
+      "z": 46367.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_282",
+      "type": "weigh",
+      "name": "地图称重点 282",
+      "x": 26621.34,
+      "z": 46754.824,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_283",
+      "type": "weigh",
+      "name": "地图称重点 283",
+      "x": 26584.535,
+      "z": 46990.004,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_284",
+      "type": "weigh",
+      "name": "地图称重点 284",
+      "x": 26948.992,
+      "z": 46197.102,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_la.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_287",
+      "type": "weigh",
+      "name": "地图称重点 287",
+      "x": -32872.938,
+      "z": -50395.496,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_288",
+      "type": "weigh",
+      "name": "地图称重点 288",
+      "x": -32993.555,
+      "z": -50310.859,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_289",
+      "type": "weigh",
+      "name": "地图称重点 289",
+      "x": -32545.688,
+      "z": -50717.258,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_29",
+      "type": "weigh",
+      "name": "地图称重点 29",
+      "x": 9015.698,
+      "z": -8597.646,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_290",
+      "type": "weigh",
+      "name": "地图称重点 290",
+      "x": -37329.949,
+      "z": -39077.066,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_291",
+      "type": "weigh",
+      "name": "地图称重点 291",
+      "x": -36814.863,
+      "z": -38611.988,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_292",
+      "type": "weigh",
+      "name": "地图称重点 292",
+      "x": -50048.383,
+      "z": -40614.457,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_293",
+      "type": "weigh",
+      "name": "地图称重点 293",
+      "x": -49355.27,
+      "z": -41039.91,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_294",
+      "type": "weigh",
+      "name": "地图称重点 294",
+      "x": -49648.281,
+      "z": -40873.695,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_295",
+      "type": "weigh",
+      "name": "地图称重点 295",
+      "x": -49782.16,
+      "z": -40832.75,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_296",
+      "type": "weigh",
+      "name": "地图称重点 296",
+      "x": -48850.836,
+      "z": -41367.824,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_297",
+      "type": "weigh",
+      "name": "地图称重点 297",
+      "x": -55982.516,
+      "z": -51597.75,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_298",
+      "type": "weigh",
+      "name": "地图称重点 298",
+      "x": -52019.633,
+      "z": -58085.859,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_299",
+      "type": "weigh",
+      "name": "地图称重点 299",
+      "x": -52307.273,
+      "z": -57743.695,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_3",
+      "type": "weigh",
+      "name": "地图称重点 3",
+      "x": 2459.234,
+      "z": 28056.869,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_30",
+      "type": "weigh",
+      "name": "地图称重点 30",
+      "x": 8954.822,
+      "z": -8450.92,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_300",
+      "type": "weigh",
+      "name": "地图称重点 300",
+      "x": -52232.344,
+      "z": -58111.215,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_301",
+      "type": "weigh",
+      "name": "地图称重点 301",
+      "x": -52469.52,
+      "z": -58141.535,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_302",
+      "type": "weigh",
+      "name": "地图称重点 302",
+      "x": -52291.578,
+      "z": -57869.953,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_303",
+      "type": "weigh",
+      "name": "地图称重点 303",
+      "x": -52587.43,
+      "z": -58155.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_304",
+      "type": "weigh",
+      "name": "地图称重点 304",
+      "x": -56443.281,
+      "z": -51662.203,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_305",
+      "type": "weigh",
+      "name": "地图称重点 305",
+      "x": -56424.992,
+      "z": -52397.074,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_306",
+      "type": "weigh",
+      "name": "地图称重点 306",
+      "x": -56109.441,
+      "z": -52023.59,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_307",
+      "type": "weigh",
+      "name": "地图称重点 307",
+      "x": -61043.844,
+      "z": -42455.117,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_308",
+      "type": "weigh",
+      "name": "地图称重点 308",
+      "x": -60863.586,
+      "z": -42869.953,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_309",
+      "type": "weigh",
+      "name": "地图称重点 309",
+      "x": -61016.594,
+      "z": -42616.816,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_31",
+      "type": "weigh",
+      "name": "地图称重点 31",
+      "x": 9561.451,
+      "z": -9896.727,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_310",
+      "type": "weigh",
+      "name": "地图称重点 310",
+      "x": -60980.492,
+      "z": -42812.711,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_311",
+      "type": "weigh",
+      "name": "地图称重点 311",
+      "x": -64858.324,
+      "z": -36415.711,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_312",
+      "type": "weigh",
+      "name": "地图称重点 312",
+      "x": -66481.203,
+      "z": -38911.273,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_313",
+      "type": "weigh",
+      "name": "地图称重点 313",
+      "x": -65212.168,
+      "z": -45551.383,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_314",
+      "type": "weigh",
+      "name": "地图称重点 314",
+      "x": -65291.219,
+      "z": -45736.922,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_315",
+      "type": "weigh",
+      "name": "地图称重点 315",
+      "x": -65953.828,
+      "z": -45897.793,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_318",
+      "type": "weigh",
+      "name": "地图称重点 318",
+      "x": -70081.359,
+      "z": -49654.062,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_319",
+      "type": "weigh",
+      "name": "地图称重点 319",
+      "x": -70078.25,
+      "z": -48985.062,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_32",
+      "type": "weigh",
+      "name": "地图称重点 32",
+      "x": 9531.375,
+      "z": -10374.574,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_320",
+      "type": "weigh",
+      "name": "地图称重点 320",
+      "x": -70287.922,
+      "z": -49389.602,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_321",
+      "type": "weigh",
+      "name": "地图称重点 321",
+      "x": -73464,
+      "z": -55226.641,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_322",
+      "type": "weigh",
+      "name": "地图称重点 322",
+      "x": -73229.094,
+      "z": -55303.395,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_323",
+      "type": "weigh",
+      "name": "地图称重点 323",
+      "x": -74006.594,
+      "z": -55376.633,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_324",
+      "type": "weigh",
+      "name": "地图称重点 324",
+      "x": -72749.281,
+      "z": -54934.695,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_325",
+      "type": "weigh",
+      "name": "地图称重点 325",
+      "x": -73458.531,
+      "z": -55319.25,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_326",
+      "type": "weigh",
+      "name": "地图称重点 326",
+      "x": -73153.406,
+      "z": -55122.336,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_mt.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_327",
+      "type": "weigh",
+      "name": "地图称重点 327",
+      "x": -4355.956,
+      "z": -19749.441,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_328",
+      "type": "weigh",
+      "name": "地图称重点 328",
+      "x": -5008.171,
+      "z": -19364.816,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_329",
+      "type": "weigh",
+      "name": "地图称重点 329",
+      "x": -4858.144,
+      "z": -19729.768,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_33",
+      "type": "weigh",
+      "name": "地图称重点 33",
+      "x": 9530.275,
+      "z": -10545.033,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_330",
+      "type": "weigh",
+      "name": "地图称重点 330",
+      "x": -4784.991,
+      "z": -19780.133,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_331",
+      "type": "weigh",
+      "name": "地图称重点 331",
+      "x": -10091.361,
+      "z": -18468.682,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_332",
+      "type": "weigh",
+      "name": "地图称重点 332",
+      "x": -10715.406,
+      "z": -19167.844,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_333",
+      "type": "weigh",
+      "name": "地图称重点 333",
+      "x": -10633.757,
+      "z": -19024.254,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_334",
+      "type": "weigh",
+      "name": "地图称重点 334",
+      "x": -10378.597,
+      "z": -18587.463,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_335",
+      "type": "weigh",
+      "name": "地图称重点 335",
+      "x": -10128.451,
+      "z": -18910.789,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_336",
+      "type": "weigh",
+      "name": "地图称重点 336",
+      "x": -17556.445,
+      "z": -10972.593,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_337",
+      "type": "weigh",
+      "name": "地图称重点 337",
+      "x": -18570.277,
+      "z": -11556.189,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_338",
+      "type": "weigh",
+      "name": "地图称重点 338",
+      "x": -17943.715,
+      "z": -11109.318,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_339",
+      "type": "weigh",
+      "name": "地图称重点 339",
+      "x": -18975.496,
+      "z": -11719.55,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_34",
+      "type": "weigh",
+      "name": "地图称重点 34",
+      "x": 23977.129,
+      "z": -14269.736,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_340",
+      "type": "weigh",
+      "name": "地图称重点 340",
+      "x": -18067.289,
+      "z": -11227.656,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_341",
+      "type": "weigh",
+      "name": "地图称重点 341",
+      "x": -18446.973,
+      "z": -11437.145,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ne.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_342",
+      "type": "weigh",
+      "name": "地图称重点 342",
+      "x": -77539.375,
+      "z": -26816.414,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_343",
+      "type": "weigh",
+      "name": "地图称重点 343",
+      "x": -77170.688,
+      "z": -27289.549,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_344",
+      "type": "weigh",
+      "name": "地图称重点 344",
+      "x": -83413.172,
+      "z": 11604.852,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_345",
+      "type": "weigh",
+      "name": "地图称重点 345",
+      "x": -83484.078,
+      "z": 11804.797,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_346",
+      "type": "weigh",
+      "name": "地图称重点 346",
+      "x": -83061.742,
+      "z": 10654.323,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_347",
+      "type": "weigh",
+      "name": "地图称重点 347",
+      "x": -80906.938,
+      "z": -21012.605,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_348",
+      "type": "weigh",
+      "name": "地图称重点 348",
+      "x": -81689.281,
+      "z": -20232.555,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_349",
+      "type": "weigh",
+      "name": "地图称重点 349",
+      "x": -87825.359,
+      "z": 10337.411,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_35",
+      "type": "weigh",
+      "name": "地图称重点 35",
+      "x": 23784.273,
+      "z": -14237.934,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_350",
+      "type": "weigh",
+      "name": "地图称重点 350",
+      "x": -87974.906,
+      "z": 10483.475,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_351",
+      "type": "weigh",
+      "name": "地图称重点 351",
+      "x": -98381.312,
+      "z": -16476.828,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nevada.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_354",
+      "type": "weigh",
+      "name": "地图称重点 354",
+      "x": -42046.52,
+      "z": 22860.801,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_355",
+      "type": "weigh",
+      "name": "地图称重点 355",
+      "x": -42357.754,
+      "z": 22821.604,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_356",
+      "type": "weigh",
+      "name": "地图称重点 356",
+      "x": -42298.949,
+      "z": 22990.586,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_357",
+      "type": "weigh",
+      "name": "地图称重点 357",
+      "x": -42149.633,
+      "z": 22920.562,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_358",
+      "type": "weigh",
+      "name": "地图称重点 358",
+      "x": -42025.055,
+      "z": 23358.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_359",
+      "type": "weigh",
+      "name": "地图称重点 359",
+      "x": -59155.535,
+      "z": 15534.13,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_36",
+      "type": "weigh",
+      "name": "地图称重点 36",
+      "x": 23123.514,
+      "z": -14226.355,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_360",
+      "type": "weigh",
+      "name": "地图称重点 360",
+      "x": -59002.773,
+      "z": 15517.679,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_361",
+      "type": "weigh",
+      "name": "地图称重点 361",
+      "x": -59686.5,
+      "z": 16027.32,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_362",
+      "type": "weigh",
+      "name": "地图称重点 362",
+      "x": -59874.73,
+      "z": 33686.676,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_nm.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_364",
+      "type": "weigh",
+      "name": "地图称重点 364",
+      "x": 2403.823,
+      "z": 27465.281,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_369",
+      "type": "weigh",
+      "name": "地图称重点 369",
+      "x": -6209.461,
+      "z": 12246.801,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_37",
+      "type": "weigh",
+      "name": "地图称重点 37",
+      "x": 24519.543,
+      "z": -14634.502,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_372",
+      "type": "weigh",
+      "name": "地图称重点 372",
+      "x": -5186.577,
+      "z": 27706.008,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_373",
+      "type": "weigh",
+      "name": "地图称重点 373",
+      "x": -5164.8,
+      "z": 27606.082,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_375",
+      "type": "weigh",
+      "name": "地图称重点 375",
+      "x": -27431.941,
+      "z": 11510.547,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_376",
+      "type": "weigh",
+      "name": "地图称重点 376",
+      "x": -29163.967,
+      "z": 10793.609,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_377",
+      "type": "weigh",
+      "name": "地图称重点 377",
+      "x": -29250.469,
+      "z": 11981.607,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_378",
+      "type": "weigh",
+      "name": "地图称重点 378",
+      "x": -28496.137,
+      "z": 11705.183,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ok.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_379",
+      "type": "weigh",
+      "name": "地图称重点 379",
+      "x": -87180.258,
+      "z": -47394.836,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_38",
+      "type": "weigh",
+      "name": "地图称重点 38",
+      "x": 31564.578,
+      "z": 7153.904,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_380",
+      "type": "weigh",
+      "name": "地图称重点 380",
+      "x": -87124.07,
+      "z": -45398.43,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_381",
+      "type": "weigh",
+      "name": "地图称重点 381",
+      "x": -86644.852,
+      "z": -47389.895,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_382",
+      "type": "weigh",
+      "name": "地图称重点 382",
+      "x": -87760.594,
+      "z": -45163.141,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_383",
+      "type": "weigh",
+      "name": "地图称重点 383",
+      "x": -89501.672,
+      "z": -31852.223,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_384",
+      "type": "weigh",
+      "name": "地图称重点 384",
+      "x": -89502.219,
+      "z": -31937.996,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_385",
+      "type": "weigh",
+      "name": "地图称重点 385",
+      "x": -89130.766,
+      "z": -32448.43,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_386",
+      "type": "weigh",
+      "name": "地图称重点 386",
+      "x": -89611.344,
+      "z": -32587.523,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_387",
+      "type": "weigh",
+      "name": "地图称重点 387",
+      "x": -89664.992,
+      "z": -32795.75,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_388",
+      "type": "weigh",
+      "name": "地图称重点 388",
+      "x": -89030.125,
+      "z": -32450.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_389",
+      "type": "weigh",
+      "name": "地图称重点 389",
+      "x": -92563.945,
+      "z": -38625.633,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_39",
+      "type": "weigh",
+      "name": "地图称重点 39",
+      "x": 31459.953,
+      "z": 7322.496,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_390",
+      "type": "weigh",
+      "name": "地图称重点 390",
+      "x": -92393.406,
+      "z": -38579.32,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_391",
+      "type": "weigh",
+      "name": "地图称重点 391",
+      "x": -92077.062,
+      "z": -38498.648,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_392",
+      "type": "weigh",
+      "name": "地图称重点 392",
+      "x": -92222.977,
+      "z": -38532.18,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_393",
+      "type": "weigh",
+      "name": "地图称重点 393",
+      "x": -98851.867,
+      "z": -51931.582,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_394",
+      "type": "weigh",
+      "name": "地图称重点 394",
+      "x": -99602.594,
+      "z": -51978.574,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_397",
+      "type": "weigh",
+      "name": "地图称重点 397",
+      "x": -105657.891,
+      "z": -35699.773,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_398",
+      "type": "weigh",
+      "name": "地图称重点 398",
+      "x": -105850.688,
+      "z": -35264.219,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_399",
+      "type": "weigh",
+      "name": "地图称重点 399",
+      "x": -105927.531,
+      "z": -34655.883,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_40",
+      "type": "weigh",
+      "name": "地图称重点 40",
+      "x": 31774.875,
+      "z": 6674.699,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_400",
+      "type": "weigh",
+      "name": "地图称重点 400",
+      "x": -110770.781,
+      "z": -41921.969,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_401",
+      "type": "weigh",
+      "name": "地图称重点 401",
+      "x": -110341.609,
+      "z": -41375.578,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_402",
+      "type": "weigh",
+      "name": "地图称重点 402",
+      "x": -110261.656,
+      "z": -41262.961,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_403",
+      "type": "weigh",
+      "name": "地图称重点 403",
+      "x": -110391.422,
+      "z": -40668.961,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_404",
+      "type": "weigh",
+      "name": "地图称重点 404",
+      "x": -110387.984,
+      "z": -41523.648,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_405",
+      "type": "weigh",
+      "name": "地图称重点 405",
+      "x": -110269.766,
+      "z": -41165.422,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_or.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_408",
+      "type": "weigh",
+      "name": "地图称重点 408",
+      "x": 75.24,
+      "z": 35733.344,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_409",
+      "type": "weigh",
+      "name": "地图称重点 409",
+      "x": 1531.257,
+      "z": 35914.047,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_41",
+      "type": "weigh",
+      "name": "地图称重点 41",
+      "x": 31699.166,
+      "z": 6769.738,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_410",
+      "type": "weigh",
+      "name": "地图称重点 410",
+      "x": 1089.624,
+      "z": 35859.09,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_411",
+      "type": "weigh",
+      "name": "地图称重点 411",
+      "x": 475.844,
+      "z": 35738.539,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_412",
+      "type": "weigh",
+      "name": "地图称重点 412",
+      "x": 2937.284,
+      "z": 32775.562,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_413",
+      "type": "weigh",
+      "name": "地图称重点 413",
+      "x": 3931.921,
+      "z": 32938.336,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_414",
+      "type": "weigh",
+      "name": "地图称重点 414",
+      "x": 3280.953,
+      "z": 32797.586,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_415",
+      "type": "weigh",
+      "name": "地图称重点 415",
+      "x": 565.733,
+      "z": 42628.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_416",
+      "type": "weigh",
+      "name": "地图称重点 416",
+      "x": 310.644,
+      "z": 41698.492,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_417",
+      "type": "weigh",
+      "name": "地图称重点 417",
+      "x": 260.939,
+      "z": 44196.938,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_418",
+      "type": "weigh",
+      "name": "地图称重点 418",
+      "x": 423.596,
+      "z": 44220.805,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_419",
+      "type": "weigh",
+      "name": "地图称重点 419",
+      "x": 1998.186,
+      "z": 47693.633,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_42",
+      "type": "weigh",
+      "name": "地图称重点 42",
+      "x": 31823.73,
+      "z": 6211.529,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_420",
+      "type": "weigh",
+      "name": "地图称重点 420",
+      "x": 1704.607,
+      "z": 48620.219,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_421",
+      "type": "weigh",
+      "name": "地图称重点 421",
+      "x": 339.87,
+      "z": 53231.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_422",
+      "type": "weigh",
+      "name": "地图称重点 422",
+      "x": 4312.055,
+      "z": 32879.902,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_423",
+      "type": "weigh",
+      "name": "地图称重点 423",
+      "x": -2836.604,
+      "z": 36182.398,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_424",
+      "type": "weigh",
+      "name": "地图称重点 424",
+      "x": -2651.422,
+      "z": 37474.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_425",
+      "type": "weigh",
+      "name": "地图称重点 425",
+      "x": -2802.754,
+      "z": 37298.574,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_426",
+      "type": "weigh",
+      "name": "地图称重点 426",
+      "x": -2825.436,
+      "z": 36713.148,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_427",
+      "type": "weigh",
+      "name": "地图称重点 427",
+      "x": -2949.438,
+      "z": 36965.68,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_428",
+      "type": "weigh",
+      "name": "地图称重点 428",
+      "x": -2843.811,
+      "z": 36621.484,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_429",
+      "type": "weigh",
+      "name": "地图称重点 429",
+      "x": -2899.703,
+      "z": 37100.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_43",
+      "type": "weigh",
+      "name": "地图称重点 43",
+      "x": 31832.473,
+      "z": 6057.193,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_430",
+      "type": "weigh",
+      "name": "地图称重点 430",
+      "x": -2839.533,
+      "z": 36846.043,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_431",
+      "type": "weigh",
+      "name": "地图称重点 431",
+      "x": -2974.06,
+      "z": 36859.664,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_432",
+      "type": "weigh",
+      "name": "地图称重点 432",
+      "x": -2927.654,
+      "z": 36783.207,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_433",
+      "type": "weigh",
+      "name": "地图称重点 433",
+      "x": -455.006,
+      "z": 51248.57,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_434",
+      "type": "weigh",
+      "name": "地图称重点 434",
+      "x": -1934.397,
+      "z": 51822.246,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_435",
+      "type": "weigh",
+      "name": "地图称重点 435",
+      "x": -2101.957,
+      "z": 51886.52,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_436",
+      "type": "weigh",
+      "name": "地图称重点 436",
+      "x": -1168.563,
+      "z": 51457.125,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_437",
+      "type": "weigh",
+      "name": "地图称重点 437",
+      "x": -222.062,
+      "z": 54096.133,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_438",
+      "type": "weigh",
+      "name": "地图称重点 438",
+      "x": -5102.924,
+      "z": 28283.672,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_439",
+      "type": "weigh",
+      "name": "地图称重点 439",
+      "x": -6989.227,
+      "z": 58427.496,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_44",
+      "type": "weigh",
+      "name": "地图称重点 44",
+      "x": 30510.773,
+      "z": 10991.168,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_440",
+      "type": "weigh",
+      "name": "地图称重点 440",
+      "x": -7326.66,
+      "z": 58605.68,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_441",
+      "type": "weigh",
+      "name": "地图称重点 441",
+      "x": -7642.375,
+      "z": 58673.719,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_442",
+      "type": "weigh",
+      "name": "地图称重点 442",
+      "x": -10938.529,
+      "z": 58958.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_443",
+      "type": "weigh",
+      "name": "地图称重点 443",
+      "x": -10927.737,
+      "z": 58569.297,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_444",
+      "type": "weigh",
+      "name": "地图称重点 444",
+      "x": -11002.342,
+      "z": 58041.695,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_445",
+      "type": "weigh",
+      "name": "地图称重点 445",
+      "x": -10793.804,
+      "z": 59452.582,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_446",
+      "type": "weigh",
+      "name": "地图称重点 446",
+      "x": -8058.807,
+      "z": 58822.559,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_447",
+      "type": "weigh",
+      "name": "地图称重点 447",
+      "x": -9365.884,
+      "z": 65836,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_448",
+      "type": "weigh",
+      "name": "地图称重点 448",
+      "x": -9726.464,
+      "z": 65182.617,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_449",
+      "type": "weigh",
+      "name": "地图称重点 449",
+      "x": -9652.429,
+      "z": 65339.859,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_45",
+      "type": "weigh",
+      "name": "地图称重点 45",
+      "x": 30657.449,
+      "z": 11002.377,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_450",
+      "type": "weigh",
+      "name": "地图称重点 450",
+      "x": -9502.356,
+      "z": 65569.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_451",
+      "type": "weigh",
+      "name": "地图称重点 451",
+      "x": -15471.089,
+      "z": 56231.023,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_452",
+      "type": "weigh",
+      "name": "地图称重点 452",
+      "x": -15788.69,
+      "z": 56361.305,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_453",
+      "type": "weigh",
+      "name": "地图称重点 453",
+      "x": -16381.019,
+      "z": 56767.098,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_454",
+      "type": "weigh",
+      "name": "地图称重点 454",
+      "x": -16616.051,
+      "z": 57010.125,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_455",
+      "type": "weigh",
+      "name": "地图称重点 455",
+      "x": -20328.398,
+      "z": 25152.271,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_456",
+      "type": "weigh",
+      "name": "地图称重点 456",
+      "x": -20158.645,
+      "z": 25187.965,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_457",
+      "type": "weigh",
+      "name": "地图称重点 457",
+      "x": -24887.754,
+      "z": 38822.32,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_458",
+      "type": "weigh",
+      "name": "地图称重点 458",
+      "x": -32466.752,
+      "z": 40299.656,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_459",
+      "type": "weigh",
+      "name": "地图称重点 459",
+      "x": -33389.406,
+      "z": 40776.445,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_46",
+      "type": "weigh",
+      "name": "地图称重点 46",
+      "x": 30996.934,
+      "z": 10904.789,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_460",
+      "type": "weigh",
+      "name": "地图称重点 460",
+      "x": -32904.484,
+      "z": 40523.305,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_461",
+      "type": "weigh",
+      "name": "地图称重点 461",
+      "x": -32091.457,
+      "z": 40213.551,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_462",
+      "type": "weigh",
+      "name": "地图称重点 462",
+      "x": -33089.141,
+      "z": 40592.191,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_tx.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_463",
+      "type": "weigh",
+      "name": "地图称重点 463",
+      "x": -63623.672,
+      "z": -9925.516,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_464",
+      "type": "weigh",
+      "name": "地图称重点 464",
+      "x": -63689.82,
+      "z": -10211.354,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_465",
+      "type": "weigh",
+      "name": "地图称重点 465",
+      "x": -64848.371,
+      "z": -13754.65,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_466",
+      "type": "weigh",
+      "name": "地图称重点 466",
+      "x": -64460.762,
+      "z": -13368.197,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_467",
+      "type": "weigh",
+      "name": "地图称重点 467",
+      "x": -64706.949,
+      "z": -13549.469,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_468",
+      "type": "weigh",
+      "name": "地图称重点 468",
+      "x": -74028.57,
+      "z": 3326.714,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_469",
+      "type": "weigh",
+      "name": "地图称重点 469",
+      "x": -73430.031,
+      "z": 3597.485,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_47",
+      "type": "weigh",
+      "name": "地图称重点 47",
+      "x": -2919.171,
+      "z": 29333.121,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_470",
+      "type": "weigh",
+      "name": "地图称重点 470",
+      "x": -74123.953,
+      "z": 3227.598,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_471",
+      "type": "weigh",
+      "name": "地图称重点 471",
+      "x": -73505.688,
+      "z": 3539.104,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_472",
+      "type": "weigh",
+      "name": "地图称重点 472",
+      "x": -74255.203,
+      "z": -17619.914,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_473",
+      "type": "weigh",
+      "name": "地图称重点 473",
+      "x": -73682.602,
+      "z": -17125.371,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_474",
+      "type": "weigh",
+      "name": "地图称重点 474",
+      "x": -74024.547,
+      "z": -17480.264,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_475",
+      "type": "weigh",
+      "name": "地图称重点 475",
+      "x": -73418.57,
+      "z": -17013.891,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_476",
+      "type": "weigh",
+      "name": "地图称重点 476",
+      "x": -79312.75,
+      "z": 3466.952,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_477",
+      "type": "weigh",
+      "name": "地图称重点 477",
+      "x": -79482.008,
+      "z": 3807.484,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_478",
+      "type": "weigh",
+      "name": "地图称重点 478",
+      "x": -79890.469,
+      "z": 4613.717,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_479",
+      "type": "weigh",
+      "name": "地图称重点 479",
+      "x": -79860.977,
+      "z": 4206.016,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_ut.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_48",
+      "type": "weigh",
+      "name": "地图称重点 48",
+      "x": -1975.81,
+      "z": 28108.748,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_480",
+      "type": "weigh",
+      "name": "地图称重点 480",
+      "x": -81153.156,
+      "z": -60536.781,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_481",
+      "type": "weigh",
+      "name": "地图称重点 481",
+      "x": -81291.844,
+      "z": -60893.828,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_482",
+      "type": "weigh",
+      "name": "地图称重点 482",
+      "x": -84374.43,
+      "z": -59298.133,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_483",
+      "type": "weigh",
+      "name": "地图称重点 483",
+      "x": -84518.273,
+      "z": -59425.641,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_484",
+      "type": "weigh",
+      "name": "地图称重点 484",
+      "x": -84854.992,
+      "z": -59741.535,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_485",
+      "type": "weigh",
+      "name": "地图称重点 485",
+      "x": -84744.211,
+      "z": -59637.586,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_486",
+      "type": "weigh",
+      "name": "地图称重点 486",
+      "x": -88905.195,
+      "z": -54401.945,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_487",
+      "type": "weigh",
+      "name": "地图称重点 487",
+      "x": -88362.406,
+      "z": -54539.141,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_488",
+      "type": "weigh",
+      "name": "地图称重点 488",
+      "x": -88025.562,
+      "z": -54646.43,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_489",
+      "type": "weigh",
+      "name": "地图称重点 489",
+      "x": -88625.109,
+      "z": -54553.684,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_49",
+      "type": "weigh",
+      "name": "地图称重点 49",
+      "x": -2095.48,
+      "z": 28193.523,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_490",
+      "type": "weigh",
+      "name": "地图称重点 490",
+      "x": -91846.055,
+      "z": -53416.988,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_491",
+      "type": "weigh",
+      "name": "地图称重点 491",
+      "x": -92591.867,
+      "z": -53352.492,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_492",
+      "type": "weigh",
+      "name": "地图称重点 492",
+      "x": -95641.016,
+      "z": -52382.582,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_493",
+      "type": "weigh",
+      "name": "地图称重点 493",
+      "x": -95406.367,
+      "z": -53189.867,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_494",
+      "type": "weigh",
+      "name": "地图称重点 494",
+      "x": -95469.812,
+      "z": -53092.262,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_495",
+      "type": "weigh",
+      "name": "地图称重点 495",
+      "x": -95689.938,
+      "z": -52491.289,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_496",
+      "type": "weigh",
+      "name": "地图称重点 496",
+      "x": -92063.766,
+      "z": -53391.984,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_497",
+      "type": "weigh",
+      "name": "地图称重点 497",
+      "x": -95760.766,
+      "z": -59987.711,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_498",
+      "type": "weigh",
+      "name": "地图称重点 498",
+      "x": -95352.5,
+      "z": -59673.973,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_499",
+      "type": "weigh",
+      "name": "地图称重点 499",
+      "x": -95661.766,
+      "z": -59959.121,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_50",
+      "type": "weigh",
+      "name": "地图称重点 50",
+      "x": -2670.637,
+      "z": 28621.211,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_500",
+      "type": "weigh",
+      "name": "地图称重点 500",
+      "x": -92916.195,
+      "z": -60725.133,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_501",
+      "type": "weigh",
+      "name": "地图称重点 501",
+      "x": -95850.312,
+      "z": -60133.656,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_502",
+      "type": "weigh",
+      "name": "地图称重点 502",
+      "x": -93143.422,
+      "z": -61009.672,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_503",
+      "type": "weigh",
+      "name": "地图称重点 503",
+      "x": -93068.266,
+      "z": -60899.441,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_504",
+      "type": "weigh",
+      "name": "地图称重点 504",
+      "x": -99839.188,
+      "z": -61359.961,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_505",
+      "type": "weigh",
+      "name": "地图称重点 505",
+      "x": -99847.719,
+      "z": -60994.617,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_506",
+      "type": "weigh",
+      "name": "地图称重点 506",
+      "x": -96815,
+      "z": -63993.305,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_507",
+      "type": "weigh",
+      "name": "地图称重点 507",
+      "x": -99956.062,
+      "z": -60731.266,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_508",
+      "type": "weigh",
+      "name": "地图称重点 508",
+      "x": -99932.258,
+      "z": -60916.504,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_509",
+      "type": "weigh",
+      "name": "地图称重点 509",
+      "x": -96105.922,
+      "z": -60494.516,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_51",
+      "type": "weigh",
+      "name": "地图称重点 51",
+      "x": -2819.298,
+      "z": 28733.127,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_510",
+      "type": "weigh",
+      "name": "地图称重点 510",
+      "x": -98110.891,
+      "z": -67186.992,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_511",
+      "type": "weigh",
+      "name": "地图称重点 511",
+      "x": -98002.609,
+      "z": -66562.898,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_512",
+      "type": "weigh",
+      "name": "地图称重点 512",
+      "x": -97173.766,
+      "z": -64134.266,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_513",
+      "type": "weigh",
+      "name": "地图称重点 513",
+      "x": -98061.547,
+      "z": -66902.977,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_514",
+      "type": "weigh",
+      "name": "地图称重点 514",
+      "x": -97729,
+      "z": -69152.352,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_515",
+      "type": "weigh",
+      "name": "地图称重点 515",
+      "x": -97657.297,
+      "z": -69613.891,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_516",
+      "type": "weigh",
+      "name": "地图称重点 516",
+      "x": -97802.719,
+      "z": -68886.578,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_517",
+      "type": "weigh",
+      "name": "地图称重点 517",
+      "x": -100211.328,
+      "z": -60393.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_518",
+      "type": "weigh",
+      "name": "地图称重点 518",
+      "x": -105549.242,
+      "z": -60223.391,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_519",
+      "type": "weigh",
+      "name": "地图称重点 519",
+      "x": -105899.516,
+      "z": -60225.359,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_52",
+      "type": "weigh",
+      "name": "地图称重点 52",
+      "x": -2662.492,
+      "z": 28483.781,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_520",
+      "type": "weigh",
+      "name": "地图称重点 520",
+      "x": -106326.688,
+      "z": -66947.266,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_521",
+      "type": "weigh",
+      "name": "地图称重点 521",
+      "x": -106195.562,
+      "z": -66604.977,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_522",
+      "type": "weigh",
+      "name": "地图称重点 522",
+      "x": -106147.672,
+      "z": -66445.656,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wa.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_523",
+      "type": "weigh",
+      "name": "地图称重点 523",
+      "x": -36654.391,
+      "z": -31862.205,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_524",
+      "type": "weigh",
+      "name": "地图称重点 524",
+      "x": -37628.09,
+      "z": -30215.953,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_525",
+      "type": "weigh",
+      "name": "地图称重点 525",
+      "x": -37256.688,
+      "z": -31341.541,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_526",
+      "type": "weigh",
+      "name": "地图称重点 526",
+      "x": -39684.102,
+      "z": -32484.549,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_527",
+      "type": "weigh",
+      "name": "地图称重点 527",
+      "x": -37078.672,
+      "z": -32084.094,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_528",
+      "type": "weigh",
+      "name": "地图称重点 528",
+      "x": -43513.797,
+      "z": -36252.855,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_529",
+      "type": "weigh",
+      "name": "地图称重点 529",
+      "x": -43838.352,
+      "z": -36448.641,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_53",
+      "type": "weigh",
+      "name": "地图称重点 53",
+      "x": -2819.491,
+      "z": 28567.699,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_530",
+      "type": "weigh",
+      "name": "地图称重点 530",
+      "x": -43912.43,
+      "z": -36414.777,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_531",
+      "type": "weigh",
+      "name": "地图称重点 531",
+      "x": -43948.938,
+      "z": -36548.375,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_532",
+      "type": "weigh",
+      "name": "地图称重点 532",
+      "x": -43750.281,
+      "z": -36581.469,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_533",
+      "type": "weigh",
+      "name": "地图称重点 533",
+      "x": -44467.246,
+      "z": -36615.477,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_534",
+      "type": "weigh",
+      "name": "地图称重点 534",
+      "x": -44160.555,
+      "z": -36466.07,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_537",
+      "type": "weigh",
+      "name": "地图称重点 537",
+      "x": -60828.625,
+      "z": -20944.223,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_538",
+      "type": "weigh",
+      "name": "地图称重点 538",
+      "x": -60286.07,
+      "z": -20647.414,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_539",
+      "type": "weigh",
+      "name": "地图称重点 539",
+      "x": -60712.848,
+      "z": -20875.676,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_54",
+      "type": "weigh",
+      "name": "地图称重点 54",
+      "x": -571.208,
+      "z": -17700.363,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_540",
+      "type": "weigh",
+      "name": "地图称重点 540",
+      "x": -60396.812,
+      "z": -20689.039,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_541",
+      "type": "weigh",
+      "name": "地图称重点 541",
+      "x": -60493.547,
+      "z": -20707.32,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "dlc_wy.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_55",
+      "type": "weigh",
+      "name": "地图称重点 55",
+      "x": -145.72,
+      "z": -17260.504,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_56",
+      "type": "weigh",
+      "name": "地图称重点 56",
+      "x": -90.657,
+      "z": -17134.492,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_57",
+      "type": "weigh",
+      "name": "地图称重点 57",
+      "x": -7324.986,
+      "z": -4587.318,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_59",
+      "type": "weigh",
+      "name": "地图称重点 59",
+      "x": -18061.055,
+      "z": 20651.307,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_6",
+      "type": "weigh",
+      "name": "地图称重点 6",
+      "x": 2061.639,
+      "z": -8958.316,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_60",
+      "type": "weigh",
+      "name": "地图称重点 60",
+      "x": -17644.152,
+      "z": 20514.354,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_61",
+      "type": "weigh",
+      "name": "地图称重点 61",
+      "x": -17458.484,
+      "z": 20507.385,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_62",
+      "type": "weigh",
+      "name": "地图称重点 62",
+      "x": -19603.918,
+      "z": 25441.23,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_63",
+      "type": "weigh",
+      "name": "地图称重点 63",
+      "x": -19479.596,
+      "z": 25453.832,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_64",
+      "type": "weigh",
+      "name": "地图称重点 64",
+      "x": -21110.998,
+      "z": 9568.734,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_65",
+      "type": "weigh",
+      "name": "地图称重点 65",
+      "x": -20282.654,
+      "z": 9255.808,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_66",
+      "type": "weigh",
+      "name": "地图称重点 66",
+      "x": -26281.406,
+      "z": -3026.042,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_67",
+      "type": "weigh",
+      "name": "地图称重点 67",
+      "x": -25437.797,
+      "z": -3139.399,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_68",
+      "type": "weigh",
+      "name": "地图称重点 68",
+      "x": -33390.555,
+      "z": -15912.571,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_69",
+      "type": "weigh",
+      "name": "地图称重点 69",
+      "x": -34501.461,
+      "z": -15892.262,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_7",
+      "type": "weigh",
+      "name": "地图称重点 7",
+      "x": 2177.697,
+      "z": -8816.273,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_70",
+      "type": "weigh",
+      "name": "地图称重点 70",
+      "x": -35293.426,
+      "z": -22857.994,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_71",
+      "type": "weigh",
+      "name": "地图称重点 71",
+      "x": -34810.469,
+      "z": -22835.738,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_72",
+      "type": "weigh",
+      "name": "地图称重点 72",
+      "x": -34165.648,
+      "z": -23023.807,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_73",
+      "type": "weigh",
+      "name": "地图称重点 73",
+      "x": -34674.973,
+      "z": -22853.443,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_74",
+      "type": "weigh",
+      "name": "地图称重点 74",
+      "x": -35347.82,
+      "z": -32084.123,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_75",
+      "type": "weigh",
+      "name": "地图称重点 75",
+      "x": -37944.242,
+      "z": 8441.272,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_76",
+      "type": "weigh",
+      "name": "地图称重点 76",
+      "x": -38114.461,
+      "z": 9112.208,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_77",
+      "type": "weigh",
+      "name": "地图称重点 77",
+      "x": -37883.957,
+      "z": 8561.177,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_78",
+      "type": "weigh",
+      "name": "地图称重点 78",
+      "x": -37954.254,
+      "z": 8243.23,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_79",
+      "type": "weigh",
+      "name": "地图称重点 79",
+      "x": -37982.609,
+      "z": 8702.814,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_8",
+      "type": "weigh",
+      "name": "地图称重点 8",
+      "x": 1728.871,
+      "z": -9539.082,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_80",
+      "type": "weigh",
+      "name": "地图称重点 80",
+      "x": -36589.625,
+      "z": -14316.997,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_81",
+      "type": "weigh",
+      "name": "地图称重点 81",
+      "x": -37007.156,
+      "z": -13582.396,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_82",
+      "type": "weigh",
+      "name": "地图称重点 82",
+      "x": -37161.719,
+      "z": -13470.908,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_83",
+      "type": "weigh",
+      "name": "地图称重点 83",
+      "x": -37224.309,
+      "z": -13760.661,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_84",
+      "type": "weigh",
+      "name": "地图称重点 84",
+      "x": -37206.914,
+      "z": -13576.61,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_85",
+      "type": "weigh",
+      "name": "地图称重点 85",
+      "x": -48954.199,
+      "z": -13770.051,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_86",
+      "type": "weigh",
+      "name": "地图称重点 86",
+      "x": -49208.152,
+      "z": -14236.85,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_87",
+      "type": "weigh",
+      "name": "地图称重点 87",
+      "x": -49358.75,
+      "z": -14497.236,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_88",
+      "type": "weigh",
+      "name": "地图称重点 88",
+      "x": -49099.414,
+      "z": -14051.869,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_89",
+      "type": "weigh",
+      "name": "地图称重点 89",
+      "x": -50436.211,
+      "z": -37183.191,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_9",
+      "type": "weigh",
+      "name": "地图称重点 9",
+      "x": 3958.418,
+      "z": -19983.826,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_90",
+      "type": "weigh",
+      "name": "地图称重点 90",
+      "x": -50309.645,
+      "z": -37763.16,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_91",
+      "type": "weigh",
+      "name": "地图称重点 91",
+      "x": -55287.312,
+      "z": 5252.918,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_92",
+      "type": "weigh",
+      "name": "地图称重点 92",
+      "x": -55934.938,
+      "z": 4908.707,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_93",
+      "type": "weigh",
+      "name": "地图称重点 93",
+      "x": -55975.793,
+      "z": 4761.595,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_94",
+      "type": "weigh",
+      "name": "地图称重点 94",
+      "x": -59693.539,
+      "z": 6656.653,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_95",
+      "type": "weigh",
+      "name": "地图称重点 95",
+      "x": -59922.703,
+      "z": 6639.675,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_96",
+      "type": "weigh",
+      "name": "地图称重点 96",
+      "x": -56176.898,
+      "z": 5510.141,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_97",
+      "type": "weigh",
+      "name": "地图称重点 97",
+      "x": -56419.516,
+      "z": 5685.091,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    },
+    {
+      "id": "ats_weigh_98",
+      "type": "weigh",
+      "name": "地图称重点 98",
+      "x": -56518.473,
+      "z": 5800.621,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weigh"
+    },
+    {
+      "id": "ats_weigh_99",
+      "type": "weigh",
+      "name": "地图称重点 99",
+      "x": -56760.086,
+      "z": -5249.673,
+      "radius_m": 500,
+      "speed_limit_kmh": 0,
+      "note": "base_map.scs / weight_check"
+    }
+  ]
+}

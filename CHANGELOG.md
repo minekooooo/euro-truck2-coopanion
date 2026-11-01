@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0
+
+- Added ATS support, selected automatically from the telemetry `game` field (ETS2 = 1, ATS = 2).
+- ATS data: 270 cities, 229 state border points, 541 radar/POI points.
+- Separate user files per game: `ets2-cities.json` / `ats-cities.json`, `ets2-radar-points.json` / `ats-radar-points.json`.
+- ATS state crossing uses `ets2.state-entered`; ETS2 retains `ets2.country-entered`.
+- Installer accepts either `eurotrucks2.exe` or `amtrucks.exe`.
+- Same-name cities in different states are kept distinct by map token.
+
 ## 0.5.1
 
 - Fixed reversed country direction. Map node rotation points opposite to the side that

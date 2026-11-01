@@ -61,13 +61,13 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
   owner: 'world:ets2-dafeiyu',
   schema: {
     type: 'object',
-    title: 'ETS2 欧卡桌宠副驾',
-    description: '读取 SCS 遥测，向 Coo 报告欧卡2的车况、事件和电子狗点位。',
+    title: '欧卡/美卡桌宠副驾',
+    description: '读取 SCS 遥测，向 Coo 报告 ETS2 / ATS 的车况、事件和电子狗点位。',
     properties: {
       'worlds.ets2-dafeiyu.eventsEnabled': {
         type: 'boolean',
         title: '事件播报',
-        description: '事故、超速、低油、罚款、收费站、任务、到城。',
+        description: '事故、超速、低油、罚款、收费站、任务、到城、过境。',
       },
       'worlds.ets2-dafeiyu.cityAnnounceEnabled': {
         type: 'boolean',
@@ -93,13 +93,13 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
       },
       'worlds.ets2-dafeiyu.countryAnnounceEnabled': {
         type: 'boolean',
-        title: '进出国家边境播报',
-        description: '经过地图上的国家边境节点时，按行驶方向判断进入的国家并播报。',
+        title: '进出国家/州边境播报',
+        description: '经过地图上的国家/州边境节点时，按行驶方向判断进入的国家或州并播报。',
       },
       'worlds.ets2-dafeiyu.countryRepeatIntro': {
         type: 'boolean',
-        title: '重复进入国家时再次介绍',
-        description: '关闭时每个国家本次运行只介绍一次，之后只简短报到；打开后每次过境都可再介绍。',
+        title: '重复进入国家/州时再次介绍',
+        description: '关闭时每个国家或州本次运行只介绍一次，之后只简短报到；打开后每次过境都可再介绍。',
       },
       'worlds.ets2-dafeiyu.radarEnabled': {
         type: 'boolean',

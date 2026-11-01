@@ -13,6 +13,7 @@ import { CityBook } from './cities.ts';
 import { ETS2_CONFIG_GROUP, type Ets2ConfigSection } from './config.ts';
 import { CountryBook } from './countries.ts';
 import { EventEngine, type GameEvent, type GameEventKind } from './events.ts';
+import { gameKind, gameRegion, gameShort, gameTitle, type GameKind } from './game.ts';
 import { inspectGameRoot, installScsTelemetry, type TelemetryInstallResult } from './installer.ts';
 import { RadarBook } from './radar.ts';
 import { parseTelemetry, ScsSharedMemory, type Ets2Telemetry } from './telemetry.ts';
@@ -25,14 +26,14 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
   {
     name: 'ets2_status',
     description:
-      'Read the current ETS2 telemetry snapshot: connection, speed, speed limit, gear, fuel, AdBlue, damage, odometer, job and navigation.',
+      'Read the current ETS2 / ATS telemetry snapshot: connection, speed, speed limit, gear, fuel, AdBlue, damage, odometer, job and navigation.',
     tags: ['read', 'snapshot'],
     parameters: { type: 'object', additionalProperties: false, properties: {} },
   },
   {
     name: 'ets2_recent_events',
     description:
-      'Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, city, connection).',
+      'Return the most recent ETS2 / ATS events this World has reported (accident, speeding, fine, toll, job, radar, city, border, connection).',
     tags: ['read'],
     parameters: {
       type: 'object',
@@ -45,7 +46,7 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
   {
     name: 'ets2_radar_points',
     description:
-      'List the nearest stored ETS2 radar/POI points (speed cameras, tolls, weigh stations, rail crossings, police, accident, fine) with distance from the truck.',
+      'List the nearest stored ETS2 / ATS radar/POI points (speed cameras, tolls, weigh stations, rail crossings, police, accident, fine) with distance from the truck.',
     tags: ['read', 'snapshot'],
     parameters: {
       type: 'object',
@@ -78,7 +79,7 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
   {
     name: 'ets2_install_telemetry',
     description:
-      'Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 game folder. Use only after the driver chooses the game root.',
+      'Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 / ATS game folder. Use only after the driver chooses the game root.',
     tags: ['act'],
     barrierAfter: true,
     parameters: {
@@ -87,7 +88,7 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
       properties: {
         game_root: {
           type: 'string',
-          description: 'ETS2 root folder containing bin\\win_x64\\eurotrucks2.exe. Omit to use the configured gameRoot.',
+          description: 'ETS2 / ATS root folder containing bin\\win_x64\\eurotrucks2.exe or amtrucks.exe. Omit to use the configured gameRoot.',
         },
       },
     },
@@ -95,7 +96,7 @@ export const TOOL_DECLS: ReadonlyArray<Omit<ToolDef, 'handler'>> = [
   {
     name: 'ets2_cities',
     description:
-      'List locally recorded ETS2 cities with their distance from the truck, and show which city the truck is currently inside.',
+      'List locally recorded ETS2 / ATS cities with their distance from the truck, and show which city the truck is currently inside.',
     tags: ['read', 'snapshot'],
     parameters: {
       type: 'object',
@@ -165,10 +166,11 @@ function fmt(value: number, digits = 0): string {
 export class Ets2World implements World {
   readonly id = ID;
   private readonly shm = new ScsSharedMemory();
-  private readonly engine: EventEngine;
-  private readonly radar: RadarBook;
-  private readonly cities: CityBook;
-  private readonly countries: CountryBook;
+  private engine: EventEngine;
+  private radar: RadarBook;
+  private cities: CityBook;
+  private countries: CountryBook;
+  private game: GameKind = 'ets2';
   private host: WorldHost | null = null;
   private timer: NodeJS.Timeout | null = null;
   private latest: Ets2Telemetry | null = null;
@@ -183,16 +185,72 @@ export class Ets2World implements World {
 
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
-    this.radar = new RadarBook(join(opts.dataDir, 'ets2-radar-points.json'), opts.cfg);
-    this.cities = new CityBook(join(opts.dataDir, 'ets2-cities.json'), opts.cfg);
-    this.countries = new CountryBook();
+    this.radar = this.makeRadar(this.game);
+    this.cities = this.makeCities(this.game);
+    this.countries = this.makeCountries(this.game);
+  }
+
+  private asset(name: string): string {
+    return fileURLToPath(new URL(`../assets/${name}`, import.meta.url));
+  }
+
+  private makeRadar(game: GameKind): RadarBook {
+    const suffix = game === 'ats' ? '_ats' : '';
+    return new RadarBook(
+      join(this.opts.dataDir, `${game}-radar-points.json`),
+      this.opts.cfg,
+      this.asset(`radar_points${suffix}.json`),
+    );
+  }
+
+  private makeCities(game: GameKind): CityBook {
+    const suffix = game === 'ats' ? '_ats' : '';
+    return new CityBook(
+      join(this.opts.dataDir, `${game}-cities.json`),
+      this.opts.cfg,
+      this.asset(`cities${suffix}.json`),
+    );
+  }
+
+  private makeCountries(game: GameKind): CountryBook {
+    return new CountryBook(this.asset(`borders${game === 'ats' ? '_ats' : ''}.json`));
+  }
+
+  /** Switch datasets when telemetry reports a different SCS game. */
+  private applyGame(game: number): void {
+    const kind = gameKind(game);
+    if (kind === this.game) return;
+    this.game = kind;
+    this.engine = new EventEngine(this.opts.cfg);
+    this.radar = this.makeRadar(kind);
+    this.cities = this.makeCities(kind);
+    this.countries = this.makeCountries(kind);
+    this.introducedCities.clear();
+    this.introducedCountries.clear();
+    // Let the first tick of the new game emit its own connected event.
+    this.lastConnected = null;
+    this.host?.log.info(`Switched SCS World dataset to ${kind}.`);
+  }
+
+  private get short(): string {
+    return gameShort(this.game);
+  }
+
+  private get title(): string {
+    return gameTitle(this.game);
+  }
+
+  private get region(): string {
+    return gameRegion(this.game);
   }
 
   envPromptVars(): Record<string, string> | null {
     const t = this.latest;
     if (!t) {
       return {
-        'ets2.status': 'ETS2 遥测：未连接（请启动游戏并进入驾驶界面）。',
+        'game.title': this.title,
+        'game.short': this.short,
+        'ets2.status': `${this.short} 遥测：未连接（请启动游戏并进入驾驶界面）。`,
         'ets2.job': '当前任务：未知。',
         'ets2.city': '当前城市：未知（遥测未连接）。',
         'ets2.radar': `电子狗：${this.radar.count} 个点位。`,
@@ -201,7 +259,9 @@ export class Ets2World implements World {
     }
     if (!t.connected) {
       return {
-        'ets2.status': 'ETS2 遥测：共享内存未连接（游戏可能没开，或没进驾驶界面）。',
+        'game.title': this.title,
+        'game.short': this.short,
+        'ets2.status': `${this.short} 遥测：共享内存未连接（游戏可能没开，或没进驾驶界面）。`,
         'ets2.job': '当前任务：未知。',
         'ets2.city': '当前城市：未知（遥测未连接）。',
         'ets2.radar': `电子狗：${this.radar.count} 个点位。`,
@@ -212,7 +272,7 @@ export class Ets2World implements World {
     const limit = tr.speedLimitKmh > 1 ? `，限速 ${fmt(tr.speedLimitKmh)}` : '';
     const paused = t.paused ? '（游戏暂停）' : '';
     const status =
-      `ETS2 遥测已连接${paused}：${fmt(tr.speedKmh)} km/h${limit}，` +
+      `${this.short} 遥测已连接${paused}：${fmt(tr.speedKmh)} km/h${limit}，` +
       `档位 ${tr.displayedGear || tr.gear}，油量 ${tr.fuelRatio == null ? '--' : `${fmt(tr.fuelRatio * 100)}%`}，` +
       `车损 ${fmt(tr.damageMax * 100, 1)}%，总里程 ${fmt(tr.odometerKm)} 公里。`;
     const job = t.job.destinationCity
@@ -222,6 +282,8 @@ export class Ets2World implements World {
     const radar = `电子狗：${this.radar.count} 个点位；${this.radar.lastHit ? `上次提醒：${this.radar.lastHit.text}` : '最近没有提醒。'}`;
     const currentCity = this.cities.current;
     return {
+      'game.title': this.title,
+      'game.short': this.short,
       'ets2.status': status,
       'ets2.job': job,
       'ets2.city': currentCity
@@ -268,14 +330,16 @@ export class Ets2World implements World {
   webUi(language: Language = 'zh'): WorldWebUiDecl {
     const zh = language === 'zh' || language === 'zh-Hant';
     return {
-      label: zh ? 'ETS2 欧卡桌宠副驾' : 'ETS2 Euro Truck Copilot',
+      label: zh
+        ? `${this.short} ${this.game === 'ats' ? '美卡' : '欧卡'}桌宠副驾`
+        : `${this.short} ${this.game === 'ats' ? 'American Truck' : 'Euro Truck'} Copilot`,
       panels: [
         {
           id: 'install',
           title: zh ? '遥测安装' : 'Telemetry installer',
           description: zh
-            ? '选择游戏根目录，一键下载并安装 scs-telemetry.dll。安装后重启游戏生效。'
-            : 'Pick the ETS2 game folder to download and install scs-telemetry.dll. Restart the game afterwards.',
+            ? '选择 ETS2 或 ATS 游戏根目录，一键下载并安装 scs-telemetry.dll。安装后重启游戏生效。'
+            : 'Pick the ETS2 or ATS game folder to download and install scs-telemetry.dll. Restart the game afterwards.',
           getMethods: ['state'],
         },
         {
@@ -353,6 +417,7 @@ export class Ets2World implements World {
         if (data) {
           const telemetry = parseTelemetry(data);
           this.latest = telemetry;
+          this.applyGame(telemetry.game);
           this.setConnected(telemetry.connected);
           if (telemetry.connected && !telemetry.paused) {
             const gameEvents = this.engine.update(telemetry);
@@ -387,7 +452,7 @@ export class Ets2World implements World {
                   : '（已介绍过，简短报到即可）';
               this.pushEvent(
                 'ets2.city-entered',
-                `ETS2 进入城市：${enteredCity.name}${suffix}`,
+                `${this.short} 进入城市：${enteredCity.name}${suffix}`,
                 'debounce',
                 { kind: 'city', city: enteredCity.name, firstVisit, repeatIntro },
               );
@@ -404,11 +469,11 @@ export class Ets2World implements World {
                   ? '再次到达，可再简短介绍'
                   : '已介绍过，简短报到即可';
               this.pushEvent(
-                'ets2.country-entered',
-                `ETS2 进入国家：${crossing.country}（从${crossing.fromCountry}方向，${suffix}）`,
+                this.game === 'ats' ? 'ets2.state-entered' : 'ets2.country-entered',
+                `${this.short} 进入${this.region}：${crossing.country}（从${crossing.fromCountry}方向，${suffix}）`,
                 'debounce',
                 {
-                  kind: 'country',
+                  kind: this.game === 'ats' ? 'state' : 'country',
                   country: crossing.country,
                   fromCountry: crossing.fromCountry,
                   firstVisit,
@@ -421,7 +486,7 @@ export class Ets2World implements World {
               if (hit) {
                 this.pushEvent(
                   'ets2.radar',
-                  `ETS2 电子狗：${hit.text}`,
+                  `${this.short} 电子狗：${hit.text}`,
                   'preempt',
                   { kind: 'radar', distanceM: hit.distanceM, type: hit.point.type },
                 );
@@ -434,7 +499,7 @@ export class Ets2World implements World {
       }
     } catch (error) {
       const detail = error instanceof Error ? error.message : String(error);
-      this.host?.log.warn(`ETS2 poll failed: ${detail}`);
+      this.host?.log.warn(`${this.short} poll failed: ${detail}`);
       this.setConnected(false);
     } finally {
       this.schedule();
@@ -449,8 +514,8 @@ export class Ets2World implements World {
     this.pushEvent(
       'ets2.connection',
       connected
-        ? 'ETS2 遥测已连接，可以读取车况了。'
-        : 'ETS2 遥测断开（游戏关闭或退回菜单）。',
+        ? `${this.short} 遥测已连接，可以读取车况了。`
+        : `${this.short} 遥测断开（游戏关闭或退回菜单）。`,
       'debounce',
       { kind: 'connection', connected },
     );
@@ -459,7 +524,7 @@ export class Ets2World implements World {
   private pushGameEvent(event: GameEvent): void {
     this.pushEvent(
       ETS2_EVENT_TYPES[event.kind],
-      event.text,
+      event.text.replace(/^ETS2\b/, this.short),
       event.priority >= 80 ? 'preempt' : 'debounce',
       { kind: event.kind },
     );
@@ -656,9 +721,9 @@ export class Ets2World implements World {
       const hint = info.dllInstalled
         ? '请启动游戏并进入驾驶界面。'
         : '可先在 World 的「遥测安装」面板选择游戏根目录并安装 scs-telemetry.dll。';
-      return `ETS2 遥测未连接：${hint}`;
+      return `${this.short} 遥测未连接：${hint}`;
     }
-    if (!t.connected) return 'ETS2 共享内存没连上：确认 scs-telemetry.dll 在 bin\\win_x64\\plugins。';
+    if (!t.connected) return `${this.short} 共享内存没连上：确认 scs-telemetry.dll 在 bin\\win_x64\\plugins。`;
     const tr = t.truck;
     const job = t.job;
     return [
@@ -678,7 +743,7 @@ export class Ets2World implements World {
   private recentText(limit: number): string {
     const n = Math.max(1, Math.min(30, Math.round(limit)));
     const recent = this.events.slice(-n).reverse();
-    if (!recent.length) return '没有 ETS2 事件。';
+    if (!recent.length) return `没有 ${this.short} 事件。`;
     return recent
       .map((e) => {
         const time = new Date(e.ts).toLocaleTimeString('zh-CN', { hour12: false });

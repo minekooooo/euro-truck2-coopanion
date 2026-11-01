@@ -2,7 +2,7 @@
   "tools": [
     {
       "name": "ets2_status",
-      "description": "Read the current ETS2 telemetry snapshot: connection, speed, speed limit, gear, fuel, AdBlue, damage, odometer, job and navigation.",
+      "description": "Read the current ETS2 / ATS telemetry snapshot: connection, speed, speed limit, gear, fuel, AdBlue, damage, odometer, job and navigation.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -13,13 +13,13 @@
         "snapshot"
       ],
       "summary": {
-        "zh": "读取当前欧卡2车况、任务和电子狗状态。",
-        "en": "Reads the current ETS2 truck, job and radar status."
+        "zh": "读取当前 ETS2 / ATS 车况、任务和电子狗状态。",
+        "en": "Reads the current ETS2 / ATS truck, job and radar status."
       }
     },
     {
       "name": "ets2_recent_events",
-      "description": "Return the most recent ETS2 events this World has reported (accident, speeding, fine, toll, job, radar, city, connection).",
+      "description": "Return the most recent ETS2 / ATS events this World has reported (accident, speeding, fine, toll, job, radar, city, border, connection).",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -36,13 +36,13 @@
         "read"
       ],
       "summary": {
-        "zh": "返回最近的欧卡2事件。",
-        "en": "Returns recent ETS2 events."
+        "zh": "返回最近的 ETS2 / ATS 事件。",
+        "en": "Returns recent ETS2 / ATS events."
       }
     },
     {
       "name": "ets2_radar_points",
-      "description": "List the nearest stored ETS2 radar/POI points (speed cameras, tolls, weigh stations, rail crossings, police, accident, fine) with distance from the truck.",
+      "description": "List the nearest stored ETS2 / ATS radar/POI points (speed cameras, tolls, weigh stations, rail crossings, police, accident, fine) with distance from the truck.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -109,14 +109,14 @@
     },
     {
       "name": "ets2_install_telemetry",
-      "description": "Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 game folder. Use only after the driver chooses the game root.",
+      "description": "Download the latest RenCloud scs-sdk-plugin release and install/repair scs-telemetry.dll in the ETS2 / ATS game folder. Use only after the driver chooses the game root.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "game_root": {
             "type": "string",
-            "description": "ETS2 root folder containing bin\\win_x64\\eurotrucks2.exe. Omit to use the configured gameRoot."
+            "description": "ETS2 / ATS root folder containing bin\\win_x64\\eurotrucks2.exe or amtrucks.exe. Omit to use the configured gameRoot."
           }
         }
       },
@@ -124,13 +124,13 @@
         "act"
       ],
       "summary": {
-        "zh": "下载并安装/修复欧卡2的 scs-telemetry.dll。",
-        "en": "Downloads and installs/repairs the ETS2 scs-telemetry.dll."
+        "zh": "下载并安装/修复 ETS2 / ATS 的 scs-telemetry.dll。",
+        "en": "Downloads and installs/repairs the ETS2 / ATS scs-telemetry.dll."
       }
     },
     {
       "name": "ets2_cities",
-      "description": "List locally recorded ETS2 cities with their distance from the truck, and show which city the truck is currently inside.",
+      "description": "List locally recorded ETS2 / ATS cities with their distance from the truck, and show which city the truck is currently inside.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -294,6 +294,13 @@
       "description": {
         "zh": "越过国家边境。",
         "en": "The truck crossed a country border."
+      }
+    },
+    {
+      "type": "ets2.state-entered",
+      "description": {
+        "zh": "越过美国州界。",
+        "en": "The truck crossed a US state border."
       }
     }
   ]

@@ -63,6 +63,7 @@ export class CityBook {
   constructor(
     private readonly userPath: string,
     private readonly config: CityConfig,
+    private readonly packagedPath = fileURLToPath(new URL('../assets/cities.json', import.meta.url)),
   ) {
     this.loadBuiltin();
     this.loadUser();
@@ -82,7 +83,7 @@ export class CityBook {
 
   private loadBuiltin(): void {
     try {
-      const path = fileURLToPath(new URL('../assets/cities.json', import.meta.url));
+      const path = this.packagedPath;
       if (!existsSync(path)) return;
       const raw = JSON.parse(readFileSync(path, 'utf8')) as { cities?: CityFilePoint[] };
       for (const item of raw.cities ?? []) this.add(item, 'map');
@@ -119,7 +120,13 @@ export class CityBook {
       source,
       createdAt: Number(item.created_at) || Date.now(),
     };
-    const existing = this.points.findIndex((p) => p.name.toLowerCase() === name.toLowerCase());
+    // ATS has a few same-name cities in different states (for example
+    // Portland, OR/ME in map mods). Prefer the map token when both sides have
+    // one, so those cities stay distinct instead of overwriting each other.
+    const token = item.token ? String(item.token).trim().toLowerCase() : '';
+    const existing = this.points.findIndex((p) =>
+      token && p.token ? p.token.toLowerCase() === token : p.name.toLowerCase() === name.toLowerCase(),
+    );
     if (existing >= 0) {
       // User entries override packaged map entries; built-in entries never
       // overwrite an earlier user record.

@@ -33,10 +33,10 @@ const installPanel = {
     root.append(wrap);
 
     const head = el('div');
-    head.append(el('div', 'font-size:15px;font-weight:600;margin-bottom:4px', t ? 'ETS2 遥测安装' : 'ETS2 telemetry installer'));
+    head.append(el('div', 'font-size:15px;font-weight:600;margin-bottom:4px', t ? '遥测安装' : 'Telemetry installer'));
     head.append(el('div', CSS.hint, t
-      ? '选择包含 bin\\win_x64\\eurotrucks2.exe 的游戏根目录，一键下载 RenCloud scs-sdk-plugin 并安装到 bin\\win_x64\\plugins。安装/更新后需要重启游戏。'
-      : 'Pick the game root containing bin\\win_x64\\eurotrucks2.exe. The latest RenCloud scs-sdk-plugin is downloaded and copied into bin\\win_x64\\plugins. Restart the game afterwards.'));
+      ? '选择包含 bin\\win_x64\\eurotrucks2.exe 或 amtrucks.exe 的游戏根目录，一键下载 RenCloud scs-sdk-plugin 并安装到 bin\\win_x64\\plugins。安装/更新后需要重启游戏。'
+      : 'Pick the game root containing bin\\win_x64\\eurotrucks2.exe or amtrucks.exe. The latest RenCloud scs-sdk-plugin is downloaded and copied into bin\\win_x64\\plugins. Restart the game afterwards.'));
     wrap.append(head);
 
     const pathGroup = el('div', CSS.group);
@@ -44,7 +44,7 @@ const installPanel = {
     pathRow.append(el('span', CSS.label, t ? '游戏根目录' : 'Game folder'));
     const pathInput = el('input', CSS.input);
     pathInput.type = 'text';
-    pathInput.placeholder = t ? '例如 D:\\SteamLibrary\\steamapps\\common\\Euro Truck Simulator 2' : 'e.g. D:\\SteamLibrary\\steamapps\\common\\Euro Truck Simulator 2';
+    pathInput.placeholder = t ? '例如 D:\\SteamLibrary\\steamapps\\common\\American Truck Simulator' : 'e.g. D:\\SteamLibrary\\steamapps\\common\\American Truck Simulator';
     pathRow.append(pathInput);
     const browse = el('button', CSS.btn, t ? '浏览…' : 'Browse…');
     browse.type = 'button';
@@ -121,7 +121,7 @@ const installPanel = {
       try {
         const picked = await ctx.pickPath({
           kind: 'directory',
-          title: t ? '选择 ETS2 游戏根目录' : 'Choose the ETS2 game folder',
+          title: t ? '选择 ETS2 / ATS 游戏根目录' : 'Choose the ETS2 / ATS game folder',
           currentPath: pathInput.value.trim() || undefined,
         });
         if (picked) {
