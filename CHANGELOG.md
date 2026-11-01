@@ -1,5 +1,64 @@
 # Changelog
 
+## 0.7.7
+
+- Kept the final 200/100/50/10 km milestones.
+- Added a progress announcement every `navProgressEveryKm` travelled kilometres (default 200): current
+  fuel, remaining distance and a short praise from Coo.
+- Progress is based on `plannedDistanceKm - current navDistance`, with the same speech-delay
+  correction for the remaining-distance text.
+
+## 0.7.6
+
+- Speech-delay distance correction now treats `navSpeechDelayS` as real seconds and converts using
+  telemetry `local.scale` (game seconds per real second). Fallback is 15× when scale is unavailable.
+  At 90 km/h, a 5-real-second delay now corrects ~1.9 km instead of ~0.1 km.
+
+## 0.7.5
+
+- Navigation milestones reduced to 200 / 100 / 50 / 10 km.
+- Milestone distances are corrected by current speed and an estimated speech delay
+  (`navSpeechDelayS`, default 5 seconds), so Coo's delayed line matches the road position better.
+- Zero-distance guard from 0.7.3 remains.
+
+## 0.7.4
+
+- Vehicle-start event now includes the absolute in-game clock (`HH:MM`, game time modulo 24h) and
+  omits the location entirely when no city geofence is known.
+- Coo's vehicle-start prompt now uses the included time/location when present and improvises without
+  inventing missing details.
+
+## 0.7.3
+
+- Fixed navigation milestones firing at 0 km while a job is accepted but the trailer is not hooked
+  up yet. A zero navigation distance is now treated as “route not initialized”, not as arrival.
+- Milestones only start after the game reports a positive navigation distance.
+
+## 0.7.2
+
+- Vehicle welcome is now per truck per game session: the first engine start of each truck announces;
+  stopping and restarting the same truck does not. Switching trucks and starting the new one announces
+  again.
+- Removed the fixed “和您一路同行” prompt. The event now includes the truck brand and current city
+  (country/state when known), and Coo improvises a short opening in her own voice.
+
+## 0.7.1
+
+- Vehicle welcome is now once per game session when the engine starts, not once per truck forever.
+- A real telemetry disconnect (game closed or returned to menu) resets the welcome for the next
+  session; stopping/starting the engine inside one session does not repeat it.
+- Removed the persistent `*-vehicles.json` first-drive cache.
+
+## 0.7.0
+
+- Phase-one navigation: while a job is active, reads the game's navigation distance/time and
+  announces route start, remaining-distance milestones, ETA and arrival. No turn-by-turn or
+  off-route detection yet.
+- First-drive truck welcome: reads telemetry brand/model/truck id, maps common brands to Chinese,
+  and asks Coo to say “（品牌）和您一路同行，让我们一起出发吧”. Seen trucks are remembered per game in
+  `<dataDir>/ets2-vehicles.json` / `ats-vehicles.json`.
+- New settings: `navAnnounceEnabled`, `vehicleWelcomeEnabled`.
+
 ## 0.6.1
 
 - Local Chinese-name overlay: `assets/zh_names.json` maps 557 city tokens and 166 country/state names.

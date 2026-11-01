@@ -18,6 +18,14 @@ export interface Ets2ConfigSection {
   countryAnnounceEnabled: boolean;
   /** Introduce a country again when its border is crossed more than once. */
   countryRepeatIntro: boolean;
+  /** Announce destination distance/ETA while a job is active. */
+  navAnnounceEnabled: boolean;
+  /** Estimated Coo speech delay used to correct milestone distances. */
+  navSpeechDelayS: number;
+  /** Emit a fuel/progress update every N kilometres travelled. */
+  navProgressEveryKm: number;
+  /** Welcome each truck once per game session when its engine starts. */
+  vehicleWelcomeEnabled: boolean;
   pollMs: number;
   eventsEnabled: boolean;
   radarEnabled: boolean;
@@ -42,6 +50,10 @@ export const ETS2_DEFAULTS: Ets2ConfigSection = {
   cityRepeatIntro: false,
   countryAnnounceEnabled: true,
   countryRepeatIntro: false,
+  navAnnounceEnabled: true,
+  navSpeechDelayS: 5,
+  navProgressEveryKm: 200,
+  vehicleWelcomeEnabled: true,
   pollMs: 200,
   eventsEnabled: true,
   radarEnabled: true,
@@ -100,6 +112,30 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
         type: 'boolean',
         title: '重复进入国家/州时再次介绍',
         description: '关闭时每个国家或州本次运行只介绍一次，之后只简短报到；打开后每次过境都可再介绍。',
+      },
+      'worlds.ets2-dafeiyu.navAnnounceEnabled': {
+        type: 'boolean',
+        title: '导航距离/ETA 播报',
+        description: '有任务时按游戏导航的剩余距离和时间播报；阶段一不做转弯指令。',
+      },
+      'worlds.ets2-dafeiyu.navSpeechDelayS': {
+        type: 'integer',
+        title: '导航播报延迟补偿（现实秒）',
+        description: '按当前车速和游戏 local.scale 估算 Coo 播报时已经走过的距离，默认 5 现实秒；设为 0 可关闭修正。',
+        minimum: 0,
+        maximum: 60,
+      },
+      'worlds.ets2-dafeiyu.navProgressEveryKm': {
+        type: 'integer',
+        title: '每多少公里播报一次进度',
+        description: '按已行驶距离触发，播报当前油量和剩余里程，并让 Coo 简短夸奖一句；默认 200。',
+        minimum: 50,
+        maximum: 1000,
+      },
+      'worlds.ets2-dafeiyu.vehicleWelcomeEnabled': {
+        type: 'boolean',
+        title: '车辆启动欢迎',
+        description: '每次进游戏后，每辆卡车第一次启动引擎时让 Coo 自己开场；同一辆车熄火再启动不会重复。',
       },
       'worlds.ets2-dafeiyu.radarEnabled': {
         type: 'boolean',

@@ -19,7 +19,7 @@
     },
     {
       "name": "ets2_recent_events",
-      "description": "Return the most recent ETS2 / ATS events this World has reported (accident, speeding, fine, toll, job, radar, city, border, connection).",
+      "description": "Return the most recent ETS2 / ATS events this World has reported (accident, speeding, fine, toll, job, radar, city, border, navigation, vehicle, connection).",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -301,6 +301,20 @@
       "description": {
         "zh": "越过美国州界。",
         "en": "The truck crossed a US state border."
+      }
+    },
+    {
+      "type": "ets2.navigation",
+      "description": {
+        "zh": "导航距离/预计时间播报。",
+        "en": "A navigation distance/ETA update."
+      }
+    },
+    {
+      "type": "ets2.vehicle-welcome",
+      "description": {
+        "zh": "进入游戏后启动引擎。",
+        "en": "The engine was started for this game session."
       }
     }
   ]

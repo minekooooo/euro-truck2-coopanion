@@ -12,6 +12,9 @@ const FILE_MAP_READ = 0x0004;
 const AREAS = [0, 40, 500, 700, 1500, 1640, 2000, 2200, 2300, 4000, 4200, 4300, 4400, 6000];
 
 export interface TruckState {
+  brand: string;
+  truckName: string;
+  truckId: string;
   speedMs: number;
   speedKmh: number;
   rpm: number;
@@ -86,6 +89,10 @@ export interface Ets2Telemetry {
   game: number;
   gameVersion: string;
   telemetryVersion: string;
+  /** Absolute in-game minutes since 00:00 of the first in-game day. */
+  gameTimeMin: number;
+  /** SCS local.scale: game seconds per real second. */
+  localScale: number;
   truck: TruckState;
   job: JobState;
   events: GameEvents;
@@ -171,6 +178,9 @@ class Reader {
 
 function emptyTruck(): TruckState {
   return {
+    brand: '',
+    truckName: '',
+    truckId: '',
     speedMs: 0,
     speedKmh: 0,
     rpm: 0,
@@ -244,6 +254,8 @@ export function parseTelemetry(data: Buffer): Ets2Telemetry {
     game: 0,
     gameVersion: '',
     telemetryVersion: '',
+    gameTimeMin: 0,
+    localScale: 1,
     truck: emptyTruck(),
     job: emptyJob(),
     events: emptyEvents(),
@@ -273,7 +285,7 @@ export function parseTelemetry(data: Buffer): Ets2Telemetry {
   const tvMinor = r.u32();
   t.gameVersion = `${gvMajor}.${gvMinor}`;
   t.telemetryVersion = `${tvMajor}.${tvMinor}`;
-  r.u32(); // game time
+  const gameTimeMin = r.u32();
   r.u32(); // forward gear count
   r.u32(); // reverse gear count
   r.u32(); // retarder steps
@@ -428,7 +440,7 @@ export function parseTelemetry(data: Buffer): Ets2Telemetry {
   // zone 8: strings
   const brandId = r.str(64);
   const brand = r.str(64);
-  r.str(64); // truck id
+  const truckId = r.str(64);
   const truckName = r.str(64);
   r.str(64); // cargo id
   const cargoName = r.str(64);
@@ -504,6 +516,9 @@ export function parseTelemetry(data: Buffer): Ets2Telemetry {
     Boolean(onJob || cargoLoaded || plannedDistanceKm > 0);
 
   t.truck = {
+    brand,
+    truckName,
+    truckId,
     speedMs,
     speedKmh: speedMs * 3.6,
     rpm,
@@ -566,9 +581,11 @@ export function parseTelemetry(data: Buffer): Ets2Telemetry {
   };
   // Metadata fields that are useful in tool output.
   t.meta = {
-    brand, brandId, truckName, scale, nextRestStop, deliveryTime, jobDeliveryTime,
+    brand, brandId, truckName, truckId, scale, nextRestStop, deliveryTime, jobDeliveryTime,
     autoParked, autoLoaded, electricOn,
   };
+  t.gameTimeMin = gameTimeMin;
+  t.localScale = scale > 0 ? scale : 1;
   t.connected = t.sdkActive && t.rawOk;
   return t;
 }

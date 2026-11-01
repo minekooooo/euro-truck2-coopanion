@@ -24,6 +24,8 @@ const EVENT_DESCRIPTIONS = [
   ['ets2.city-entered', '进入本地城市范围。', 'The truck entered a recorded city geofence.'],
   ['ets2.country-entered', '越过国家边境。', 'The truck crossed a country border.'],
   ['ets2.state-entered', '越过美国州界。', 'The truck crossed a US state border.'],
+  ['ets2.navigation', '导航距离/预计时间播报。', 'A navigation distance/ETA update.'],
+  ['ets2.vehicle-welcome', '进入游戏后启动引擎。', 'The engine was started for this game session.'],
 ] as const;
 
 export const ETS2_DEFINITION: WorldDefinition<Ets2ConfigSection> = {

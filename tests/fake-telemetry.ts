@@ -14,7 +14,9 @@ export function makeBuffer(): Buffer {
   b.writeUInt32LE(1, 52); // ETS2
   b.writeUInt32LE(1, 56);
   b.writeUInt32LE(12, 60);
+  b.writeUInt32LE(515, 64); // 08:35 game time
   b.writeUInt32LE(450, 100); // planned km
+  b.writeFloatLE(15, 700); // local.scale (game seconds per real second)
   b.writeFloatLE(800, 704); // fuel capacity
   b.writeFloatLE(80, 712); // adblue capacity
   b.writeFloatLE(25, 948); // 90 km/h

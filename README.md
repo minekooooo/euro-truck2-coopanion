@@ -27,6 +27,8 @@
   - `ets2_radar_points`
   - `ets2_record_radar`
 - **电子狗**：ETS2 内置 415 个官方地图点位（70 个测速/违章摄像头、297 个收费站、48 个称重点）；ATS 内置 541 个（15 个测速/违章、41 个收费站、485 个称重点）。支持把当前位置记成用户点位。
+- **导航阶段一**：有任务时用游戏导航的剩余距离/时间播报起点、200/100/50/10 公里节点、每 200 公里进度、ETA 和到达；进度播报当前油量、剩余里程和一句简短夸奖；节点距离按当前车速、游戏 `local.scale` 和 `navSpeechDelayS`（现实秒）做播报延迟修正；接单但还没挂车、导航距离为 0 时不会误报 0 公里；暂不做转弯和偏航重算。
+- **车辆启动欢迎**：每次进入游戏后，每辆卡车第一次启动引擎时，由 Coo 结合车型、能识别到的当前位置和游戏时间自己开场；识别不到位置就省略位置。
 
 ## 双游戏数据
 
@@ -161,6 +163,10 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 | `cityRepeatIntro` | false | 重复进入同一城市时是否再次介绍 |
 | `countryAnnounceEnabled` | true | 是否播报国家/州边境 |
 | `countryRepeatIntro` | false | 重复进入同一国家/州时是否再次介绍 |
+| `navAnnounceEnabled` | true | 是否播报导航距离/ETA |
+| `navSpeechDelayS` | 5 | 现实秒；按当前车速和游戏 local.scale 修正里程碑距离 |
+| `navProgressEveryKm` | 200 | 每行驶多少公里播报油量、剩余里程和夸奖 |
+| `vehicleWelcomeEnabled` | true | 每辆卡车每次进游戏第一次启动引擎是否欢迎 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
 | `speedingToleranceKmh` | 5 | 超速容差 |

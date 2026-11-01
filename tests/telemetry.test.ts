@@ -13,6 +13,8 @@ describe('SCS telemetry parser', () => {
     expect(t.truck.speedLimitKmh).toBeCloseTo(80, 1);
     expect(t.truck.world.x).toBe(1200);
     expect(t.truck.world.z).toBe(-3400);
+    expect(t.gameTimeMin).toBe(515);
+    expect(t.localScale).toBe(15);
     expect(t.job.active).toBe(true);
     expect(t.job.destinationCity).toBe('柏林');
     expect(t.job.sourceCity).toBe('阿姆斯特丹');
