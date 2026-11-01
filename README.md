@@ -2,7 +2,9 @@
 
 《欧洲卡车模拟 2》和《美国卡车模拟》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，按遥测里的 `game` 字段自动切换 ETS2 / ATS 数据，把车况和游戏事件交给桌宠 **Coo**。
 
-这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、；播报由 Coo 自己完成。
+这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
+
+当前版本：**1.0.0**
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
@@ -27,7 +29,7 @@
   - `ets2_radar_points`
   - `ets2_record_radar`
 - **电子狗**：ETS2 内置 415 个官方地图点位（70 个测速/违章摄像头、297 个收费站、48 个称重点）；ATS 内置 541 个（15 个测速/违章、41 个收费站、485 个称重点）。支持把当前位置记成用户点位。
-- **导航阶段一**：有任务时用游戏导航的剩余距离/时间播报起点、200/100/50/10 公里节点、每 200 公里进度、ETA 和到达；进度播报当前油量、剩余里程和一句简短夸奖；节点距离按当前车速、游戏 `local.scale` 和 `navSpeechDelayS`（现实秒）做播报延迟修正；接单但还没挂车、导航距离为 0 时不会误报 0 公里；暂不做转弯和偏航重算。
+- **导航阶段一**：有任务时用游戏导航的剩余距离/时间播报起点、200/100/50/10 公里节点、每 200 公里进度、ETA 和到达；进度播报当前油量、剩余里程和一句简短夸奖；节点距离按当前车速、游戏 `local.scale` 和 `navSpeechDelayS`（现实秒）做播报延迟修正；接单但还没挂车、导航距离为 0 时不会误报 0 公里；不做转弯播报，本地路线和偏航重算见下文。
 - **车辆启动欢迎**：每次进入游戏后，每辆卡车第一次启动引擎时，由 Coo 结合车型、能识别到的当前位置和游戏时间自己开场；识别不到位置就省略位置。
 
 ## 双游戏数据
@@ -45,6 +47,42 @@
 - 用户数据也按游戏分开：`ets2-cities.json` / `ats-cities.json`、`ets2-radar-points.json` / `ats-radar-points.json`
 - ATS 过境事件是 `ets2.state-entered`（州界），ETS2 是 `ets2.country-entered`（国界）
 - 本地中文名：`assets/zh_names.json`，目前覆盖 557 个城市和 166 个国家/州名；没有映射的地名回退到地图原名
+
+- 公司坐标自学习：接货记录起点公司、送达记录终点公司；按城市 ID + 公司 ID 聚类保存，后续接单优先使用学习点
+- 本地路线终点优先使用公司 POI / 学习点，找不到时才回退到城市中心；暂停状态下也会加载并推送当前路线
+- 本地预览页支持实时车辆跟随、车头朝上/北朝上、重新居中；这是二维地图跟随，不是车道级导航
+- 本地地图支持行程看板、服务设施/景点/渡轮/公司/电子狗图层、城市/国家/村庄开关、偏航连线和行驶轨迹
+- 接近景点/观景点时播报名称、类型和距离；每次进入附近可再次简短介绍，由 Coo 完成
+- ETS2 / ATS 各自使用本游戏的地图、设施、景点和路网数据；POI 坐标已修正 MVT Y 翻转
+
+## 本地路线服务（试验）
+
+插件会按需启动自带的 Node 服务：
+
+```text
+<插件目录>/services/trucknav/server.mjs
+```
+
+默认地址：
+
+```text
+http://127.0.0.1:17890
+```
+
+插件会：
+
+- 有任务时向服务请求“当前位置 → 公司 POI/学习点/城市中心”的路线
+- 用返回的完整道路几何做车辆路线投影
+- 偏航超过 `navOffRouteM` 并持续 2 秒时提示并重新规划；暂停或坐标为 `(0,0)` 时不判偏航
+- 重算有 30 秒冷却；连续两次仍然偏航会停止重算，直到车辆移动 500 米或任务变化
+- 服务不可用时自动退回阶段一的游戏导航距离播报
+- 接货/送达时学习公司位置，保存在 `<Coopanion 数据目录>/ets2-company-sites.json` 或 `ats-company-sites.json`
+
+当前仍是试验阶段：
+
+- 公司 POI 不一定等于精确入口，学习点也要积累
+- 没有转弯指令
+- 路线来自 TruckNav 的 GPL-3.0 路网数据，只在本地测试，不随插件发布
 
 ## 运行要求
 
@@ -90,7 +128,7 @@ World 默认是关闭的，需要手动启用。
 
 安装器会：
 
-- 从 [RenCloud/scs-sdk-plugin releases](https://github.com/RenCloud/scs-sdk-plugin/releases) 取最新 release
+- 从 [RenCloud/scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin) 的 Releases 取最新 release
 - 解压出 `Win64/scs-telemetry.dll`
 - 写入 `<游戏根目录>\bin\win_x64\plugins\scs-telemetry.dll`
 - 如果已有旧 DLL，先备份成 `scs-telemetry.dll.bak-时间`
@@ -150,6 +188,34 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 - 渡轮、海上、地图边缘没有道路节点的边境不会覆盖
 - 地图 mod 的边境点需要单独解析
 
+## 地图与路网面板
+
+Coopanion 的 World 页里有「地图与路网」面板：
+
+- 选择 ETS2 / ATS 数据
+- 下载/删除当前游戏的地图视觉数据（PMTiles）
+- 下载/删除当前游戏的路网数据（graph/geometry）
+- 开关地图入口、视觉数据、路网、本地导航服务
+- 游戏退出 30 秒后自动关闭地图服务
+- 手动启动/停止地图服务
+- 学习公司终点坐标
+- 修改本地导航服务地址、偏航距离
+- 调整低油、休息、车损提醒阈值
+
+下载地图视觉后会新增：
+
+- 游戏地图、城市、国家/边境、景点、设施、渡轮、公司、电子狗图层
+- 实时车辆跟随、行程看板、行驶轨迹、偏航连线
+
+下载路网后会新增：
+
+- 本地 TruckNav 路线
+- 偏航重算
+- 加油/休息/车损的前方设施距离播报
+
+地图视觉数据约 10–13 MB/游戏；路网数据约 70–77 MB/游戏。  
+地图数据不随 npm 包发布，按游戏按需下载。
+
 ## 配置
 
 配置段：`worlds.ets2-dafeiyu`
@@ -164,8 +230,26 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 | `countryAnnounceEnabled` | true | 是否播报国家/州边境 |
 | `countryRepeatIntro` | false | 重复进入同一国家/州时是否再次介绍 |
 | `navAnnounceEnabled` | true | 是否播报导航距离/ETA |
-| `navSpeechDelayS` | 5 | 现实秒；按当前车速和游戏 local.scale 修正里程碑距离 |
+| `navSpeechDelayS` | 8 | 现实秒；按当前车速和游戏 local.scale 修正里程碑距离 |
 | `navProgressEveryKm` | 200 | 每行驶多少公里播报油量、剩余里程和夸奖 |
+| `fuelAlertRatio` | 0.30 | 低油量提醒阈值（也可在地图面板调整） |
+| `restAlertMinutes` | 120 | 剩余多少游戏分钟时提醒休息（也可在地图面板调整） |
+| `damageAlertRatio` | 0.40 | 车辆受损提醒阈值（也可在地图面板调整） |
+
+地图相关配置已移到「地图与路网」面板：
+
+```text
+mapUiEnabled
+mapVisualEnabled
+routeDataEnabled
+navServiceEnabled
+navServiceUrl
+navOffRouteM
+companyLearningEnabled
+fuelAlertRatio
+restAlertMinutes
+damageAlertRatio
+```
 | `vehicleWelcomeEnabled` | true | 每辆卡车每次进游戏第一次启动引擎是否欢迎 |
 | `radarEnabled` | true | 是否启用电子狗 |
 | `pollMs` | 200 | 遥测轮询间隔（毫秒） |
@@ -187,12 +271,15 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 - `toll_start` / `toll_onetime` → 收费站（297）
 - `weigh` → 称重点（48）
 
+这些坐标**不是**从 `RADAR-DETECTOR` 声音 mod 里读的；那个 mod 只播放自己的音效，不暴露坐标。部分国家/DLC 没有 `offence` 触发器，所以摄像头覆盖不完整；可以用 `ets2_record_radar` 或罚款后的手动记录补充。
+
 用户点位保存在：
 
 ```text
 <Coopanion 数据目录>/ets2-radar-points.json
 ```
 
+不会写进 npm 包。
 
 ## 开发
 
@@ -211,6 +298,50 @@ npm pack --dry-run
 - 标签：`game` + `apps`
 - `os: ["win32"]`
 
+## 发布与市场
+
+```bash
+npm publish --access public
+```
+
+发布后如果市场还没显示，在 [Pal-AI-Lab/cortico-extensions](https://github.com/Pal-AI-Lab/cortico-extensions) 开一个 `[sync]` issue：
+
+```text
+[sync] cortico-world-ets2-dafeiyu
+```
+
+需要认证时再开 `[certify]` issue。市场索引有缓存，通常最多 10 分钟显示。
+
+## 致谢
+
+本项目的遥测、地图和路线功能离不开这些开源项目与数据：
+
+### 遥测 DLL
+
+SCS 遥测插件由 **RenCloud/scs-sdk-plugin** 提供，安装器会从 Releases 下载并安装 `Win64/scs-telemetry.dll`：
+
+- 项目：https://github.com/RenCloud/scs-sdk-plugin
+
+DLL 不随本插件打包，安装器只负责下载和写入游戏目录。
+
+### 地图与路线
+
+TruckNav 提供了 SCS 地图路网、A* 路线、转向数据和地图瓦片格式的参考实现。  
+本地路网和 PMTiles 数据仅用于本地测试，不随 npm 包发布。
+
+- TruckNav-Sim：https://github.com/Rares-Muntean/TruckNav-Sim
+
+TruckNav 地图数据遵循 **GPL-3.0**。本插件不把地图/路网大数据打进 npm 包；如需分发地图数据，请单独遵守其许可证。
+
+### 地图渲染与瓦片
+
+- MapLibre GL JS：https://github.com/maplibre/maplibre-gl-js
+- PMTiles：https://github.com/protomaps/PMTiles
+
+### SCS Software
+
+Euro Truck Simulator 2 和 American Truck Simulator 的商标与游戏内容归 SCS Software 所有。  
+本项目与 SCS Software、Pal AI Lab / Coopanion 没有隶属关系。
 
 ## 许可证
 
