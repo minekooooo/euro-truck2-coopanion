@@ -2,7 +2,7 @@
 
 《欧洲卡车模拟 2》和《美国卡车模拟》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，按遥测里的 `game` 字段自动切换 ETS2 / ATS 数据，把车况和游戏事件交给桌宠 **Coo**。
 
-这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
+这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、；播报由 Coo 自己完成。
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
@@ -187,15 +187,12 @@ ETS2 遥测没有“当前城市”字段，所以插件用城市坐标 + 世界
 - `toll_start` / `toll_onetime` → 收费站（297）
 - `weigh` → 称重点（48）
 
-这些坐标**不是**从 `RADAR-DETECTOR` 声音 mod 里读的；那个 mod 只播放自己的音效，不暴露坐标。部分国家/DLC 没有 `offence` 触发器，所以摄像头覆盖不完整；可以用 `ets2_record_radar` 或罚款后的手动记录补充。
-
 用户点位保存在：
 
 ```text
 <Coopanion 数据目录>/ets2-radar-points.json
 ```
 
-不会写进 npm 包。
 
 ## 开发
 
@@ -214,19 +211,6 @@ npm pack --dry-run
 - 标签：`game` + `apps`
 - `os: ["win32"]`
 
-## 发布与市场
-
-```bash
-npm publish --access public
-```
-
-发布后如果市场还没显示，在 [Pal-AI-Lab/cortico-extensions](https://github.com/Pal-AI-Lab/cortico-extensions) 开一个 `[sync]` issue：
-
-```text
-[sync] cortico-world-ets2-dafeiyu
-```
-
-需要认证时再开 `[certify]` issue。市场索引有缓存，通常最多 10 分钟显示。
 
 ## 许可证
 
