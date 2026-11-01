@@ -115,8 +115,8 @@ export const ETS2_CONFIG_GROUP: ConfigGroup = {
       },
       'worlds.ets2-dafeiyu.navAnnounceEnabled': {
         type: 'boolean',
-        title: '导航距离/ETA 播报',
-        description: '有任务时按游戏导航的剩余距离和时间播报；阶段一不做转弯指令。',
+        title: '导航距离播报',
+        description: '有任务时按游戏导航的剩余距离和时间播报。',
       },
       'worlds.ets2-dafeiyu.navSpeechDelayS': {
         type: 'integer',

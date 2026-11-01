@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.8
+
+- Updated the navigation config label/description to remove the obsolete “阶段一不做转弯指令”
+  wording.
+
 ## 0.7.7
 
 - Kept the final 200/100/50/10 km milestones.
