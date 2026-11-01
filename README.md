@@ -4,7 +4,7 @@
 
 这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
 
-当前版本：**1.0.0**
+当前版本：**1.0.1**
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
