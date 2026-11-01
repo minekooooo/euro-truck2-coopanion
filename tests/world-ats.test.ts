@@ -22,6 +22,14 @@ describe('World dataset switching', () => {
     expect(internal.game).toBe('ets2');
     expect(internal.cities.count).toBe(380);
     expect(internal.radar.count).toBe(415);
+    const names = world as unknown as {
+      cityName(city: { token?: string; name: string }): string;
+      regionName(name: string): string;
+    };
+    expect(names.cityName({ token: 'munchen', name: 'München' })).toBe('慕尼黑');
+    expect(names.cityName({ token: 'rock_springs', name: 'Rock Springs' })).toBe('石泉城');
+    expect(names.regionName('Deutschland')).toBe('德国');
+    expect(names.regionName('California')).toBe('加利福尼亚州');
     internal.applyGame(2);
     expect(internal.game).toBe('ats');
     expect(internal.cities.count).toBe(270);

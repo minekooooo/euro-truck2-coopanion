@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1
+
+- Local Chinese-name overlay: `assets/zh_names.json` maps 557 city tokens and 166 country/state names.
+- City entry, current-city status and country/state entry events now use Chinese display names when a
+  mapping exists; untranslated places fall back to the original map name.
+- This is local-only for testing; not published to npm or the marketplace yet.
+
 ## 0.6.0
 
 - Added ATS support, selected automatically from the telemetry `game` field (ETS2 = 1, ATS = 2).

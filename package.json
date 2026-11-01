@@ -1,6 +1,6 @@
 {
   "name": "cortico-world-ets2-dafeiyu",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "type": "module",
   "description": "《欧洲卡车模拟2》/《美国卡车模拟》的 Coopanion 桌宠副驾：读取官方遥测，按游戏切换城市、州/国家边境和电子狗数据，播报事故、超速、罚款、收费站、任务和过境，并支持一键安装 scs-telemetry.dll。",
   "license": "MIT",

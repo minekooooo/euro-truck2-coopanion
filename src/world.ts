@@ -1,4 +1,5 @@
 /** The native Node World: SCS telemetry, events and radar, exposed to Coo. */
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import type { Language } from 'cortico/core/language.ts';
@@ -171,6 +172,8 @@ export class Ets2World implements World {
   private cities: CityBook;
   private countries: CountryBook;
   private game: GameKind = 'ets2';
+  private readonly cityNames: Record<string, string> = {};
+  private readonly regionNames: Record<string, string> = {};
   private host: WorldHost | null = null;
   private timer: NodeJS.Timeout | null = null;
   private latest: Ets2Telemetry | null = null;
@@ -185,6 +188,7 @@ export class Ets2World implements World {
 
   constructor(private readonly opts: Ets2WorldOptions) {
     this.engine = new EventEngine(opts.cfg);
+    this.loadLocalizedNames();
     this.radar = this.makeRadar(this.game);
     this.cities = this.makeCities(this.game);
     this.countries = this.makeCountries(this.game);
@@ -192,6 +196,34 @@ export class Ets2World implements World {
 
   private asset(name: string): string {
     return fileURLToPath(new URL(`../assets/${name}`, import.meta.url));
+  }
+
+  private loadLocalizedNames(): void {
+    const path = this.asset('zh_names.json');
+    if (!existsSync(path)) return;
+    try {
+      const raw = JSON.parse(readFileSync(path, 'utf8')) as {
+        cities?: Record<string, string>;
+        regions?: Record<string, string>;
+      };
+      for (const [key, value] of Object.entries(raw.cities ?? {})) {
+        this.cityNames[key.toLowerCase()] = value;
+      }
+      for (const [key, value] of Object.entries(raw.regions ?? {})) {
+        this.regionNames[key] = value;
+        this.regionNames[key.toLowerCase()] = value;
+      }
+    } catch {
+      // The optional Chinese-name overlay must never prevent the World loading.
+    }
+  }
+
+  private cityName(city: { token?: string; name: string }): string {
+    return this.cityNames[city.token?.toLowerCase() ?? ''] ?? city.name;
+  }
+
+  private regionName(name: string): string {
+    return this.regionNames[name] ?? name;
   }
 
   private makeRadar(game: GameKind): RadarBook {
@@ -287,7 +319,7 @@ export class Ets2World implements World {
       'ets2.status': status,
       'ets2.job': job,
       'ets2.city': currentCity
-        ? `当前城市：${currentCity.name}（距中心约 ${Math.round(Math.hypot(tr.world.x - currentCity.x, tr.world.z - currentCity.z))} 米）。`
+        ? `当前城市：${this.cityName(currentCity)}（距中心约 ${Math.round(Math.hypot(tr.world.x - currentCity.x, tr.world.z - currentCity.z))} 米）。`
         : `当前城市：不在已记录的城市范围内（本地共 ${this.cities.count} 个城市）。`,
       'ets2.radar': radar,
       'ets2.recent': this.recentText(4),
@@ -452,9 +484,9 @@ export class Ets2World implements World {
                   : '（已介绍过，简短报到即可）';
               this.pushEvent(
                 'ets2.city-entered',
-                `${this.short} 进入城市：${enteredCity.name}${suffix}`,
+                `${this.short} 进入城市：${this.cityName(enteredCity)}${suffix}`,
                 'debounce',
-                { kind: 'city', city: enteredCity.name, firstVisit, repeatIntro },
+                { kind: 'city', city: this.cityName(enteredCity), firstVisit, repeatIntro },
               );
             }
             const crossing = this.countries.detect(telemetry);
@@ -468,14 +500,16 @@ export class Ets2World implements World {
                 : repeatIntro
                   ? '再次到达，可再简短介绍'
                   : '已介绍过，简短报到即可';
+              const countryName = this.regionName(crossing.country);
+              const fromName = this.regionName(crossing.fromCountry);
               this.pushEvent(
                 this.game === 'ats' ? 'ets2.state-entered' : 'ets2.country-entered',
-                `${this.short} 进入${this.region}：${crossing.country}（从${crossing.fromCountry}方向，${suffix}）`,
+                `${this.short} 进入${this.region}：${countryName}（从${fromName}方向，${suffix}）`,
                 'debounce',
                 {
                   kind: this.game === 'ats' ? 'state' : 'country',
-                  country: crossing.country,
-                  fromCountry: crossing.fromCountry,
+                  country: countryName,
+                  fromCountry: fromName,
                   firstVisit,
                   repeatIntro,
                 },
@@ -696,14 +730,14 @@ export class Ets2World implements World {
     const current = this.cities.current;
     const rows = this.cities.nearest(limit);
     const head = current
-      ? `当前在 ${current.name}（半径 ${current.radiusM} 米）`
+      ? `当前在 ${this.cityName(current)}（半径 ${current.radiusM} 米）`
       : `当前不在已记录的城市范围内（本地共 ${this.cities.count} 个）`;
     if (!rows.length) return `${head}。还没有城市记录：接单/送达会自动学习，或在「城市记录」面板手动记录。`;
     return [
       head,
       ...rows.map((p) => {
         const distance = p.distanceM == null ? '--' : `${fmt(p.distanceM)} m`;
-        return `${p.name}（${p.source === 'manual' ? '手动' : '自动'}，${distance}，半径 ${p.radiusM} m）`;
+        return `${this.cityName(p)}（${p.source === 'manual' ? '手动' : '自动'}，${distance}，半径 ${p.radiusM} m）`;
       }),
     ].join('\n');
   }

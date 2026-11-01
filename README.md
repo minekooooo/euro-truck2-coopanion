@@ -42,6 +42,7 @@
 - ATS 数据：`assets/cities_ats.json`、`assets/borders_ats.json`、`assets/radar_points_ats.json`
 - 用户数据也按游戏分开：`ets2-cities.json` / `ats-cities.json`、`ets2-radar-points.json` / `ats-radar-points.json`
 - ATS 过境事件是 `ets2.state-entered`（州界），ETS2 是 `ets2.country-entered`（国界）
+- 本地中文名：`assets/zh_names.json`，目前覆盖 557 个城市和 166 个国家/州名；没有映射的地名回退到地图原名
 
 ## 运行要求
 
