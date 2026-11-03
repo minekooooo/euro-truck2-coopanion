@@ -4,7 +4,7 @@
 
 这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
 
-当前版本：**1.0.3**
+当前版本：**1.1.0**
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
 - 源码：https://github.com/minekooooo/euro-truck2-coopanion
@@ -27,7 +27,11 @@
   - `ets2_status`
   - `ets2_recent_events`
   - `ets2_radar_points`
+  - `ets2_ahead`：查询路线前方的加油站、停车/休息区、维修站和收费站
   - `ets2_record_radar`
+  - `ets2_cities`
+  - `ets2_record_city`
+  - `ets2_install_telemetry`
 - **电子狗**：ETS2 内置 415 个官方地图点位（70 个测速/违章摄像头、297 个收费站、48 个称重点）；ATS 内置 541 个（15 个测速/违章、41 个收费站、485 个称重点）。支持把当前位置记成用户点位。
 - **导航阶段一**：有任务时用游戏导航的剩余距离/时间播报起点、200/100/50/10 公里节点、每 200 公里进度、ETA 和到达；进度播报当前油量、剩余里程和一句简短夸奖；节点距离按当前车速、游戏 `local.scale` 和 `navSpeechDelayS`（现实秒）做播报延迟修正；接单但还没挂车、导航距离为 0 时不会误报 0 公里；不做转弯播报，本地路线和偏航重算见「地图与路网面板」。
 - **车辆启动欢迎**：每次进入游戏后，每辆卡车第一次启动引擎时，由 Coo 结合车型、能识别到的当前位置和游戏时间自己开场；识别不到位置就省略位置。

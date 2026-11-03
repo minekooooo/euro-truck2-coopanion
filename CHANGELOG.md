@@ -1,8 +1,28 @@
-# Changelog
+# 更新日志
+
+## 1.1.0
+
+- 新增 `ets2_ahead` 工具：Coo 可以查询当前路线前方的加油站、停车/休息区、维修站和收费站，默认最多返回 20 个。
+- 装货完成后增加沿途路线简报：播报途经城市、沿途景点、加油站和收费站数量；总里程使用游戏任务计划距离，不再使用本地路网距离。
+- 路线简报和 `ets2_ahead` 会识别轮渡跨海段，并在计划里程与游戏导航差值明显时单独估算轮渡里程。
+- 加油站统计只使用路线 800 个游戏单位内的点，并把同一服务区两侧相距很近的加油点合并，避免重复计数。
+- 车库附近的加油站、停车区和维修点不再作为独立设施统计或播报。
+- 地图页支持手动添加、删除自定义加油站和收费站点位，自定义点位会参与路线简报统计。
+- 内置景点、观景点名称全部增加中文译名，并保留英文原名，例如「纽伦堡国家剧院（Nuremberg Opera House）」。
+- 发给 Coo 的城市、国家/州、景点和目的地使用「中文（English）」格式；环境提示词要求实际播报只念中文，英文仅用于辨认译名。
+- 地图页继续保留英文原始地名和景点英文参考名；网页弹窗可以显示中英对照。
 
 ## 1.0.3
 
 - 城市、国家/州名称改为中文后附带英文名，例如「柏林（Berlin）」「德国（Germany）」。
+- 装货完成后增加一次沿途路线简报：途经城市、沿途景点、加油站和收费站数量；总里程使用游戏任务计划距离，不再使用本地路网距离。
+- 地图页支持手动添加/删除自定义加油站、收费站点位；路线简报会合并自定义点位。
+- 路线简报和 `ets2_ahead` 的加油站只统计路线 800 游戏单位范围内的点，并把同一服务区两侧相距很近的加油点合并为一组。
+- 内置景点/观景点名称全部增加中文译名，并保留英文原名，例如「纽伦堡国家剧院（Nuremberg Opera House）」。
+- 路线简报会识别轮渡跨海段，并在计划里程与游戏导航差值明显时单独估算轮渡里程。
+- 发给 Coo 的城市、国家/州和景点名称恢复为「中文（English）」，但环境提示词明确要求实际播报只念中文；英文仅用于辨认译名。
+- 新增 `ets2_ahead` 工具，Coo 可主动查询当前路线前方的加油站、停车/休息区、维修站和收费站；默认最多返回 20 个。
+- 车库附近的加油站、停车区和维修点不再作为独立设施播报；`ets2_ahead` 和路线简报都会排除它们。
 
 ## 1.0.2
 
@@ -14,403 +34,318 @@
 
 ## 1.0.0
 
-- First full ETS2 / ATS release with the TruckNav map, route service, POI layers, landmark/facility
-  alerts, ATS parity and the plugin-managed map panel.
-- The map panel now manages map/road downloads, per-game data status, map switches, local service
-  URL, off-route threshold and fuel/rest/damage thresholds.
-- Added manual map-service start/stop and automatic shutdown 30 seconds after game disconnect.
-  Plugin shutdown also stops the map service.
-- Market README: credits simplified to the RenCloud project and TruckNav-Sim; removed per-file
-  TruckNav links and the SCS SDK header reference.
+- 首个完整 ETS2 / ATS 版本，包含 TruckNav 地图、路线服务、POI 图层、景点/设施提醒、ATS 适配和插件管理的地图面板。
+- 地图面板现在管理地图/路网下载、按游戏显示数据状态、地图开关、本地服务地址、偏航阈值以及低油/休息/车损阈值。
+- 新增手动启动/停止地图服务，以及游戏断开 30 秒后自动关闭地图服务；关闭插件时也会停止地图服务。
+- 市场 README 的致谢精简为 RenCloud 项目和 TruckNav-Sim，移除了 TruckNav 文件链接和 SCS SDK 文档引用。
 
 ## 0.18.1
 
-- Fixed PMTiles POI conversion: flipped the MVT local Y coordinate before converting back to SCS
-  game coordinates. This corrects landmark and facility positions for both ETS2 and ATS.
-- Regenerated ETS2/ATS landmark and facility assets. Flaming Gorge Dam now matches the truck position
-  within a few metres instead of being 6.7 km away.
+- 修复 PMTiles POI 坐标转换：在转换回 SCS 游戏坐标前翻转 MVT 局部 Y 坐标；ETS2 和 ATS 的景点、设施位置现在正确。
+- 重新生成 ETS2 / ATS 景点和设施资产；Flaming Gorge Dam 现在与车辆位置只差几米，而不是 6.7 公里。
 
 ## 0.18.0
 
-- ATS map parity:
-  - generated ATS facilities (277 fuel, 931 parking, 487 repair) from its zoom-8 PMTiles
-  - generated 405 ATS landmark/viewpoint POIs
-  - map starts at the ATS map centre instead of Europe
-  - `?game=ats` query is served correctly by the local map service
-- ATS fuel, rest, damage and landmark alerts now use the same plugin code paths as ETS2.
+- ATS 地图适配：
+  - 从 ATS 的 8 级 PMTiles 生成设施数据（277 个加油站、931 个停车区、487 个维修站）
+  - 生成 405 个 ATS 景点/观景点 POI
+  - 地图初始中心改为 ATS 地图中心，而不是欧洲
+  - 本地地图服务可以正确响应 `?game=ats` 查询
+- ATS 的加油站、休息、车损和景点提醒现在与 ETS2 使用同一套插件代码。
 
 ## 0.17.2
 
-- Added the missing prebuilt WebUI map panel to `dist/webui.js`, so “地图与路网” loads instead of
-  reporting that the panel artifact is missing. The panel shows map/road switches, service status
-  and installed data, and links to the map page.
+- 补回遗漏的预构建 WebUI 地图面板到 `dist/webui.js`，使「地图与路网」可以正常打开，而不是提示面板文件缺失。面板显示地图/路网开关、服务状态和已安装数据，并链接到地图页。
 
 ## 0.17.1
 
-- Removed the unbuilt “地图与路网” WebUI panel. Coopanion panels are resolved from the prebuilt
-  `dist/webui.js` bundle; adding a declaration alone caused “panel not found”. The map link and
-  config switches remain.
+- 移除未构建的「地图与路网」WebUI 面板。Coopanion 面板从预构建的 `dist/webui.js` 读取，只添加声明会导致「找不到面板」。地图链接和配置开关保留。
 
 ## 0.17.0
 
-- Added plugin-side map integration:
-  - map WebUI link
-  - optional map UI/visual toggles
-  - plugin starts/stops its own TruckNav service when needed
-  - route data toggle that disables local routing, off-route handling and fuel/rest/damage
-    distance alerts when the map is off
-  - map/road-network status panel
-- Added `services` to the packaged files. Map data packs are still optional and not bundled.
+- 增加插件侧地图集成：
+  - 地图 WebUI 链接
+  - 可选的 map UI/visual 开关
+  - 插件需要时自行启动/停止 TruckNav 服务
+  - 路网数据开关；关闭地图时，本地路线、偏航处理以及低油/休息/车损距离提醒都会停用
+  - 地图/路网状态面板
+- 将 `services` 加入打包文件；地图数据包仍然是可选项，不随包发布。
 
 ## 0.16.1
 
-- Landmark announcements now repeat on each pass: announce when entering the 500 m radius, reset
-  after leaving the 700 m radius. The 10 s cooldown prevents rapid repeats.
+- 景点播报现在每次经过都会触发：进入 500 米范围时播报，离开 700 米后重置；10 秒冷却用于避免快速重复。
 
 ## 0.16.0
 
-- Added landmark/viewpoint proximity announcements. Within 500 m of a POI, Coo receives one event
-  with the landmark name, type and distance; each landmark is announced once with a 10 s cooldown.
+- 增加景点/观景点接近播报。距离 POI 500 米内，Coo 会收到一个事件，包含景点名称、类型和距离；每个景点每次进入范围播报一次，冷却 10 秒。
 
 ## 0.15.3
 
-- Reverted the map facility layer to the raw PMTiles `spritelocations` geometry. The generated
-  facility coordinates were offset from the game map, so the deduplicated layer looked misplaced.
-- The 100 m deduplicated facility dataset is still used for fuel/parking/repair alerts.
+- 将地图设施图层恢复为原始 PMTiles 的 `spritelocations` 几何。生成的设施坐标与游戏地图有偏移，导致去重后的图层看起来位置不对。
+- 100 米去重后的设施数据仍用于加油站/停车区/维修站提醒。
 
 ## 0.15.2
 
-- The map now renders the deduplicated local facility dataset instead of the raw PMTiles
-  `spritelocations` facility points, so the 200 m clustering is visible on the page.
+- 地图现在渲染去重后的本地设施数据，而不是原始 PMTiles 的 `spritelocations` 设施点，因此页面可以看到 200 米聚类效果。
 
 ## 0.15.1
 
-- Increased facility clustering from 100 m to 200 m.
-  ETS2 points: fuel 468 → 432, parking 1119 → 1047, repair 547 → 498.
+- 设施聚类半径从 100 米提高到 200 米。
+  ETS2 点位：加油站 468 → 432，停车区 1119 → 1047，维修站 547 → 498。
 
 ## 0.15.0
 
-- Facility points are clustered within 100 m per type:
-  ETS2 fuel 577 → 468, parking 1310 → 1119, repair 602 → 547.
-- Added one-shot truck-damage alerts above 40%, with the next repair station along the route.
-- Added `damageAlertRatio` setting.
+- 设施点按类型在 100 米内聚类：
+  ETS2 加油站 577 → 468，停车区 1310 → 1119，维修站 602 → 547。
+- 新增车损超过 40% 时的一次性提醒，并给出路线前方最近的维修站。
+- 新增 `damageAlertRatio` 设置。
 
 ## 0.14.0
 
-- Extracted fuel and parking facility coordinates from the map POI layer.
-- Added one-shot low-fuel alerts at 30% with the next fuel station along the current route.
-- Added one-shot rest alerts at 120 game minutes, using the next parking/rest-area candidate.
-- Added `fuelAlertRatio` and `restAlertMinutes` settings and a “next rest” dashboard row.
-- Fuel and parking points are now color-coded on the map.
+- 从地图 POI 图层提取加油站和停车区设施坐标。
+- 新增油量低于 30% 时的一次性低油提醒，并给出当前路线前方的下一个加油站。
+- 新增休息时间不足 120 游戏分钟时的一次性提醒，使用前方停车/休息区候选点。
+- 新增 `fuelAlertRatio`、`restAlertMinutes` 设置和「下次休息」看板行。
+- 加油站和停车点在地图上使用不同颜色。
 
 ## 0.13.1
 
-- Clear the published job route when no job is active. The browser now removes the previous route
-  on `/job-route` 204 instead of leaving a stale line on the map.
+- 没有任务时清除已发布的路线。浏览器在 `/job-route` 返回 204 时移除之前的路线，而不是留下过期线段。
 
 ## 0.13.0
 
-- TruckNav map additions:
-  - trip dashboard from live telemetry
-  - facilities, landmarks/viewpoints, ferries/trains, companies and radar point layers
-  - city, country/border and village layer toggles
-  - truck-to-route deviation line
-  - current-session trail with clear button
-  - clickable POI popups
-- Added a local radar GeoJSON endpoint and richer telemetry fields for the dashboard.
+- TruckNav 地图增强：
+  - 基于实时遥测的行程看板
+  - 设施、景点/观景点、渡轮/火车、公司和电子狗图层
+  - 城市、国家/边境、村庄图层开关
+  - 车辆到路线的偏航连线
+  - 本次会话轨迹和清空按钮
+  - 可点击的 POI 弹窗
+- 新增本地电子狗 GeoJSON 接口，并补充看板需要的遥测字段。
 
 ## 0.12.2
 
-- Removed N5, the “local route ready” announcement (`ets2.nav-route`). The route is still loaded
-  and shown on the TruckNav map; only the voice event is gone.
+- 移除 N5「本地路线就绪」播报（`ets2.nav-route`）。路线仍会加载并显示在 TruckNav 地图上，只是不再语音播报。
 
 ## 0.12.1
 
-- Removed turn-by-turn navigation announcements (N7): no more `ets2.nav-instruction`, maneuver
-  generation, turn-side lookup, or turn prompt/config. The local TruckNav map, route service,
-  route snapshot, live vehicle marker and the existing distance/ETA announcements remain.
+- 移除逐转向导航播报（N7）：不再有 `ets2.nav-instruction`、转向动作生成、转向侧查询、转向提示/配置。本地 TruckNav 地图、路线服务、路线快照、实时车辆标记和已有距离/ETA 播报保留。
 
 ## 0.12.0
 
-- Added an offline full-map turn-side pass for ramp/keep edges:
-  `tools/build-turn-sides.mjs` reads graph + geometry and writes
-  `data/trucknav/<game>/roadnetwork/turn_sides.json`.
-- Each directed incoming/outgoing edge pair is classified as left/right/straight from its approach
-  bearings; no image recognition and no changes to the source graph.
-- The route service uses the side for type-5 ramps and says “靠左进入匝道” / “靠右进入匝道”; if the
-  angle is inconclusive it says only “进入匝道”.
+- 增加离线全地图的匝道/汇入边转向侧计算：`tools/build-turn-sides.mjs` 读取 graph + geometry，写入 `data/trucknav/<game>/roadnetwork/turn_sides.json`。
+- 每对入/出方向边根据进入方位判定左/右/直行；不使用图像识别，也不修改源路网。
+- 路线服务对类型 5 的匝道使用该侧向信息，播报「靠左进入匝道」/「靠右进入匝道」；角度不确定时只说「进入匝道」。
 
 ## 0.11.5
 
-- Fixed duplicate turn announcements after an off-route replan by deduplicating maneuvers on a
-  stable type + 50 m position key instead of clearing the announced set on every route load.
-- Turn announcements are earlier by default: `navInstructionDistanceM` is now 700 m and
-  `navSpeechDelayS` is now 8 s, so Coo's actual speech latency is covered.
-- Maneuvers now include their game coordinates for stable deduplication.
+- 修复偏航重算后的重复转向播报：使用「类型 + 50 米位置」稳定键去重，而不是每次加载路线都清空已播报集合。
+- 转向播报默认提前量更大：`navInstructionDistanceM` 改为 700 米，`navSpeechDelayS` 改为 8 秒，覆盖 Coo 的实际语音延迟。
+- 转向动作现在包含游戏坐标，便于稳定去重。
 
 ## 0.11.4
 
-- Reverted the extra prompt restriction on turn instructions. Coo may briefly supplement from the
-  preceding navigation context, or say nothing extra.
+- 撤销对转向提示的额外限制。Coo 可以从前文导航上下文简短补充，也可以不补充。
 
 ## 0.11.3
 
-- Graph maneuver type 5 is now announced as a neutral “进入匝道，靠右” instead of “驶出高速”.
-  The map tag represents a highway ramp/link and may be an interchange to another motorway, not an exit.
-- Coo is explicitly forbidden from adding invented lane/indicator/merge instructions (“打灯/并线/第几车道”).
+- 图上的类型 5 转向现在播报中性的「进入匝道，靠右」，而不是「驶出高速」。该地图标记表示高速匝道/连接线，可能通往另一条高速，不一定是出口。
+- 明确禁止 Coo 自行添加车道、打灯、并线等虚构指令。
 
 ## 0.11.2
 
-- Fixed a paused/not-loaded telemetry off-route loop: off-route and voice navigation are skipped
-  while paused or when the position is invalid `(0, 0)`.
-- Added replan backoff and a circuit breaker:
-  - first off-route replan: 30 s cooldown
-  - second consecutive failure: stop replanning until the truck moves 500 m or the job changes
-  - a new job resets the replan budget
+- 修复暂停或未加载遥测时的偏航循环：暂停或位置无效 `(0,0)` 时跳过偏航和语音导航。
+- 增加重算退避和熔断：
+  - 第一次偏航重算：30 秒冷却
+  - 连续第二次失败：停止重算，直到车辆移动 500 米或任务变化
+  - 新任务会重置重算预算
 
 ## 0.11.1
 
-- Turn instructions now use the highest event priority, `interrupt`, instead of only escalating to
-  `preempt` at 100 m. Navigation can interrupt an in-flight Coo reply or tool call.
+- 转向提示现在使用最高事件优先级 `interrupt`，而不是只在 100 米时升级为 `preempt`。导航可以打断 Coo 正在进行的回复或工具调用。
 
 ## 0.11.0
 
-- Added one-shot turn-by-turn voice instructions from graph maneuver metadata:
-  left/right, keep left/right, roundabout exits and highway exits.
-- Each maneuver is announced once. The trigger includes the current speed and `navSpeechDelayS`
-  real-time delay converted with `local.scale`; the spoken distance is the predicted distance at
-  speech time.
-- New setting: `navInstructionDistanceM` (default 500 m).
-- No repeated 500/200/50 m announcements for the same turn.
+- 根据图转向元数据增加一次性逐转向语音提示：左/右、靠左/靠右、环岛出口和高速出口。
+- 每个转向只播报一次。触发时结合当前车速和 `navSpeechDelayS` 实时延迟（用 `local.scale` 换算），播报的是语音发出时的预测距离。
+- 新设置：`navInstructionDistanceM`（默认 500 米）。
+- 同一个转向不再重复播报 500/200/50 米。
 
 ## 0.10.2
 
-- Load/publish the active job route even when the game is paused, so a paused game no longer leaves
-  the browser preview page empty after a service or plugin restart.
+- 游戏暂停时也加载/发布当前任务路线，暂停后服务或插件重启不再让浏览器预览页空白。
 
 ## 0.10.1
 
-- Republish the active job-route snapshot to the local preview service every ~5 seconds, even while
-  paused, so a service restart or a newly opened browser page can recover the current route.
+- 每约 5 秒重新发布当前任务路线快照到本地预览服务，即使暂停也发布，服务重启或新开浏览器页面后可以恢复当前路线。
 
 ## 0.10.0
 
-- Local preview now has a real-time vehicle marker and camera follow:
-  `POST/GET /telemetry`, 5 Hz browser updates, follow toggle, heading-up toggle and recenter.
-- The World publishes current position/heading/speed to the local service every ~200 ms.
-- Automatic job-route preview remains: the World pushes the completed local route after pickup and
-  the browser polls `/job-route`; no manual coordinates are required.
-- This is a 2D map follower, not lane-level navigation.
+- 本地预览支持实时车辆标记和镜头跟随：`POST/GET /telemetry`、浏览器 5 Hz 更新、跟随开关、车头朝上开关和重新居中。
+- World 每约 200 毫秒向本地服务发布当前位置/朝向/速度。
+- 保留自动任务路线预览：World 在接货后推送完整本地路线，浏览器轮询 `/job-route`，不需要手动输入坐标。
+- 这是二维地图跟随，不是车道级导航。
 
 ## 0.9.0
 
-- Telemetry now keeps source/destination city IDs and company IDs.
-- Added `assets/company_sites.json` / `assets/company_sites_ats.json` generated from TruckNav company POIs:
-  1844 ETS2 sites and 2186 ATS sites.
-- Local route destination now resolves company site coordinates first, then falls back to the city
-  centre.
-- Added company-site self-learning: pickup records the source company position; delivery records the
-  destination company position. Learned sites are stored per game in
-  `<dataDir>/ets2-company-sites.json` / `ats-company-sites.json`, clustered within 150 m and preferred
-  on later jobs.
-- New setting: `companyLearningEnabled`.
+- 遥测现在保留起点/终点城市 ID 和公司 ID。
+- 新增由 TruckNav 公司 POI 生成的 `assets/company_sites.json` / `assets/company_sites_ats.json`：ETS2 1844 个、ATS 2186 个公司点。
+- 本地路线终点现在优先解析公司点坐标，找不到时回退到城市中心。
+- 新增公司点自学习：接货记录起点公司位置，送达记录终点公司位置。学习点按游戏保存在 `<dataDir>/ets2-company-sites.json` / `ats-company-sites.json`，150 米内聚类，后续任务优先使用。
+- 新设置：`companyLearningEnabled`。
 
 ## 0.8.0
 
-- Local-only prototype of the standalone TruckNav route service
-  (`D:\ATSETS\services\trucknav`), using downloaded `graph.bin` / `geometry.bin`.
-- The World now requests a route from the current truck position to the active job's destination
-  city centre, follows the returned full road geometry, and emits a local-route/off-route event.
-- Route failure falls back to the existing phase-one game-navigation announcements.
-- New settings: `navServiceEnabled`, `navServiceUrl`, `navOffRouteM`.
-- No turn-by-turn instructions yet; no npm/market publish for this local prototype.
+- 独立 TruckNav 路线服务的本地原型（`<项目目录>/services/trucknav`），使用下载的 `graph.bin` / `geometry.bin`。
+- World 现在从当前车辆位置请求到当前任务目的城市的路线，跟随返回的完整道路几何，并发出本地路线/偏航事件。
+- 路线失败时回退到已有的阶段一游戏导航播报。
+- 新设置：`navServiceEnabled`、`navServiceUrl`、`navOffRouteM`。
+- 此本地原型尚无逐转向指令，也未发布到 npm/市场。
 
 ## 0.7.9
 
-- Fixed false refuel announcements when switching trucks: the first fuel frame of a different truck
-  is only used as a baseline.
-- Ignore refuel pulses with a zero/negative amount, and suppress the first refuel pulse after a
-  pause/reconnect. Real refuels on the same truck still announce normally.
+- 修复切换卡车时的误报加油：不同卡车的第一个油量帧只作为基线。
+- 忽略油量为 0 或负数的加油脉冲，并抑制暂停/重连后的第一个加油脉冲；同一卡车的真实加油仍会正常播报。
 
 ## 0.7.8
 
-- Updated the navigation config label/description to remove the obsolete “阶段一不做转弯指令”
-  wording.
+- 更新导航配置的标题/说明，移除过时的「阶段一不做转弯指令」措辞。
 
 ## 0.7.7
 
-- Kept the final 200/100/50/10 km milestones.
-- Added a progress announcement every `navProgressEveryKm` travelled kilometres (default 200): current
-  fuel, remaining distance and a short praise from Coo.
-- Progress is based on `plannedDistanceKm - current navDistance`, with the same speech-delay
-  correction for the remaining-distance text.
+- 保留最后的 200/100/50/10 公里节点。
+- 每行驶 `navProgressEveryKm` 公里（默认 200）播报一次进度：当前油量、剩余距离和 Coo 的一句简短夸奖。
+- 进度基于 `plannedDistanceKm - 当前 navDistance`，剩余距离文本使用同样的语音延迟修正。
 
 ## 0.7.6
 
-- Speech-delay distance correction now treats `navSpeechDelayS` as real seconds and converts using
-  telemetry `local.scale` (game seconds per real second). Fallback is 15× when scale is unavailable.
-  At 90 km/h, a 5-real-second delay now corrects ~1.9 km instead of ~0.1 km.
+- 语音延迟距离修正现在把 `navSpeechDelayS` 当作现实秒，并使用遥测 `local.scale`（游戏秒/现实秒）换算；没有 scale 时回退为 15 倍。
+  以 90 km/h 行驶时，5 现实秒延迟现在修正约 1.9 公里，而不是约 0.1 公里。
 
 ## 0.7.5
 
-- Navigation milestones reduced to 200 / 100 / 50 / 10 km.
-- Milestone distances are corrected by current speed and an estimated speech delay
-  (`navSpeechDelayS`, default 5 seconds), so Coo's delayed line matches the road position better.
-- Zero-distance guard from 0.7.3 remains.
+- 导航节点减少为 200 / 100 / 50 / 10 公里。
+- 节点距离根据当前车速和估计语音延迟（`navSpeechDelayS`，默认 5 秒）修正，使 Coo 延迟播出的内容更接近实际道路位置。
+- 保留 0.7.3 的零距离保护。
 
 ## 0.7.4
 
-- Vehicle-start event now includes the absolute in-game clock (`HH:MM`, game time modulo 24h) and
-  omits the location entirely when no city geofence is known.
-- Coo's vehicle-start prompt now uses the included time/location when present and improvises without
-  inventing missing details.
+- 车辆启动事件现在包含游戏内绝对时间（`HH:MM`，游戏时间对 24 小时取模）；没有已知城市围栏时完全省略位置。
+- Coo 的车辆启动提示会使用事件中的时间/位置，没有的信息不编造。
 
 ## 0.7.3
 
-- Fixed navigation milestones firing at 0 km while a job is accepted but the trailer is not hooked
-  up yet. A zero navigation distance is now treated as “route not initialized”, not as arrival.
-- Milestones only start after the game reports a positive navigation distance.
+- 修复接单但尚未连接挂车时导航节点在 0 公里处全部触发的问题。零导航距离现在视为「路线尚未初始化」，不当作到达。
+- 只有游戏报告正数导航距离后才开始节点播报。
 
 ## 0.7.2
 
-- Vehicle welcome is now per truck per game session: the first engine start of each truck announces;
-  stopping and restarting the same truck does not. Switching trucks and starting the new one announces
-  again.
-- Removed the fixed “和您一路同行” prompt. The event now includes the truck brand and current city
-  (country/state when known), and Coo improvises a short opening in her own voice.
+- 车辆欢迎现在按「每辆卡车、每次游戏会话」计算：每辆卡车第一次启动引擎时播报；同一辆车停车再启动不重复；换车并启动新车会再次播报。
+- 移除固定的「和您一路同行」提示。事件现在包含卡车品牌和当前城市（已知时包含国家/州），Coo 用自己的语气即兴说一段简短开场。
 
 ## 0.7.1
 
-- Vehicle welcome is now once per game session when the engine starts, not once per truck forever.
-- A real telemetry disconnect (game closed or returned to menu) resets the welcome for the next
-  session; stopping/starting the engine inside one session does not repeat it.
-- Removed the persistent `*-vehicles.json` first-drive cache.
+- 车辆欢迎现在按游戏会话、引擎启动计算，而不是每辆卡车永久只播一次。
+- 真正的遥测断开（关闭游戏或返回菜单）会重置下一次会话的欢迎；同一会话内停车/启动引擎不会重复。
+- 移除持久化的 `*-vehicles.json` 首驾缓存。
 
 ## 0.7.0
 
-- Phase-one navigation: while a job is active, reads the game's navigation distance/time and
-  announces route start, remaining-distance milestones, ETA and arrival. No turn-by-turn or
-  off-route detection yet.
-- First-drive truck welcome: reads telemetry brand/model/truck id, maps common brands to Chinese,
-  and asks Coo to say “（品牌）和您一路同行，让我们一起出发吧”. Seen trucks are remembered per game in
-  `<dataDir>/ets2-vehicles.json` / `ats-vehicles.json`.
-- New settings: `navAnnounceEnabled`, `vehicleWelcomeEnabled`.
+- 阶段一导航：任务进行中读取游戏导航距离/时间，播报路线开始、剩余距离节点、ETA 和到达；尚无逐转向或偏航检测。
+- 首次驾驶车辆欢迎：读取遥测品牌/车型/卡车 ID，将常见品牌映射为中文，并让 Coo 说「（品牌）和您一路同行，让我们一起出发吧」。见过的卡车按游戏保存在 `<dataDir>/ets2-vehicles.json` / `ats-vehicles.json`。
+- 新设置：`navAnnounceEnabled`、`vehicleWelcomeEnabled`。
 
 ## 0.6.1
 
-- Local Chinese-name overlay: `assets/zh_names.json` maps 557 city tokens and 166 country/state names.
-- City entry, current-city status and country/state entry events now use Chinese display names when a
-  mapping exists; untranslated places fall back to the original map name.
-- This is local-only for testing; not published to npm or the marketplace yet.
+- 本地中文名 overlay：`assets/zh_names.json` 映射 557 个城市 token 和 166 个国家/州名。
+- 进入城市、当前城市状态和国家/州进入事件现在优先使用中文显示名；没有映射的地点回退到地图原名。
+- 此版本仅本地测试，未发布到 npm 或市场。
 
 ## 0.6.0
 
-- Added ATS support, selected automatically from the telemetry `game` field (ETS2 = 1, ATS = 2).
-- ATS data: 270 cities, 229 state border points, 541 radar/POI points.
-- Separate user files per game: `ets2-cities.json` / `ats-cities.json`, `ets2-radar-points.json` / `ats-radar-points.json`.
-- ATS state crossing uses `ets2.state-entered`; ETS2 retains `ets2.country-entered`.
-- Installer accepts either `eurotrucks2.exe` or `amtrucks.exe`.
-- Same-name cities in different states are kept distinct by map token.
+- 增加 ATS 支持，按遥测 `game` 字段自动选择（ETS2 = 1，ATS = 2）。
+- ATS 数据：270 个城市、229 个州界点、541 个电子狗/POI 点。
+- 用户文件按游戏分开：`ets2-cities.json` / `ats-cities.json`、`ets2-radar-points.json` / `ats-radar-points.json`。
+- ATS 州界使用 `ets2.state-entered`；ETS2 继续使用 `ets2.country-entered`。
+- 安装器支持 `eurotrucks2.exe` 或 `amtrucks.exe`。
+- 不同州的同名城市通过地图 token 保持区分。
 
 ## 0.5.1
 
-- Fixed reversed country direction. Map node rotation points opposite to the side that
-  `ForwardCountry` represents at the tested crossings; the entered country is now the country on the
-  other side of the normal. Added regression tests using the real Sweden→Denmark and
-  Luxembourg→France border points.
+- 修复国家方向反转。测试的边境点中，地图节点旋转方向与 `ForwardCountry` 表示的一侧相反；现在进入的国家是法线另一侧的国家。增加使用真实瑞典→丹麦、卢森堡→法国边境点的回归测试。
 
 ## 0.5.0
 
-- Added **country border crossings** extracted from map `Node.IsCountryBorder` nodes. The truck's
-  previous/current positions and the border plane determine which country was entered.
-- Events: `ets2.country-entered`, with first/repeat markers and a short country introduction.
-- Settings: `countryAnnounceEnabled` (default true) and `countryRepeatIntro` (default false).
-- Border data: `assets/borders.json` (184 road border points, 48 country records), generated by
-  `tools/BorderProbe`.
-- Ferries, map loads and other teleport-sized position jumps are ignored.
+- 增加从地图 `Node.IsCountryBorder` 节点提取的**国家边境穿越**。车辆前后位置和边境平面决定进入哪个国家。
+- 事件：`ets2.country-entered`，包含首次/重复标记和简短国家介绍。
+- 设置：`countryAnnounceEnabled`（默认 true）、`countryRepeatIntro`（默认 false）。
+- 边境数据：`assets/borders.json`（184 个道路边境点、48 个国家记录），由 `tools/BorderProbe` 生成。
+- 忽略渡轮、读档和其他瞬移式位置跳变。
 
 ## 0.4.4
 
-- Adjusted the city-introduction prompt: a short intro may mention country or population when Coo is
-  confident, but should stay to one or two sentences and must not invent landmarks or history.
+- 调整城市介绍提示：Coo 有把握时可以简短提到国家或人口，但保持一两句话，不得编造地标或历史。
 
 ## 0.4.3
 
-- City entry now asks Coo for a short city introduction on first arrival, without reading out
-  population or other data.
-- Added `cityRepeatIntro` (default false): when off, re-entering the same city only reports the
-  arrival; when on, Coo may introduce it again. “First” is per Coopanion run.
+- 首次进入城市时，Coo 会收到简短介绍请求，但不朗读人口等数据。
+- 新增 `cityRepeatIntro`（默认 false）：关闭时重复进入同一城市只报到；打开时可以再次介绍。「首次」按本次 Coopanion 运行计算。
 
 ## 0.4.2
 
-- Fixed city detection swallowing the first entry after starting outside a city. The baseline is now
-  initialized on the first connected tick even when no city is nearby; only starting inside a city
-  is silent.
-- Added city-entry instructions to the environment prompt and listed `city` in the
-  `ets2_recent_events` description.
+- 修复从城外开始时城市检测吞掉第一次进入的问题。基线现在在第一个连接帧初始化，即使附近没有城市；只有在城市内启动时才静默。
+- 在环境提示词中加入城市进入说明，并在 `ets2_recent_events` 描述中列出 `city`。
 
 ## 0.4.1
 
-- The **城市记录** panel now returns the full city list (up to 1000 entries) instead of only the
-  nearest 50, so all 380 packaged cities are visible in the UI.
+- **城市记录**面板现在返回完整城市列表（最多 1000 条），而不是只返回最近 50 个，因此 UI 可以看到全部 380 个内置城市。
 
 ## 0.4.0
 
-- Preloaded **380 official ETS2 cities** extracted from the map `CityArea` items in
-  `base_map.scs` and the official map DLCs.
-- City geofences now work out of the box; `assets/cities.json` is shipped with the package.
-- User records in `ets2-cities.json` override the packaged map city of the same name; map cities
-  cannot be deleted from the panel.
-- Added `tools/CityProbe` to regenerate the city database.
+- 预加载**380 个 ETS2 官方城市**，从 `base_map.scs` 和官方地图 DLC 的 `CityArea` 项提取。
+- 城市围栏开箱即用；`assets/cities.json` 随包发布。
+- `ets2-cities.json` 中的用户记录会覆盖同名内置城市；面板中的内置城市不能删除。
+- 新增 `tools/CityProbe` 用于重新生成城市数据库。
 
 ## 0.3.0
 
-- Added local **city geofences**: record a city at the truck's current position, or learn it from job
-  source/destination endpoints.
-- Added `ets2.city-entered` events with a configurable city radius (default 1500 m).
-- Added the **城市记录 / City records** panel and `ets2_cities` / `ets2_record_city` tools.
-- City data is stored in `<Coopanion data dir>/ets2-cities.json`; the first tick inside a city is
-  silent so loading a save does not spam the pet.
+- 增加本地**城市围栏**：可以在车辆当前位置记录城市，或从任务起点/终点自动学习。
+- 增加 `ets2.city-entered` 事件和可配置城市半径（默认 1500 米）。
+- 增加**城市记录**面板和 `ets2_cities` / `ets2_record_city` 工具。
+- 城市数据保存在 `<Coopanion 数据目录>/ets2-cities.json`；进入城市后的第一帧静默，避免读档时刷屏。
 
 ## 0.2.5
 
-- Added Chinese package description and `cortico.locales` (zh/en), so Coopanion and the market show
-  Chinese text for the default Chinese interface.
+- 增加中文包描述和 `cortico.locales`（zh/en），Coopanion 和市场在默认中文界面显示中文。
 
 ## 0.2.4
 
-- Renamed the display name to **ETS2 欧卡桌宠副驾**. The npm package name and World id
-  (`ets2-dafeiyu`) stay unchanged so existing installs and settings keep working.
+- 显示名改为 **ETS2 欧卡桌宠副驾**。npm 包名和 World id（`ets2-dafeiyu`）保持不变，已有安装和设置继续有效。
 
 ## 0.2.3
 
-- Replaced the plugin icon with the new blue-haired Coo illustration.
+- 将插件图标替换为新的蓝发 Coo 插画。
 
 ## 0.2.2
 
-- Removed the duplicate `gameRoot` and `autoInstallTelemetry` fields from the World config page.
-  Both are now managed only by the **遥测安装** panel; the values still persist in
-  `worlds.ets2-dafeiyu` and are used by auto-install.
+- 从 World 配置页移除重复的 `gameRoot` 和 `autoInstallTelemetry` 字段；两者现在只由**遥测安装**面板管理，值仍保存在 `worlds.ets2-dafeiyu` 并供自动安装使用。
 
 ## 0.2.1
 
-- Installer status is now scoped to the selected game folder, so switching folders does not show an
-  old install result from another path.
-- Documentation updated for the installer panel and local `npm install` requirement.
+- 安装器状态现在按所选游戏目录隔离，切换目录不会显示另一个路径的旧安装结果。
+- 更新安装器面板和本地 `npm install` 要求的文档。
 
 ## 0.2.0
 
-- Added the **遥测安装 / Telemetry installer** panel: pick the ETS2 game folder, download the latest
-  RenCloud `scs-sdk-plugin` release and install/repair `scs-telemetry.dll` in
-  `bin\win_x64\plugins`.
-- Added `ets2_install_telemetry` tool for Coo.
-- Added `gameRoot` and `autoInstallTelemetry` settings.
-- Existing DLL is backed up before being replaced; the game must be restarted after installation.
+- 增加**遥测安装**面板：选择 ETS2 游戏目录，下载最新 RenCloud `scs-sdk-plugin` release，并在 `bin\win_x64\plugins` 中安装/修复 `scs-telemetry.dll`。
+- 增加 Coo 可调用的 `ets2_install_telemetry` 工具。
+- 增加 `gameRoot` 和 `autoInstallTelemetry` 设置。
+- 替换已有 DLL 前会先备份；安装后必须重启游戏。
 
 ## 0.1.0
 
-- First native Node/TypeScript World.
-- Reads SCS telemetry from `Local\SCSTelemetry` via koffi.
-- Vehicle, job, navigation and event support for Coo.
-- 415 map-derived radar/POI points plus user-recorded points.
-- Tools: `ets2_status`, `ets2_recent_events`, `ets2_radar_points`, `ets2_record_radar`.
+- 首个原生 Node/TypeScript World。
+- 通过 koffi 读取 `Local\SCSTelemetry` 的 SCS 遥测。
+- 为 Coo 提供车辆、任务、导航和事件支持。
+- 415 个地图电子狗/POI 点，以及用户记录点。
+- 工具：`ets2_status`、`ets2_recent_events`、`ets2_radar_points`、`ets2_record_radar`。
