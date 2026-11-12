@@ -2,8 +2,6 @@
 
 《欧洲卡车模拟 2》和《美国卡车模拟》的 **Coopanion / Cortico World 副驾**。它读取 SCS 官方遥测共享内存，按遥测里的 `game` 字段自动切换 ETS2 / ATS 数据，把车况和游戏事件交给桌宠 **Coo**。
 
-这是**方案 B：原生 Node + TypeScript** 版本：不依赖 Python、不需要外部仪表盘、不需要豆包 Key；播报由 Coo 自己完成。
-
 当前版本：**1.1.0**
 
 - npm：https://www.npmjs.com/package/cortico-world-ets2-dafeiyu
